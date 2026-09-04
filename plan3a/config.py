@@ -6,10 +6,10 @@ import os
 from pathlib import Path
 
 # ── Paths ──────────────────────────────────────────────────────────────────
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DATA_ROOT = PROJECT_ROOT / "upenn-filtered"
-CLINICAL_CSV = DATA_ROOT / "clinical_info.csv"
-PROCESSED_DIR = PROJECT_ROOT / "plan3a" / "processed"  # cached tensors go here
+PROJECT_ROOT = '/mnt/Stuff/arche/arche-brain-tumor-gnn'
+DATA_ROOT = PROJECT_ROOT + "/upenn-filtered"
+CLINICAL_CSV = DATA_ROOT + "/clinical_info.csv"
+PROCESSED_DIR = PROJECT_ROOT + "/plan3a" + "/processed"  # cached tensors go here
 
 # ── DICOM → Volume ─────────────────────────────────────────────────────────
 # Core structural modalities (always present)
@@ -111,4 +111,4 @@ RESULTS_JSON = None                # str or None — path to ablation_results.js
 REPORT_OUTPUT = None               # str or None — path for RESULTS.md (None = auto)
 
 # Derived paths
-CHECKPOINTS_DIR = PROJECT_ROOT / "plan3a" / "checkpoints"
+CHECKPOINTS_DIR = PROJECT_ROOT + "/plan3a" + "/checkpoints"
