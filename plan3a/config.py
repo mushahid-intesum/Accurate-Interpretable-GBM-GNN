@@ -83,6 +83,12 @@ NUM_FOLDS = 5
 import torch
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+# ── EST Regularization (E6) ────────────────────────────────────────────
+EST_LAMBDA = 0.1               # weight for EST loss term in total loss
+EST_WARMUP_EPOCHS = 3          # skip EST for first N epochs (let model learn basics)
+EST_EVERY_N = 4                # compute EST every Nth training sample (speed tradeoff)
+EST_TOP_K = 0.2                # fraction of nodes in explanation subgraph
+
 # ── Run Control ────────────────────────────────────────────────────────────
 # These constants replace all CLI arguments across every script.
 # Change them here to control what runs — no command-line flags needed.

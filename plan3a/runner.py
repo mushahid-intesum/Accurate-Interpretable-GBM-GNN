@@ -39,6 +39,7 @@ from plan3a.config import (
     PROCESSED_DIR, LR, WEIGHT_DECAY, EPOCHS, NUM_FOLDS, DEVICE,
     SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS, GRAD_ACCUM_STEPS,
     RUN_EXPERIMENT, RUN_LIMIT, RUN_AUDIT, CHECKPOINTS_DIR,
+    EST_LAMBDA, EST_WARMUP_EPOCHS, EST_EVERY_N, EST_TOP_K,
 )
 from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
 from plan3a.data.hypergraph import build_patient_hypergraph
@@ -46,7 +47,9 @@ from plan3a.model.full_model import Plan3aModel, NLLSurvivalLoss
 from plan3a.eval.task_metrics import (
     concordance_index, concept_metrics, hazard_to_risk, compute_time_bins,
 )
-from plan3a.eval.faithfulness import FaithfulnessAuditor, compute_rejection_ratios
+from plan3a.eval.faithfulness import (
+    FaithfulnessAuditor, compute_rejection_ratios, _filter_hyperedges,
+)
 
 
 # ── Experiment Configurations ────────────────────────────────────────────
@@ -120,6 +123,19 @@ EXPERIMENTS = {
         "use_hypergraph": True,
         "est_regularize": True,
     },
+    "E7": {
+        "name": "E7: Full Model (Fusion + Tree + EST)",
+        "description": "All components: SheafHGNN + CBM + Clinical Fusion + TIF Tree + EST Regularizer",
+        "model_kwargs": {
+            "use_hecrl": True,
+            "residual_bypass": False,
+            "use_fusion": True,
+            "use_tree": True,
+            "tree_levels": 3,
+        },
+        "use_hypergraph": True,
+        "est_regularize": True,
+    },
 }
 
 
@@ -180,8 +196,76 @@ def prepare_patient_data(patient_pt, use_hypergraph=True):
         return build_knn_graph(data)
 
 
+def compute_est_loss(model, node_features, hyperedge_index,
+                     num_nodes, num_edges, clinical_features,
+                     full_hazard_logits, top_k=EST_TOP_K):
+    """
+    Differentiable EST regularization loss.
+
+    Penalizes the model if the prediction changes when only the
+    explanation subgraph (top-k nodes by concept activation) is used.
+
+    The explanation mask is computed without gradients (fixed selection),
+    but the second forward pass IS differentiable — gradients flow
+    through the model to make predictions consistent on both the full
+    graph and the explanation subgraph.
+
+    Args:
+        model: Plan3aModel (must be in train mode)
+        node_features: (N, D) all node features
+        hyperedge_index: (2, E) full hypergraph incidence
+        num_nodes: N
+        num_edges: number of hyperedges
+        clinical_features: (1, C) clinical feature vector
+        full_hazard_logits: (1, K) hazard logits from the full forward pass
+        top_k: fraction of nodes to include in explanation
+
+    Returns:
+        est_loss: scalar tensor (differentiable)
+    """
+    # ── Step 1: Extract explanation mask (no gradients needed) ────────
+    with torch.no_grad():
+        expl_outputs = model(
+            node_features=node_features,
+            hyperedge_index=hyperedge_index,
+            num_nodes=num_nodes, num_edges=num_edges,
+            clinical_features=clinical_features,
+        )
+        concepts = expl_outputs["concepts"]  # (N, C)
+        importance = torch.norm(concepts, dim=-1)  # (N,)
+        k = max(1, int(num_nodes * top_k))
+        _, top_indices = torch.topk(importance, k)
+        expl_mask = torch.zeros(num_nodes, dtype=torch.bool,
+                                device=node_features.device)
+        expl_mask[top_indices] = True
+
+    # ── Step 2: Filter hyperedges to explanation subgraph ─────────────
+    filtered_he, n_he = _filter_hyperedges(
+        hyperedge_index, expl_mask, num_edges
+    )
+
+    if n_he == 0:
+        return torch.tensor(0.0, device=node_features.device, requires_grad=True)
+
+    # ── Step 3: Second forward pass on explanation subgraph ───────────
+    # This IS differentiable — gradients flow back through the model
+    expl_out = model(
+        node_features=node_features,
+        hyperedge_index=filtered_he,
+        num_nodes=num_nodes, num_edges=n_he,
+        clinical_features=clinical_features,
+    )
+
+    # ── Step 4: EST loss = L1(σ(full), σ(expl)) ──────────────────────
+    p_full = torch.sigmoid(full_hazard_logits.detach())  # detach full: only penalize expl path
+    p_expl = torch.sigmoid(expl_out["hazard_logits"])
+    est_loss = (p_full - p_expl).abs().mean()
+
+    return est_loss
+
+
 def train_epoch(model, dataset, optimizer, time_bins, device,
-                exp_config, grad_accum=GRAD_ACCUM_STEPS):
+                exp_config, current_epoch=0, grad_accum=GRAD_ACCUM_STEPS):
     """Train one epoch with optional EST regularization."""
     model.train()
     optimizer.zero_grad()
@@ -189,7 +273,14 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
     total_loss = 0.0
     total_surv = 0.0
     total_conc = 0.0
+    total_est = 0.0
     n = 0
+    n_est = 0
+
+    use_est = (
+        exp_config.get("est_regularize", False)
+        and current_epoch >= EST_WARMUP_EPOCHS
+    )
 
     for i in range(len(dataset)):
         data = dataset[i]
@@ -211,8 +302,20 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
         )
 
         losses = model.compute_loss(outputs, st, ev, tb)
-        loss = losses["total_loss"] / grad_accum
+        loss = losses["total_loss"]
 
+        # ── EST regularization (E6) ──────────────────────────────────
+        if use_est and (n % EST_EVERY_N == 0):
+            est_loss = compute_est_loss(
+                model, nf, he,
+                data["num_nodes"], data["num_hyperedges"],
+                cl, outputs["hazard_logits"],
+            )
+            loss = loss + EST_LAMBDA * est_loss
+            total_est += est_loss.item()
+            n_est += 1
+
+        loss = loss / grad_accum
         loss.backward()
 
         if (i + 1) % grad_accum == 0 or (i + 1) == len(dataset):
@@ -229,7 +332,9 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
         "loss": total_loss / max(n, 1),
         "survival_loss": total_surv / max(n, 1),
         "concept_loss": total_conc / max(n, 1),
+        "est_loss": total_est / max(n_est, 1),
         "n_samples": n,
+        "n_est_samples": n_est,
     }
 
 
@@ -373,13 +478,18 @@ def run_experiment(
 
         for ep in range(epochs):
             t0 = time.time()
-            tm = train_epoch(model, train_ds, optimizer, time_bins, device, exp_config)
+            tm = train_epoch(
+                model, train_ds, optimizer, time_bins, device,
+                exp_config, current_epoch=ep,
+            )
             scheduler.step()
             vm = evaluate_epoch(model, val_ds, time_bins, device)
             elapsed = time.time() - t0
 
+            est_str = f" est={tm['est_loss']:.4f}" if tm["est_loss"] > 0 else ""
             print(f"    Ep {ep+1:3d} | loss={tm['loss']:.4f} "
-                  f"surv={tm['survival_loss']:.4f} conc={tm['concept_loss']:.4f} "
+                  f"surv={tm['survival_loss']:.4f} conc={tm['concept_loss']:.4f}"
+                  f"{est_str} "
                   f"| val C-Idx={vm['c_index']:.4f} r={vm['mean_concept_corr']:.3f} "
                   f"| {elapsed:.1f}s")
 
@@ -396,6 +506,7 @@ def run_experiment(
                 "train_loss": tm["loss"],
                 "val_c_index": vm["c_index"],
                 "concept_corr": vm["mean_concept_corr"],
+                "est_loss": tm["est_loss"],
             })
 
         # Post-training faithfulness audit
