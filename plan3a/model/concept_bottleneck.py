@@ -235,6 +235,8 @@ class ConceptBottleneck(nn.Module):
             mask = torch.ones(self.num_concepts, device=node_embeddings.device)
             mask[6] = 0.0  # c7 is graph-learned, no GT target
 
+            concept_targets = concept_targets.to(concepts_refined.device)
+
             diff = (concepts_refined - concept_targets) ** 2  # (N, C)
             concept_loss = (diff * mask.unsqueeze(0)).mean()
 

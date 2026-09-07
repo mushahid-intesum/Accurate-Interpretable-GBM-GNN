@@ -12,7 +12,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 3.43
+    "time_seconds": 3.25
   },
   "UPENN-GBM-00002": {
     "num_patches": 7359,
@@ -27,7 +27,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 3.88
+    "time_seconds": 2.92
   },
   "UPENN-GBM-00003": {
     "num_patches": 4854,
@@ -42,7 +42,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.26
+    "time_seconds": 3.29
   },
   "UPENN-GBM-00004": {
     "num_patches": 4087,
@@ -57,7 +57,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.55
+    "time_seconds": 3.15
   },
   "UPENN-GBM-00005": {
     "num_patches": 4909,
@@ -72,7 +72,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.36
+    "time_seconds": 3.17
   },
   "UPENN-GBM-00006": {
     "num_patches": 5121,
@@ -87,7 +87,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.59
+    "time_seconds": 3.25
   },
   "UPENN-GBM-00007": {
     "num_patches": 6510,
@@ -102,7 +102,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.05
+    "time_seconds": 2.87
   },
   "UPENN-GBM-00008": {
     "num_patches": 6707,
@@ -117,7 +117,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 3.81
+    "time_seconds": 2.78
   },
   "UPENN-GBM-00009": {
     "num_patches": 5483,
@@ -132,7 +132,7 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 4.33
+    "time_seconds": 3.54
   },
   "UPENN-GBM-00010": {
     "num_patches": 5133,
@@ -147,6 +147,8751 @@
       "DTI": true,
       "Perfusion": true
     },
-    "time_seconds": 3.71
+    "time_seconds": 3.15
+  },
+  "UPENN-GBM-00011": {
+    "num_patches": 4645,
+    "has_survival": true,
+    "survival_time": 798.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.57
+  },
+  "UPENN-GBM-00012": {
+    "num_patches": 5168,
+    "has_survival": true,
+    "survival_time": 882.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00013": {
+    "num_patches": 4504,
+    "has_survival": true,
+    "survival_time": 472.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.3
+  },
+  "UPENN-GBM-00014": {
+    "num_patches": 4915,
+    "has_survival": true,
+    "survival_time": 272.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.22
+  },
+  "UPENN-GBM-00015": {
+    "num_patches": 4979,
+    "has_survival": true,
+    "survival_time": 554.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.29
+  },
+  "UPENN-GBM-00016": {
+    "num_patches": 4615,
+    "has_survival": true,
+    "survival_time": 509.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00017": {
+    "num_patches": 3687,
+    "has_survival": true,
+    "survival_time": 1297.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.8
+  },
+  "UPENN-GBM-00018": {
+    "num_patches": 4553,
+    "has_survival": true,
+    "survival_time": 1170.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00019": {
+    "num_patches": 3783,
+    "has_survival": true,
+    "survival_time": 1358.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.23
+  },
+  "UPENN-GBM-00020": {
+    "num_patches": 4957,
+    "has_survival": true,
+    "survival_time": 425.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00021": {
+    "num_patches": 4075,
+    "has_survival": true,
+    "survival_time": 510.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.14
+  },
+  "UPENN-GBM-00022": {
+    "num_patches": 3867,
+    "has_survival": true,
+    "survival_time": 1882.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00023": {
+    "num_patches": 4564,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00024": {
+    "num_patches": 4585,
+    "has_survival": true,
+    "survival_time": 454.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00025": {
+    "num_patches": 4801,
+    "has_survival": true,
+    "survival_time": 710.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00026": {
+    "num_patches": 1362,
+    "has_survival": true,
+    "survival_time": 363.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.46
+  },
+  "UPENN-GBM-00027": {
+    "num_patches": 4225,
+    "has_survival": true,
+    "survival_time": 407.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00028": {
+    "num_patches": 4136,
+    "has_survival": true,
+    "survival_time": 368.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00029": {
+    "num_patches": 4818,
+    "has_survival": true,
+    "survival_time": 1504.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.22
+  },
+  "UPENN-GBM-00030": {
+    "num_patches": 4408,
+    "has_survival": true,
+    "survival_time": 502.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00031": {
+    "num_patches": 4679,
+    "has_survival": true,
+    "survival_time": 2207.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.17
+  },
+  "UPENN-GBM-00032": {
+    "num_patches": 5092,
+    "has_survival": true,
+    "survival_time": 272.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00033": {
+    "num_patches": 5958,
+    "has_survival": true,
+    "survival_time": 707.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.98
+  },
+  "UPENN-GBM-00034": {
+    "num_patches": 3839,
+    "has_survival": true,
+    "survival_time": 464.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00035": {
+    "num_patches": 4609,
+    "has_survival": true,
+    "survival_time": 364.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.67
+  },
+  "UPENN-GBM-00036": {
+    "num_patches": 4781,
+    "has_survival": true,
+    "survival_time": 286.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00037": {
+    "num_patches": 4684,
+    "has_survival": true,
+    "survival_time": 664.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.31
+  },
+  "UPENN-GBM-00038": {
+    "num_patches": 4015,
+    "has_survival": true,
+    "survival_time": 268.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00039": {
+    "num_patches": 3982,
+    "has_survival": true,
+    "survival_time": 2048.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00040": {
+    "num_patches": 5168,
+    "has_survival": true,
+    "survival_time": 360.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00041": {
+    "num_patches": 5598,
+    "has_survival": true,
+    "survival_time": 598.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.58
+  },
+  "UPENN-GBM-00042": {
+    "num_patches": 4610,
+    "has_survival": true,
+    "survival_time": 76.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00043": {
+    "num_patches": 5221,
+    "has_survival": true,
+    "survival_time": 172.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.13
+  },
+  "UPENN-GBM-00044": {
+    "num_patches": 4269,
+    "has_survival": true,
+    "survival_time": 379.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00045": {
+    "num_patches": 4796,
+    "has_survival": true,
+    "survival_time": 419.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.81
+  },
+  "UPENN-GBM-00046": {
+    "num_patches": 5010,
+    "has_survival": true,
+    "survival_time": 195.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00047": {
+    "num_patches": 4708,
+    "has_survival": true,
+    "survival_time": 437.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00048": {
+    "num_patches": 4114,
+    "has_survival": true,
+    "survival_time": 1159.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.7
+  },
+  "UPENN-GBM-00049": {
+    "num_patches": 4490,
+    "has_survival": true,
+    "survival_time": 224.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.1
+  },
+  "UPENN-GBM-00050": {
+    "num_patches": 4760,
+    "has_survival": true,
+    "survival_time": 662.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00051": {
+    "num_patches": 3839,
+    "has_survival": true,
+    "survival_time": 401.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00052": {
+    "num_patches": 4649,
+    "has_survival": true,
+    "survival_time": 183.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00053": {
+    "num_patches": 4035,
+    "has_survival": true,
+    "survival_time": 396.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00054": {
+    "num_patches": 4777,
+    "has_survival": true,
+    "survival_time": 412.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00055": {
+    "num_patches": 4747,
+    "has_survival": true,
+    "survival_time": 39.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00056": {
+    "num_patches": 4310,
+    "has_survival": true,
+    "survival_time": 2516.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.13
+  },
+  "UPENN-GBM-00057": {
+    "num_patches": 4976,
+    "has_survival": true,
+    "survival_time": 673.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00058": {
+    "num_patches": 4507,
+    "has_survival": true,
+    "survival_time": 392.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00059": {
+    "num_patches": 7177,
+    "has_survival": true,
+    "survival_time": 369.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.03
+  },
+  "UPENN-GBM-00060": {
+    "num_patches": 4888,
+    "has_survival": true,
+    "survival_time": 445.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.05
+  },
+  "UPENN-GBM-00061": {
+    "num_patches": 4959,
+    "has_survival": true,
+    "survival_time": 851.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00062": {
+    "num_patches": 5106,
+    "has_survival": true,
+    "survival_time": 427.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.32
+  },
+  "UPENN-GBM-00063": {
+    "num_patches": 4190,
+    "has_survival": true,
+    "survival_time": 1152.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00064": {
+    "num_patches": 4137,
+    "has_survival": true,
+    "survival_time": 879.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.17
+  },
+  "UPENN-GBM-00065": {
+    "num_patches": 4985,
+    "has_survival": true,
+    "survival_time": 111.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00066": {
+    "num_patches": 3971,
+    "has_survival": true,
+    "survival_time": 493.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.24
+  },
+  "UPENN-GBM-00067": {
+    "num_patches": 4405,
+    "has_survival": true,
+    "survival_time": 282.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00068": {
+    "num_patches": 4863,
+    "has_survival": true,
+    "survival_time": 389.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.22
+  },
+  "UPENN-GBM-00070": {
+    "num_patches": 3314,
+    "has_survival": true,
+    "survival_time": 37.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.51
+  },
+  "UPENN-GBM-00071": {
+    "num_patches": 4052,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00072": {
+    "num_patches": 3984,
+    "has_survival": true,
+    "survival_time": 553.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.34
+  },
+  "UPENN-GBM-00074": {
+    "num_patches": 4523,
+    "has_survival": true,
+    "survival_time": 1071.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.46
+  },
+  "UPENN-GBM-00075": {
+    "num_patches": 4294,
+    "has_survival": true,
+    "survival_time": 278.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00079": {
+    "num_patches": 3921,
+    "has_survival": true,
+    "survival_time": 57.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.46
+  },
+  "UPENN-GBM-00081": {
+    "num_patches": 4455,
+    "has_survival": true,
+    "survival_time": 24.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00082": {
+    "num_patches": 4350,
+    "has_survival": true,
+    "survival_time": 351.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00083": {
+    "num_patches": 4728,
+    "has_survival": true,
+    "survival_time": 333.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.36
+  },
+  "UPENN-GBM-00084": {
+    "num_patches": 4564,
+    "has_survival": true,
+    "survival_time": 281.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00085": {
+    "num_patches": 4638,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00086": {
+    "num_patches": 4412,
+    "has_survival": true,
+    "survival_time": 30.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00087": {
+    "num_patches": 4395,
+    "has_survival": true,
+    "survival_time": 44.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.68
+  },
+  "UPENN-GBM-00088": {
+    "num_patches": 4381,
+    "has_survival": true,
+    "survival_time": 106.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.96
+  },
+  "UPENN-GBM-00089": {
+    "num_patches": 4601,
+    "has_survival": true,
+    "survival_time": 1475.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.26
+  },
+  "UPENN-GBM-00090": {
+    "num_patches": 3756,
+    "has_survival": true,
+    "survival_time": 400.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.56
+  },
+  "UPENN-GBM-00091": {
+    "num_patches": 4636,
+    "has_survival": true,
+    "survival_time": 200.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00092": {
+    "num_patches": 4133,
+    "has_survival": true,
+    "survival_time": 30.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00093": {
+    "num_patches": 4282,
+    "has_survival": true,
+    "survival_time": 284.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00094": {
+    "num_patches": 769,
+    "has_survival": true,
+    "survival_time": 383.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.4
+  },
+  "UPENN-GBM-00096": {
+    "num_patches": 4096,
+    "has_survival": true,
+    "survival_time": 20.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.24
+  },
+  "UPENN-GBM-00097": {
+    "num_patches": 5002,
+    "has_survival": true,
+    "survival_time": 709.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00098": {
+    "num_patches": 3512,
+    "has_survival": true,
+    "survival_time": 524.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00100": {
+    "num_patches": 1170,
+    "has_survival": true,
+    "survival_time": 205.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.61
+  },
+  "UPENN-GBM-00101": {
+    "num_patches": 5257,
+    "has_survival": true,
+    "survival_time": 339.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.66
+  },
+  "UPENN-GBM-00102": {
+    "num_patches": 4972,
+    "has_survival": true,
+    "survival_time": 106.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.18
+  },
+  "UPENN-GBM-00103": {
+    "num_patches": 4118,
+    "has_survival": true,
+    "survival_time": 66.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.48
+  },
+  "UPENN-GBM-00104": {
+    "num_patches": 4293,
+    "has_survival": true,
+    "survival_time": 211.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00105": {
+    "num_patches": 4977,
+    "has_survival": true,
+    "survival_time": 32.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00106": {
+    "num_patches": 4044,
+    "has_survival": true,
+    "survival_time": 104.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00107": {
+    "num_patches": 5524,
+    "has_survival": true,
+    "survival_time": 472.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.68
+  },
+  "UPENN-GBM-00108": {
+    "num_patches": 4253,
+    "has_survival": true,
+    "survival_time": 173.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 1.9
+  },
+  "UPENN-GBM-00109": {
+    "num_patches": 4185,
+    "has_survival": true,
+    "survival_time": 351.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.08
+  },
+  "UPENN-GBM-00110": {
+    "num_patches": 4331,
+    "has_survival": true,
+    "survival_time": 257.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.06
+  },
+  "UPENN-GBM-00111": {
+    "num_patches": 4695,
+    "has_survival": true,
+    "survival_time": 290.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.75
+  },
+  "UPENN-GBM-00112": {
+    "num_patches": 4806,
+    "has_survival": true,
+    "survival_time": 494.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.45
+  },
+  "UPENN-GBM-00113": {
+    "num_patches": 4151,
+    "has_survival": true,
+    "survival_time": 479.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00114": {
+    "num_patches": 4132,
+    "has_survival": true,
+    "survival_time": 1302.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00116": {
+    "num_patches": 4457,
+    "has_survival": true,
+    "survival_time": 65.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00117": {
+    "num_patches": 4226,
+    "has_survival": true,
+    "survival_time": 173.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.14
+  },
+  "UPENN-GBM-00118": {
+    "num_patches": 4852,
+    "has_survival": true,
+    "survival_time": 30.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.19
+  },
+  "UPENN-GBM-00119": {
+    "num_patches": 3558,
+    "has_survival": true,
+    "survival_time": 84.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.15
+  },
+  "UPENN-GBM-00120": {
+    "num_patches": 7088,
+    "has_survival": true,
+    "survival_time": 289.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.63
+  },
+  "UPENN-GBM-00121": {
+    "num_patches": 4907,
+    "has_survival": true,
+    "survival_time": 226.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00122": {
+    "num_patches": 4926,
+    "has_survival": true,
+    "survival_time": 47.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00124": {
+    "num_patches": 3401,
+    "has_survival": true,
+    "survival_time": 735.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.89
+  },
+  "UPENN-GBM-00126": {
+    "num_patches": 4385,
+    "has_survival": true,
+    "survival_time": 766.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00127": {
+    "num_patches": 4382,
+    "has_survival": true,
+    "survival_time": 721.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.8
+  },
+  "UPENN-GBM-00128": {
+    "num_patches": 3914,
+    "has_survival": true,
+    "survival_time": 885.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00129": {
+    "num_patches": 4502,
+    "has_survival": true,
+    "survival_time": 64.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.28
+  },
+  "UPENN-GBM-00130": {
+    "num_patches": 4739,
+    "has_survival": true,
+    "survival_time": 384.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00131": {
+    "num_patches": 4387,
+    "has_survival": true,
+    "survival_time": 852.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00132": {
+    "num_patches": 4706,
+    "has_survival": true,
+    "survival_time": 922.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00133": {
+    "num_patches": 4575,
+    "has_survival": true,
+    "survival_time": 537.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00134": {
+    "num_patches": 4819,
+    "has_survival": true,
+    "survival_time": 374.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00135": {
+    "num_patches": 4236,
+    "has_survival": true,
+    "survival_time": 879.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00136": {
+    "num_patches": 4295,
+    "has_survival": true,
+    "survival_time": 211.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.07
+  },
+  "UPENN-GBM-00137": {
+    "num_patches": 4326,
+    "has_survival": true,
+    "survival_time": 320.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.55
+  },
+  "UPENN-GBM-00138": {
+    "num_patches": 4152,
+    "has_survival": true,
+    "survival_time": 1527.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.78
+  },
+  "UPENN-GBM-00139": {
+    "num_patches": 4522,
+    "has_survival": true,
+    "survival_time": 208.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00140": {
+    "num_patches": 4753,
+    "has_survival": true,
+    "survival_time": 234.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00141": {
+    "num_patches": 5941,
+    "has_survival": true,
+    "survival_time": 321.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.21
+  },
+  "UPENN-GBM-00142": {
+    "num_patches": 4475,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.1
+  },
+  "UPENN-GBM-00143": {
+    "num_patches": 4358,
+    "has_survival": true,
+    "survival_time": 411.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00144": {
+    "num_patches": 3936,
+    "has_survival": true,
+    "survival_time": 270.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00145": {
+    "num_patches": 4341,
+    "has_survival": true,
+    "survival_time": 85.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.05
+  },
+  "UPENN-GBM-00146": {
+    "num_patches": 4515,
+    "has_survival": true,
+    "survival_time": 1178.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.99
+  },
+  "UPENN-GBM-00147": {
+    "num_patches": 3797,
+    "has_survival": true,
+    "survival_time": 80.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.33
+  },
+  "UPENN-GBM-00148": {
+    "num_patches": 5341,
+    "has_survival": true,
+    "survival_time": 299.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00149": {
+    "num_patches": 3551,
+    "has_survival": true,
+    "survival_time": 233.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00150": {
+    "num_patches": 3425,
+    "has_survival": true,
+    "survival_time": 551.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00151": {
+    "num_patches": 4248,
+    "has_survival": true,
+    "survival_time": 618.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.09
+  },
+  "UPENN-GBM-00152": {
+    "num_patches": 5501,
+    "has_survival": true,
+    "survival_time": 742.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.62
+  },
+  "UPENN-GBM-00153": {
+    "num_patches": 6779,
+    "has_survival": true,
+    "survival_time": 234.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00154": {
+    "num_patches": 6679,
+    "has_survival": true,
+    "survival_time": 209.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00155": {
+    "num_patches": 6544,
+    "has_survival": true,
+    "survival_time": 503.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00156": {
+    "num_patches": 7052,
+    "has_survival": true,
+    "survival_time": 359.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00157": {
+    "num_patches": 4543,
+    "has_survival": true,
+    "survival_time": 235.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.12
+  },
+  "UPENN-GBM-00158": {
+    "num_patches": 5558,
+    "has_survival": true,
+    "survival_time": 152.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.21
+  },
+  "UPENN-GBM-00159": {
+    "num_patches": 4100,
+    "has_survival": true,
+    "survival_time": 264.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.39
+  },
+  "UPENN-GBM-00160": {
+    "num_patches": 3947,
+    "has_survival": true,
+    "survival_time": 3.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.76
+  },
+  "UPENN-GBM-00161": {
+    "num_patches": 4370,
+    "has_survival": true,
+    "survival_time": 80.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.98
+  },
+  "UPENN-GBM-00163": {
+    "num_patches": 3759,
+    "has_survival": true,
+    "survival_time": 2951.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.67
+  },
+  "UPENN-GBM-00164": {
+    "num_patches": 3567,
+    "has_survival": true,
+    "survival_time": 1193.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.2
+  },
+  "UPENN-GBM-00165": {
+    "num_patches": 4489,
+    "has_survival": true,
+    "survival_time": 44.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.15
+  },
+  "UPENN-GBM-00166": {
+    "num_patches": 4149,
+    "has_survival": true,
+    "survival_time": 388.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.2
+  },
+  "UPENN-GBM-00167": {
+    "num_patches": 4487,
+    "has_survival": true,
+    "survival_time": 94.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00168": {
+    "num_patches": 4666,
+    "has_survival": true,
+    "survival_time": 93.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00169": {
+    "num_patches": 3734,
+    "has_survival": true,
+    "survival_time": 23.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.69
+  },
+  "UPENN-GBM-00170": {
+    "num_patches": 4317,
+    "has_survival": true,
+    "survival_time": 505.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00171": {
+    "num_patches": 4094,
+    "has_survival": true,
+    "survival_time": 846.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.81
+  },
+  "UPENN-GBM-00172": {
+    "num_patches": 4461,
+    "has_survival": true,
+    "survival_time": 457.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.98
+  },
+  "UPENN-GBM-00173": {
+    "num_patches": 6418,
+    "has_survival": true,
+    "survival_time": 233.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.81
+  },
+  "UPENN-GBM-00174": {
+    "num_patches": 6959,
+    "has_survival": true,
+    "survival_time": 1615.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00175": {
+    "num_patches": 4546,
+    "has_survival": true,
+    "survival_time": 98.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00176": {
+    "num_patches": 3673,
+    "has_survival": true,
+    "survival_time": 56.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.74
+  },
+  "UPENN-GBM-00177": {
+    "num_patches": 3656,
+    "has_survival": true,
+    "survival_time": 154.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00178": {
+    "num_patches": 4540,
+    "has_survival": true,
+    "survival_time": 276.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.43
+  },
+  "UPENN-GBM-00180": {
+    "num_patches": 5519,
+    "has_survival": true,
+    "survival_time": 146.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": true
+    },
+    "time_seconds": 2.6
+  },
+  "UPENN-GBM-00181": {
+    "num_patches": 5532,
+    "has_survival": true,
+    "survival_time": 578.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.66
+  },
+  "UPENN-GBM-00182": {
+    "num_patches": 3740,
+    "has_survival": true,
+    "survival_time": 15.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.77
+  },
+  "UPENN-GBM-00183": {
+    "num_patches": 4233,
+    "has_survival": true,
+    "survival_time": 1168.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00184": {
+    "num_patches": 4301,
+    "has_survival": true,
+    "survival_time": 60.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.73
+  },
+  "UPENN-GBM-00185": {
+    "num_patches": 4298,
+    "has_survival": true,
+    "survival_time": 200.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.13
+  },
+  "UPENN-GBM-00187": {
+    "num_patches": 3977,
+    "has_survival": true,
+    "survival_time": 1346.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00190": {
+    "num_patches": 4259,
+    "has_survival": true,
+    "survival_time": 136.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.92
+  },
+  "UPENN-GBM-00191": {
+    "num_patches": 4600,
+    "has_survival": true,
+    "survival_time": 51.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.98
+  },
+  "UPENN-GBM-00192": {
+    "num_patches": 4874,
+    "has_survival": true,
+    "survival_time": 1356.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.35
+  },
+  "UPENN-GBM-00194": {
+    "num_patches": 4279,
+    "has_survival": true,
+    "survival_time": 250.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.61
+  },
+  "UPENN-GBM-00195": {
+    "num_patches": 4235,
+    "has_survival": true,
+    "survival_time": 168.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00196": {
+    "num_patches": 3909,
+    "has_survival": true,
+    "survival_time": 21.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.73
+  },
+  "UPENN-GBM-00197": {
+    "num_patches": 4515,
+    "has_survival": true,
+    "survival_time": 215.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.99
+  },
+  "UPENN-GBM-00198": {
+    "num_patches": 4766,
+    "has_survival": true,
+    "survival_time": 1008.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00199": {
+    "num_patches": 6857,
+    "has_survival": true,
+    "survival_time": 591.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": false,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.22
+  },
+  "UPENN-GBM-00200": {
+    "num_patches": 4132,
+    "has_survival": true,
+    "survival_time": 122.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.99
+  },
+  "UPENN-GBM-00201": {
+    "num_patches": 4890,
+    "has_survival": true,
+    "survival_time": 182.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00203": {
+    "num_patches": 4486,
+    "has_survival": true,
+    "survival_time": 122.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.74
+  },
+  "UPENN-GBM-00204": {
+    "num_patches": 2763,
+    "has_survival": true,
+    "survival_time": 374.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.12
+  },
+  "UPENN-GBM-00206": {
+    "num_patches": 6986,
+    "has_survival": true,
+    "survival_time": 586.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.81
+  },
+  "UPENN-GBM-00208": {
+    "num_patches": 4732,
+    "has_survival": true,
+    "survival_time": 622.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00211": {
+    "num_patches": 4731,
+    "has_survival": true,
+    "survival_time": 2307.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.33
+  },
+  "UPENN-GBM-00212": {
+    "num_patches": 4402,
+    "has_survival": true,
+    "survival_time": 485.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00213": {
+    "num_patches": 4278,
+    "has_survival": true,
+    "survival_time": 73.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.17
+  },
+  "UPENN-GBM-00214": {
+    "num_patches": 5525,
+    "has_survival": true,
+    "survival_time": 505.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.18
+  },
+  "UPENN-GBM-00215": {
+    "num_patches": 4219,
+    "has_survival": true,
+    "survival_time": 155.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00216": {
+    "num_patches": 3994,
+    "has_survival": true,
+    "survival_time": 167.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00217": {
+    "num_patches": 5551,
+    "has_survival": true,
+    "survival_time": 393.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.25
+  },
+  "UPENN-GBM-00219": {
+    "num_patches": 4397,
+    "has_survival": true,
+    "survival_time": 98.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00220": {
+    "num_patches": 4346,
+    "has_survival": true,
+    "survival_time": 925.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.23
+  },
+  "UPENN-GBM-00221": {
+    "num_patches": 3377,
+    "has_survival": true,
+    "survival_time": 583.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.75
+  },
+  "UPENN-GBM-00222": {
+    "num_patches": 4550,
+    "has_survival": true,
+    "survival_time": 110.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.4
+  },
+  "UPENN-GBM-00223": {
+    "num_patches": 4076,
+    "has_survival": true,
+    "survival_time": 230.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00224": {
+    "num_patches": 3749,
+    "has_survival": true,
+    "survival_time": 438.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00225": {
+    "num_patches": 4570,
+    "has_survival": true,
+    "survival_time": 16.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.46
+  },
+  "UPENN-GBM-00226": {
+    "num_patches": 5268,
+    "has_survival": true,
+    "survival_time": 182.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.4
+  },
+  "UPENN-GBM-00227": {
+    "num_patches": 4341,
+    "has_survival": true,
+    "survival_time": 138.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.15
+  },
+  "UPENN-GBM-00228": {
+    "num_patches": 4906,
+    "has_survival": true,
+    "survival_time": 379.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.22
+  },
+  "UPENN-GBM-00229": {
+    "num_patches": 6699,
+    "has_survival": true,
+    "survival_time": 6109.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00230": {
+    "num_patches": 4033,
+    "has_survival": true,
+    "survival_time": 78.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.4
+  },
+  "UPENN-GBM-00231": {
+    "num_patches": 3836,
+    "has_survival": true,
+    "survival_time": 370.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00232": {
+    "num_patches": 3961,
+    "has_survival": true,
+    "survival_time": 187.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00233": {
+    "num_patches": 4227,
+    "has_survival": true,
+    "survival_time": 1039.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00234": {
+    "num_patches": 4478,
+    "has_survival": true,
+    "survival_time": 370.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.28
+  },
+  "UPENN-GBM-00235": {
+    "num_patches": 3724,
+    "has_survival": true,
+    "survival_time": 253.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.68
+  },
+  "UPENN-GBM-00236": {
+    "num_patches": 4086,
+    "has_survival": true,
+    "survival_time": 480.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.3
+  },
+  "UPENN-GBM-00237": {
+    "num_patches": 4655,
+    "has_survival": true,
+    "survival_time": 200.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.53
+  },
+  "UPENN-GBM-00238": {
+    "num_patches": 3902,
+    "has_survival": true,
+    "survival_time": 1148.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.2
+  },
+  "UPENN-GBM-00239": {
+    "num_patches": 3610,
+    "has_survival": true,
+    "survival_time": 159.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00240": {
+    "num_patches": 4437,
+    "has_survival": true,
+    "survival_time": 78.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.31
+  },
+  "UPENN-GBM-00241": {
+    "num_patches": 3947,
+    "has_survival": true,
+    "survival_time": 325.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00242": {
+    "num_patches": 3996,
+    "has_survival": true,
+    "survival_time": 276.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.01
+  },
+  "UPENN-GBM-00243": {
+    "num_patches": 4219,
+    "has_survival": true,
+    "survival_time": 419.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00244": {
+    "num_patches": 4557,
+    "has_survival": true,
+    "survival_time": 420.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.16
+  },
+  "UPENN-GBM-00245": {
+    "num_patches": 3629,
+    "has_survival": true,
+    "survival_time": 533.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00246": {
+    "num_patches": 4532,
+    "has_survival": true,
+    "survival_time": 51.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00247": {
+    "num_patches": 3382,
+    "has_survival": true,
+    "survival_time": 201.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.12
+  },
+  "UPENN-GBM-00248": {
+    "num_patches": 4471,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00249": {
+    "num_patches": 4512,
+    "has_survival": true,
+    "survival_time": 1791.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
+  },
+  "UPENN-GBM-00250": {
+    "num_patches": 5013,
+    "has_survival": true,
+    "survival_time": 460.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.13
+  },
+  "UPENN-GBM-00251": {
+    "num_patches": 6784,
+    "has_survival": true,
+    "survival_time": 167.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00252": {
+    "num_patches": 4529,
+    "has_survival": true,
+    "survival_time": 443.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.17
+  },
+  "UPENN-GBM-00254": {
+    "num_patches": 5215,
+    "has_survival": true,
+    "survival_time": 400.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.16
+  },
+  "UPENN-GBM-00255": {
+    "num_patches": 4245,
+    "has_survival": true,
+    "survival_time": 80.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00256": {
+    "num_patches": 3821,
+    "has_survival": true,
+    "survival_time": 115.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00257": {
+    "num_patches": 5046,
+    "has_survival": true,
+    "survival_time": 136.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.33
+  },
+  "UPENN-GBM-00258": {
+    "num_patches": 4410,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00259": {
+    "num_patches": 3916,
+    "has_survival": true,
+    "survival_time": 193.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00260": {
+    "num_patches": 4335,
+    "has_survival": true,
+    "survival_time": 106.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.08
+  },
+  "UPENN-GBM-00261": {
+    "num_patches": 4403,
+    "has_survival": true,
+    "survival_time": 48.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.92
+  },
+  "UPENN-GBM-00262": {
+    "num_patches": 4950,
+    "has_survival": true,
+    "survival_time": 580.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00263": {
+    "num_patches": 4042,
+    "has_survival": true,
+    "survival_time": 796.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.7
+  },
+  "UPENN-GBM-00264": {
+    "num_patches": 3370,
+    "has_survival": true,
+    "survival_time": 1145.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.81
+  },
+  "UPENN-GBM-00265": {
+    "num_patches": 3976,
+    "has_survival": true,
+    "survival_time": 1062.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00266": {
+    "num_patches": 4484,
+    "has_survival": true,
+    "survival_time": 390.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.18
+  },
+  "UPENN-GBM-00267": {
+    "num_patches": 4255,
+    "has_survival": true,
+    "survival_time": 351.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00268": {
+    "num_patches": 3991,
+    "has_survival": true,
+    "survival_time": 20.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00269": {
+    "num_patches": 4084,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00270": {
+    "num_patches": 4226,
+    "has_survival": true,
+    "survival_time": 58.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.17
+  },
+  "UPENN-GBM-00271": {
+    "num_patches": 4361,
+    "has_survival": true,
+    "survival_time": 473.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00272": {
+    "num_patches": 4859,
+    "has_survival": true,
+    "survival_time": 739.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.61
+  },
+  "UPENN-GBM-00273": {
+    "num_patches": 2877,
+    "has_survival": true,
+    "survival_time": 598.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.74
+  },
+  "UPENN-GBM-00274": {
+    "num_patches": 5787,
+    "has_survival": true,
+    "survival_time": 1021.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.67
+  },
+  "UPENN-GBM-00275": {
+    "num_patches": 4862,
+    "has_survival": true,
+    "survival_time": 454.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.42
+  },
+  "UPENN-GBM-00277": {
+    "num_patches": 4956,
+    "has_survival": true,
+    "survival_time": 403.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.13
+  },
+  "UPENN-GBM-00278": {
+    "num_patches": 3604,
+    "has_survival": true,
+    "survival_time": 437.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.57
+  },
+  "UPENN-GBM-00279": {
+    "num_patches": 4256,
+    "has_survival": true,
+    "survival_time": 655.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00280": {
+    "num_patches": 4545,
+    "has_survival": true,
+    "survival_time": 64.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00281": {
+    "num_patches": 3939,
+    "has_survival": true,
+    "survival_time": 550.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.42
+  },
+  "UPENN-GBM-00282": {
+    "num_patches": 4638,
+    "has_survival": true,
+    "survival_time": 363.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00283": {
+    "num_patches": 853,
+    "has_survival": true,
+    "survival_time": 352.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.34
+  },
+  "UPENN-GBM-00284": {
+    "num_patches": 3829,
+    "has_survival": true,
+    "survival_time": 77.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00285": {
+    "num_patches": 4516,
+    "has_survival": true,
+    "survival_time": 326.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.73
+  },
+  "UPENN-GBM-00286": {
+    "num_patches": 4591,
+    "has_survival": true,
+    "survival_time": 429.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.22
+  },
+  "UPENN-GBM-00287": {
+    "num_patches": 4012,
+    "has_survival": true,
+    "survival_time": 781.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.59
+  },
+  "UPENN-GBM-00288": {
+    "num_patches": 4120,
+    "has_survival": true,
+    "survival_time": 31.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.03
+  },
+  "UPENN-GBM-00289": {
+    "num_patches": 4478,
+    "has_survival": true,
+    "survival_time": 445.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.98
+  },
+  "UPENN-GBM-00290": {
+    "num_patches": 3934,
+    "has_survival": true,
+    "survival_time": 409.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00291": {
+    "num_patches": 3865,
+    "has_survival": true,
+    "survival_time": 530.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.05
+  },
+  "UPENN-GBM-00292": {
+    "num_patches": 3484,
+    "has_survival": true,
+    "survival_time": 29.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.51
+  },
+  "UPENN-GBM-00293": {
+    "num_patches": 3967,
+    "has_survival": true,
+    "survival_time": 127.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.74
+  },
+  "UPENN-GBM-00294": {
+    "num_patches": 4348,
+    "has_survival": true,
+    "survival_time": 112.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00295": {
+    "num_patches": 4685,
+    "has_survival": true,
+    "survival_time": 463.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.2
+  },
+  "UPENN-GBM-00296": {
+    "num_patches": 4268,
+    "has_survival": true,
+    "survival_time": 326.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.14
+  },
+  "UPENN-GBM-00297": {
+    "num_patches": 3376,
+    "has_survival": true,
+    "survival_time": 466.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.73
+  },
+  "UPENN-GBM-00298": {
+    "num_patches": 4669,
+    "has_survival": true,
+    "survival_time": 186.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.81
+  },
+  "UPENN-GBM-00299": {
+    "num_patches": 3621,
+    "has_survival": true,
+    "survival_time": 148.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00300": {
+    "num_patches": 4157,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.1
+  },
+  "UPENN-GBM-00301": {
+    "num_patches": 4703,
+    "has_survival": true,
+    "survival_time": 282.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.21
+  },
+  "UPENN-GBM-00302": {
+    "num_patches": 4844,
+    "has_survival": true,
+    "survival_time": 790.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 5.42
+  },
+  "UPENN-GBM-00303": {
+    "num_patches": 4182,
+    "has_survival": true,
+    "survival_time": 658.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.22
+  },
+  "UPENN-GBM-00304": {
+    "num_patches": 4342,
+    "has_survival": true,
+    "survival_time": 428.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00305": {
+    "num_patches": 4063,
+    "has_survival": true,
+    "survival_time": 92.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00306": {
+    "num_patches": 4146,
+    "has_survival": true,
+    "survival_time": 165.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.32
+  },
+  "UPENN-GBM-00307": {
+    "num_patches": 4561,
+    "has_survival": true,
+    "survival_time": 330.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 5.43
+  },
+  "UPENN-GBM-00308": {
+    "num_patches": 4329,
+    "has_survival": true,
+    "survival_time": 205.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.26
+  },
+  "UPENN-GBM-00309": {
+    "num_patches": 914,
+    "has_survival": true,
+    "survival_time": 1034.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.63
+  },
+  "UPENN-GBM-00310": {
+    "num_patches": 4769,
+    "has_survival": true,
+    "survival_time": 75.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00311": {
+    "num_patches": 3636,
+    "has_survival": true,
+    "survival_time": 489.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.13
+  },
+  "UPENN-GBM-00312": {
+    "num_patches": 4667,
+    "has_survival": true,
+    "survival_time": 40.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.14
+  },
+  "UPENN-GBM-00313": {
+    "num_patches": 4412,
+    "has_survival": true,
+    "survival_time": 1723.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00314": {
+    "num_patches": 4382,
+    "has_survival": true,
+    "survival_time": 614.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.81
+  },
+  "UPENN-GBM-00315": {
+    "num_patches": 4235,
+    "has_survival": true,
+    "survival_time": 1043.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.56
+  },
+  "UPENN-GBM-00316": {
+    "num_patches": 4704,
+    "has_survival": true,
+    "survival_time": 98.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.97
+  },
+  "UPENN-GBM-00317": {
+    "num_patches": 4255,
+    "has_survival": true,
+    "survival_time": 1130.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.05
+  },
+  "UPENN-GBM-00318": {
+    "num_patches": 990,
+    "has_survival": true,
+    "survival_time": 494.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.43
+  },
+  "UPENN-GBM-00319": {
+    "num_patches": 3952,
+    "has_survival": true,
+    "survival_time": 710.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.62
+  },
+  "UPENN-GBM-00320": {
+    "num_patches": 4498,
+    "has_survival": true,
+    "survival_time": 476.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00321": {
+    "num_patches": 4313,
+    "has_survival": true,
+    "survival_time": 79.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.2
+  },
+  "UPENN-GBM-00322": {
+    "num_patches": 4791,
+    "has_survival": true,
+    "survival_time": 170.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": true
+    },
+    "time_seconds": 2.07
+  },
+  "UPENN-GBM-00323": {
+    "num_patches": 4605,
+    "has_survival": true,
+    "survival_time": 121.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.15
+  },
+  "UPENN-GBM-00324": {
+    "num_patches": 4310,
+    "has_survival": true,
+    "survival_time": 185.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00325": {
+    "num_patches": 3627,
+    "has_survival": true,
+    "survival_time": 368.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.19
+  },
+  "UPENN-GBM-00326": {
+    "num_patches": 3413,
+    "has_survival": true,
+    "survival_time": 125.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.39
+  },
+  "UPENN-GBM-00327": {
+    "num_patches": 2779,
+    "has_survival": true,
+    "survival_time": 341.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": true
+    },
+    "time_seconds": 2.17
+  },
+  "UPENN-GBM-00328": {
+    "num_patches": 4952,
+    "has_survival": true,
+    "survival_time": 370.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.56
+  },
+  "UPENN-GBM-00329": {
+    "num_patches": 3917,
+    "has_survival": true,
+    "survival_time": 304.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.13
+  },
+  "UPENN-GBM-00330": {
+    "num_patches": 4248,
+    "has_survival": true,
+    "survival_time": 74.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00331": {
+    "num_patches": 2870,
+    "has_survival": true,
+    "survival_time": 748.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.31
+  },
+  "UPENN-GBM-00332": {
+    "num_patches": 4137,
+    "has_survival": true,
+    "survival_time": 103.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.21
+  },
+  "UPENN-GBM-00333": {
+    "num_patches": 813,
+    "has_survival": true,
+    "survival_time": 111.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00334": {
+    "num_patches": 4189,
+    "has_survival": true,
+    "survival_time": 159.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.96
+  },
+  "UPENN-GBM-00335": {
+    "num_patches": 3710,
+    "has_survival": true,
+    "survival_time": 282.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00336": {
+    "num_patches": 3854,
+    "has_survival": true,
+    "survival_time": 13.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.63
+  },
+  "UPENN-GBM-00337": {
+    "num_patches": 4282,
+    "has_survival": true,
+    "survival_time": 385.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00338": {
+    "num_patches": 4479,
+    "has_survival": true,
+    "survival_time": 1483.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00339": {
+    "num_patches": 3376,
+    "has_survival": true,
+    "survival_time": 2068.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.62
+  },
+  "UPENN-GBM-00340": {
+    "num_patches": 3891,
+    "has_survival": true,
+    "survival_time": 325.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.81
+  },
+  "UPENN-GBM-00341": {
+    "num_patches": 3118,
+    "has_survival": true,
+    "survival_time": 355.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.48
+  },
+  "UPENN-GBM-00342": {
+    "num_patches": 4577,
+    "has_survival": true,
+    "survival_time": 60.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.47
+  },
+  "UPENN-GBM-00343": {
+    "num_patches": 4202,
+    "has_survival": true,
+    "survival_time": 112.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.4
+  },
+  "UPENN-GBM-00344": {
+    "num_patches": 4175,
+    "has_survival": true,
+    "survival_time": 173.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00345": {
+    "num_patches": 4377,
+    "has_survival": true,
+    "survival_time": 78.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.68
+  },
+  "UPENN-GBM-00346": {
+    "num_patches": 4738,
+    "has_survival": true,
+    "survival_time": 334.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00347": {
+    "num_patches": 3539,
+    "has_survival": true,
+    "survival_time": 182.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": false,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.36
+  },
+  "UPENN-GBM-00348": {
+    "num_patches": 4353,
+    "has_survival": true,
+    "survival_time": 104.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
+  },
+  "UPENN-GBM-00349": {
+    "num_patches": 4881,
+    "has_survival": true,
+    "survival_time": 149.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00350": {
+    "num_patches": 4246,
+    "has_survival": true,
+    "survival_time": 622.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00351": {
+    "num_patches": 3881,
+    "has_survival": true,
+    "survival_time": 2297.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00352": {
+    "num_patches": 4452,
+    "has_survival": true,
+    "survival_time": 519.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00353": {
+    "num_patches": 4720,
+    "has_survival": true,
+    "survival_time": 56.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.15
+  },
+  "UPENN-GBM-00354": {
+    "num_patches": 4670,
+    "has_survival": true,
+    "survival_time": 28.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00355": {
+    "num_patches": 4475,
+    "has_survival": true,
+    "survival_time": 28.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00356": {
+    "num_patches": 4449,
+    "has_survival": true,
+    "survival_time": 996.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.98
+  },
+  "UPENN-GBM-00357": {
+    "num_patches": 7182,
+    "has_survival": true,
+    "survival_time": 124.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.61
+  },
+  "UPENN-GBM-00358": {
+    "num_patches": 4329,
+    "has_survival": true,
+    "survival_time": 87.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00359": {
+    "num_patches": 4697,
+    "has_survival": true,
+    "survival_time": 93.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.25
+  },
+  "UPENN-GBM-00360": {
+    "num_patches": 4630,
+    "has_survival": true,
+    "survival_time": 613.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00361": {
+    "num_patches": 4342,
+    "has_survival": true,
+    "survival_time": 106.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00362": {
+    "num_patches": 4238,
+    "has_survival": true,
+    "survival_time": 142.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00363": {
+    "num_patches": 4510,
+    "has_survival": true,
+    "survival_time": 404.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00364": {
+    "num_patches": 4418,
+    "has_survival": true,
+    "survival_time": 383.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00365": {
+    "num_patches": 4416,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00366": {
+    "num_patches": 4223,
+    "has_survival": true,
+    "survival_time": 213.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.33
+  },
+  "UPENN-GBM-00367": {
+    "num_patches": 3736,
+    "has_survival": true,
+    "survival_time": 538.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00368": {
+    "num_patches": 4871,
+    "has_survival": true,
+    "survival_time": 416.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00369": {
+    "num_patches": 3731,
+    "has_survival": true,
+    "survival_time": 360.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.72
+  },
+  "UPENN-GBM-00370": {
+    "num_patches": 4452,
+    "has_survival": true,
+    "survival_time": 443.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00371": {
+    "num_patches": 4504,
+    "has_survival": true,
+    "survival_time": 240.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.15
+  },
+  "UPENN-GBM-00372": {
+    "num_patches": 3588,
+    "has_survival": true,
+    "survival_time": 133.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00373": {
+    "num_patches": 4148,
+    "has_survival": true,
+    "survival_time": 524.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00374": {
+    "num_patches": 3505,
+    "has_survival": true,
+    "survival_time": 376.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00375": {
+    "num_patches": 3667,
+    "has_survival": true,
+    "survival_time": 319.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00376": {
+    "num_patches": 4045,
+    "has_survival": true,
+    "survival_time": 730.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00378": {
+    "num_patches": 4849,
+    "has_survival": true,
+    "survival_time": 451.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.76
+  },
+  "UPENN-GBM-00379": {
+    "num_patches": 4008,
+    "has_survival": true,
+    "survival_time": 114.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00380": {
+    "num_patches": 4436,
+    "has_survival": true,
+    "survival_time": 516.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00381": {
+    "num_patches": 4767,
+    "has_survival": true,
+    "survival_time": 63.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.38
+  },
+  "UPENN-GBM-00382": {
+    "num_patches": 3811,
+    "has_survival": true,
+    "survival_time": 14.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
+  },
+  "UPENN-GBM-00383": {
+    "num_patches": 4706,
+    "has_survival": true,
+    "survival_time": 498.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.18
+  },
+  "UPENN-GBM-00384": {
+    "num_patches": 4257,
+    "has_survival": true,
+    "survival_time": 373.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00385": {
+    "num_patches": 4123,
+    "has_survival": true,
+    "survival_time": 21.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.16
+  },
+  "UPENN-GBM-00386": {
+    "num_patches": 4040,
+    "has_survival": true,
+    "survival_time": 216.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.18
+  },
+  "UPENN-GBM-00387": {
+    "num_patches": 7245,
+    "has_survival": true,
+    "survival_time": 455.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.66
+  },
+  "UPENN-GBM-00388": {
+    "num_patches": 7070,
+    "has_survival": true,
+    "survival_time": 1020.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.57
+  },
+  "UPENN-GBM-00389": {
+    "num_patches": 5091,
+    "has_survival": true,
+    "survival_time": 114.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.1
+  },
+  "UPENN-GBM-00390": {
+    "num_patches": 4270,
+    "has_survival": true,
+    "survival_time": 443.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.99
+  },
+  "UPENN-GBM-00391": {
+    "num_patches": 4277,
+    "has_survival": true,
+    "survival_time": 93.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00392": {
+    "num_patches": 2910,
+    "has_survival": true,
+    "survival_time": 1730.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00393": {
+    "num_patches": 2511,
+    "has_survival": true,
+    "survival_time": 336.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00394": {
+    "num_patches": 4405,
+    "has_survival": true,
+    "survival_time": 322.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.18
+  },
+  "UPENN-GBM-00395": {
+    "num_patches": 4669,
+    "has_survival": true,
+    "survival_time": 2578.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00396": {
+    "num_patches": 4322,
+    "has_survival": true,
+    "survival_time": 341.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00397": {
+    "num_patches": 4010,
+    "has_survival": true,
+    "survival_time": 2694.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00398": {
+    "num_patches": 4754,
+    "has_survival": true,
+    "survival_time": 342.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00399": {
+    "num_patches": 4647,
+    "has_survival": true,
+    "survival_time": 338.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00400": {
+    "num_patches": 3581,
+    "has_survival": true,
+    "survival_time": 480.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.02
+  },
+  "UPENN-GBM-00401": {
+    "num_patches": 3155,
+    "has_survival": true,
+    "survival_time": 635.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.37
+  },
+  "UPENN-GBM-00402": {
+    "num_patches": 3556,
+    "has_survival": true,
+    "survival_time": 503.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.57
+  },
+  "UPENN-GBM-00403": {
+    "num_patches": 4430,
+    "has_survival": true,
+    "survival_time": 191.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.12
+  },
+  "UPENN-GBM-00404": {
+    "num_patches": 4355,
+    "has_survival": true,
+    "survival_time": 688.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.1
+  },
+  "UPENN-GBM-00405": {
+    "num_patches": 3677,
+    "has_survival": true,
+    "survival_time": 57.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.75
+  },
+  "UPENN-GBM-00406": {
+    "num_patches": 4103,
+    "has_survival": true,
+    "survival_time": 355.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00407": {
+    "num_patches": 4805,
+    "has_survival": true,
+    "survival_time": 201.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.68
+  },
+  "UPENN-GBM-00408": {
+    "num_patches": 3725,
+    "has_survival": true,
+    "survival_time": 565.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00409": {
+    "num_patches": 3706,
+    "has_survival": true,
+    "survival_time": 510.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00410": {
+    "num_patches": 4346,
+    "has_survival": true,
+    "survival_time": 423.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.18
+  },
+  "UPENN-GBM-00411": {
+    "num_patches": 4209,
+    "has_survival": true,
+    "survival_time": 531.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.67
+  },
+  "UPENN-GBM-00412": {
+    "num_patches": 4276,
+    "has_survival": true,
+    "survival_time": 862.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00413": {
+    "num_patches": 4604,
+    "has_survival": true,
+    "survival_time": 827.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00414": {
+    "num_patches": 3025,
+    "has_survival": true,
+    "survival_time": 249.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.5
+  },
+  "UPENN-GBM-00415": {
+    "num_patches": 4424,
+    "has_survival": true,
+    "survival_time": 100.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.31
+  },
+  "UPENN-GBM-00416": {
+    "num_patches": 4037,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00417": {
+    "num_patches": 3837,
+    "has_survival": true,
+    "survival_time": 1863.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.21
+  },
+  "UPENN-GBM-00418": {
+    "num_patches": 3842,
+    "has_survival": true,
+    "survival_time": 1410.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.06
+  },
+  "UPENN-GBM-00419": {
+    "num_patches": 4306,
+    "has_survival": true,
+    "survival_time": 518.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00420": {
+    "num_patches": 3651,
+    "has_survival": true,
+    "survival_time": 1941.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.94
+  },
+  "UPENN-GBM-00421": {
+    "num_patches": 4194,
+    "has_survival": true,
+    "survival_time": 765.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00422": {
+    "num_patches": 4227,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.23
+  },
+  "UPENN-GBM-00423": {
+    "num_patches": 2641,
+    "has_survival": true,
+    "survival_time": 303.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00424": {
+    "num_patches": 5402,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.31
+  },
+  "UPENN-GBM-00425": {
+    "num_patches": 4422,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00426": {
+    "num_patches": 4715,
+    "has_survival": true,
+    "survival_time": 820.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.6
+  },
+  "UPENN-GBM-00427": {
+    "num_patches": 3863,
+    "has_survival": true,
+    "survival_time": 136.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00428": {
+    "num_patches": 5224,
+    "has_survival": true,
+    "survival_time": 374.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.11
+  },
+  "UPENN-GBM-00429": {
+    "num_patches": 4150,
+    "has_survival": true,
+    "survival_time": 166.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00430": {
+    "num_patches": 3678,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.12
+  },
+  "UPENN-GBM-00431": {
+    "num_patches": 3885,
+    "has_survival": true,
+    "survival_time": 125.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00432": {
+    "num_patches": 3844,
+    "has_survival": true,
+    "survival_time": 582.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00433": {
+    "num_patches": 4736,
+    "has_survival": true,
+    "survival_time": 626.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.23
+  },
+  "UPENN-GBM-00434": {
+    "num_patches": 4083,
+    "has_survival": true,
+    "survival_time": 70.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00435": {
+    "num_patches": 3916,
+    "has_survival": true,
+    "survival_time": 205.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00436": {
+    "num_patches": 3706,
+    "has_survival": true,
+    "survival_time": 389.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00437": {
+    "num_patches": 3882,
+    "has_survival": true,
+    "survival_time": 82.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00438": {
+    "num_patches": 4259,
+    "has_survival": true,
+    "survival_time": 117.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.28
+  },
+  "UPENN-GBM-00439": {
+    "num_patches": 4313,
+    "has_survival": true,
+    "survival_time": 264.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.57
+  },
+  "UPENN-GBM-00440": {
+    "num_patches": 4931,
+    "has_survival": true,
+    "survival_time": 1570.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.2
+  },
+  "UPENN-GBM-00441": {
+    "num_patches": 4497,
+    "has_survival": true,
+    "survival_time": 619.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.59
+  },
+  "UPENN-GBM-00442": {
+    "num_patches": 3941,
+    "has_survival": true,
+    "survival_time": 90.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00443": {
+    "num_patches": 4371,
+    "has_survival": true,
+    "survival_time": 60.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00445": {
+    "num_patches": 3554,
+    "has_survival": true,
+    "survival_time": 284.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00446": {
+    "num_patches": 5156,
+    "has_survival": true,
+    "survival_time": 831.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00447": {
+    "num_patches": 4308,
+    "has_survival": true,
+    "survival_time": 248.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 1.98
+  },
+  "UPENN-GBM-00448": {
+    "num_patches": 4142,
+    "has_survival": true,
+    "survival_time": 288.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00450": {
+    "num_patches": 4419,
+    "has_survival": true,
+    "survival_time": 764.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.23
+  },
+  "UPENN-GBM-00451": {
+    "num_patches": 3810,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00452": {
+    "num_patches": 866,
+    "has_survival": true,
+    "survival_time": 680.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.02
+  },
+  "UPENN-GBM-00453": {
+    "num_patches": 4310,
+    "has_survival": true,
+    "survival_time": 1052.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00454": {
+    "num_patches": 3765,
+    "has_survival": true,
+    "survival_time": 136.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00455": {
+    "num_patches": 4322,
+    "has_survival": true,
+    "survival_time": 516.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00456": {
+    "num_patches": 4029,
+    "has_survival": true,
+    "survival_time": 149.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00457": {
+    "num_patches": 4348,
+    "has_survival": true,
+    "survival_time": 1299.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00458": {
+    "num_patches": 4219,
+    "has_survival": true,
+    "survival_time": 575.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00459": {
+    "num_patches": 4513,
+    "has_survival": true,
+    "survival_time": 693.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00460": {
+    "num_patches": 4455,
+    "has_survival": true,
+    "survival_time": 620.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00461": {
+    "num_patches": 4376,
+    "has_survival": true,
+    "survival_time": 1255.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00462": {
+    "num_patches": 3618,
+    "has_survival": true,
+    "survival_time": 568.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00463": {
+    "num_patches": 4226,
+    "has_survival": true,
+    "survival_time": 738.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00465": {
+    "num_patches": 4635,
+    "has_survival": true,
+    "survival_time": 1208.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00466": {
+    "num_patches": 4163,
+    "has_survival": true,
+    "survival_time": 651.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00467": {
+    "num_patches": 4259,
+    "has_survival": true,
+    "survival_time": 251.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.67
+  },
+  "UPENN-GBM-00468": {
+    "num_patches": 4464,
+    "has_survival": true,
+    "survival_time": 196.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00469": {
+    "num_patches": 3907,
+    "has_survival": true,
+    "survival_time": 578.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00470": {
+    "num_patches": 3974,
+    "has_survival": true,
+    "survival_time": 316.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00471": {
+    "num_patches": 4483,
+    "has_survival": true,
+    "survival_time": 114.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.43
+  },
+  "UPENN-GBM-00472": {
+    "num_patches": 3715,
+    "has_survival": true,
+    "survival_time": 1279.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.89
+  },
+  "UPENN-GBM-00473": {
+    "num_patches": 3812,
+    "has_survival": true,
+    "survival_time": 36.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.77
+  },
+  "UPENN-GBM-00474": {
+    "num_patches": 4482,
+    "has_survival": true,
+    "survival_time": 692.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.0
+  },
+  "UPENN-GBM-00475": {
+    "num_patches": 4046,
+    "has_survival": true,
+    "survival_time": 44.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00476": {
+    "num_patches": 4302,
+    "has_survival": true,
+    "survival_time": 516.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.17
+  },
+  "UPENN-GBM-00477": {
+    "num_patches": 4583,
+    "has_survival": true,
+    "survival_time": 1323.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.91
+  },
+  "UPENN-GBM-00478": {
+    "num_patches": 3564,
+    "has_survival": true,
+    "survival_time": 117.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.15
+  },
+  "UPENN-GBM-00479": {
+    "num_patches": 2562,
+    "has_survival": true,
+    "survival_time": 168.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.32
+  },
+  "UPENN-GBM-00480": {
+    "num_patches": 1189,
+    "has_survival": true,
+    "survival_time": 256.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.6
+  },
+  "UPENN-GBM-00481": {
+    "num_patches": 944,
+    "has_survival": true,
+    "survival_time": 601.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.5
+  },
+  "UPENN-GBM-00482": {
+    "num_patches": 1121,
+    "has_survival": true,
+    "survival_time": 610.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.58
+  },
+  "UPENN-GBM-00483": {
+    "num_patches": 3513,
+    "has_survival": true,
+    "survival_time": 192.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.24
+  },
+  "UPENN-GBM-00484": {
+    "num_patches": 1155,
+    "has_survival": true,
+    "survival_time": 902.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00485": {
+    "num_patches": 693,
+    "has_survival": true,
+    "survival_time": 1582.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.37
+  },
+  "UPENN-GBM-00486": {
+    "num_patches": 1139,
+    "has_survival": true,
+    "survival_time": 371.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.38
+  },
+  "UPENN-GBM-00487": {
+    "num_patches": 973,
+    "has_survival": true,
+    "survival_time": 395.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.53
+  },
+  "UPENN-GBM-00488": {
+    "num_patches": 998,
+    "has_survival": true,
+    "survival_time": 370.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00489": {
+    "num_patches": 3118,
+    "has_survival": true,
+    "survival_time": 175.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.24
+  },
+  "UPENN-GBM-00490": {
+    "num_patches": 4754,
+    "has_survival": true,
+    "survival_time": 821.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00491": {
+    "num_patches": 3680,
+    "has_survival": true,
+    "survival_time": 16.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00492": {
+    "num_patches": 3942,
+    "has_survival": true,
+    "survival_time": 397.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.79
+  },
+  "UPENN-GBM-00493": {
+    "num_patches": 3120,
+    "has_survival": true,
+    "survival_time": 482.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 4.3
+  },
+  "UPENN-GBM-00494": {
+    "num_patches": 1090,
+    "has_survival": true,
+    "survival_time": 480.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.58
+  },
+  "UPENN-GBM-00495": {
+    "num_patches": 3070,
+    "has_survival": true,
+    "survival_time": 483.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.29
+  },
+  "UPENN-GBM-00496": {
+    "num_patches": 4216,
+    "has_survival": true,
+    "survival_time": 681.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.73
+  },
+  "UPENN-GBM-00497": {
+    "num_patches": 3897,
+    "has_survival": true,
+    "survival_time": 859.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.57
+  },
+  "UPENN-GBM-00498": {
+    "num_patches": 5797,
+    "has_survival": true,
+    "survival_time": 493.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.62
+  },
+  "UPENN-GBM-00499": {
+    "num_patches": 4774,
+    "has_survival": true,
+    "survival_time": 648.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00500": {
+    "num_patches": 3210,
+    "has_survival": true,
+    "survival_time": 596.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.41
+  },
+  "UPENN-GBM-00501": {
+    "num_patches": 913,
+    "has_survival": true,
+    "survival_time": 1025.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.67
+  },
+  "UPENN-GBM-00502": {
+    "num_patches": 4136,
+    "has_survival": true,
+    "survival_time": 99.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.25
+  },
+  "UPENN-GBM-00503": {
+    "num_patches": 2824,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.62
+  },
+  "UPENN-GBM-00504": {
+    "num_patches": 3873,
+    "has_survival": true,
+    "survival_time": 1125.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.83
+  },
+  "UPENN-GBM-00505": {
+    "num_patches": 4364,
+    "has_survival": true,
+    "survival_time": 590.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.14
+  },
+  "UPENN-GBM-00506": {
+    "num_patches": 1037,
+    "has_survival": true,
+    "survival_time": 1722.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.77
+  },
+  "UPENN-GBM-00507": {
+    "num_patches": 4048,
+    "has_survival": true,
+    "survival_time": 187.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.98
+  },
+  "UPENN-GBM-00508": {
+    "num_patches": 4435,
+    "has_survival": true,
+    "survival_time": 572.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.7
+  },
+  "UPENN-GBM-00509": {
+    "num_patches": 855,
+    "has_survival": true,
+    "survival_time": 710.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00510": {
+    "num_patches": 3477,
+    "has_survival": true,
+    "survival_time": 74.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 5.8
+  },
+  "UPENN-GBM-00511": {
+    "num_patches": 1120,
+    "has_survival": true,
+    "survival_time": 1335.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.67
+  },
+  "UPENN-GBM-00512": {
+    "num_patches": 2908,
+    "has_survival": true,
+    "survival_time": 496.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.17
+  },
+  "UPENN-GBM-00515": {
+    "num_patches": 852,
+    "has_survival": true,
+    "survival_time": 170.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.33
+  },
+  "UPENN-GBM-00516": {
+    "num_patches": 4079,
+    "has_survival": true,
+    "survival_time": 188.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.71
+  },
+  "UPENN-GBM-00517": {
+    "num_patches": 995,
+    "has_survival": true,
+    "survival_time": 285.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.49
+  },
+  "UPENN-GBM-00518": {
+    "num_patches": 4405,
+    "has_survival": true,
+    "survival_time": 1201.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00519": {
+    "num_patches": 4453,
+    "has_survival": true,
+    "survival_time": 468.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.92
+  },
+  "UPENN-GBM-00521": {
+    "num_patches": 4402,
+    "has_survival": true,
+    "survival_time": 1050.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": true
+    },
+    "time_seconds": 2.19
+  },
+  "UPENN-GBM-00522": {
+    "num_patches": 987,
+    "has_survival": true,
+    "survival_time": 199.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00523": {
+    "num_patches": 4417,
+    "has_survival": true,
+    "survival_time": 637.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.01
+  },
+  "UPENN-GBM-00524": {
+    "num_patches": 4339,
+    "has_survival": true,
+    "survival_time": 53.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.17
+  },
+  "UPENN-GBM-00525": {
+    "num_patches": 4186,
+    "has_survival": true,
+    "survival_time": 157.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.14
+  },
+  "UPENN-GBM-00526": {
+    "num_patches": 3817,
+    "has_survival": true,
+    "survival_time": 32.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.03
+  },
+  "UPENN-GBM-00527": {
+    "num_patches": 4653,
+    "has_survival": true,
+    "survival_time": 248.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.49
+  },
+  "UPENN-GBM-00528": {
+    "num_patches": 3769,
+    "has_survival": true,
+    "survival_time": 598.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.23
+  },
+  "UPENN-GBM-00529": {
+    "num_patches": 4377,
+    "has_survival": true,
+    "survival_time": 85.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00530": {
+    "num_patches": 2922,
+    "has_survival": true,
+    "survival_time": 521.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00531": {
+    "num_patches": 3351,
+    "has_survival": true,
+    "survival_time": 448.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.3
+  },
+  "UPENN-GBM-00532": {
+    "num_patches": 713,
+    "has_survival": true,
+    "survival_time": 497.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.44
+  },
+  "UPENN-GBM-00533": {
+    "num_patches": 4165,
+    "has_survival": true,
+    "survival_time": 784.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.47
+  },
+  "UPENN-GBM-00534": {
+    "num_patches": 4553,
+    "has_survival": true,
+    "survival_time": 707.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.77
+  },
+  "UPENN-GBM-00535": {
+    "num_patches": 3957,
+    "has_survival": true,
+    "survival_time": 215.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00536": {
+    "num_patches": 1113,
+    "has_survival": true,
+    "survival_time": 462.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.43
+  },
+  "UPENN-GBM-00537": {
+    "num_patches": 3597,
+    "has_survival": true,
+    "survival_time": 127.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.76
+  },
+  "UPENN-GBM-00538": {
+    "num_patches": 4668,
+    "has_survival": true,
+    "survival_time": 1170.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.92
+  },
+  "UPENN-GBM-00540": {
+    "num_patches": 4554,
+    "has_survival": true,
+    "survival_time": 343.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.96
+  },
+  "UPENN-GBM-00541": {
+    "num_patches": 4165,
+    "has_survival": true,
+    "survival_time": 471.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.9
+  },
+  "UPENN-GBM-00542": {
+    "num_patches": 4192,
+    "has_survival": true,
+    "survival_time": 414.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.05
+  },
+  "UPENN-GBM-00543": {
+    "num_patches": 4228,
+    "has_survival": true,
+    "survival_time": 7.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.22
+  },
+  "UPENN-GBM-00544": {
+    "num_patches": 739,
+    "has_survival": true,
+    "survival_time": 376.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.74
+  },
+  "UPENN-GBM-00545": {
+    "num_patches": 3776,
+    "has_survival": true,
+    "survival_time": 37.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.8
+  },
+  "UPENN-GBM-00546": {
+    "num_patches": 4515,
+    "has_survival": true,
+    "survival_time": 127.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.95
+  },
+  "UPENN-GBM-00547": {
+    "num_patches": 1128,
+    "has_survival": true,
+    "survival_time": 121.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.53
+  },
+  "UPENN-GBM-00548": {
+    "num_patches": 3493,
+    "has_survival": true,
+    "survival_time": 356.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.24
+  },
+  "UPENN-GBM-00549": {
+    "num_patches": 3663,
+    "has_survival": true,
+    "survival_time": 490.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.33
+  },
+  "UPENN-GBM-00550": {
+    "num_patches": 4393,
+    "has_survival": true,
+    "survival_time": 166.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.69
+  },
+  "UPENN-GBM-00551": {
+    "num_patches": 4533,
+    "has_survival": true,
+    "survival_time": 376.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00552": {
+    "num_patches": 4666,
+    "has_survival": true,
+    "survival_time": 384.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.37
+  },
+  "UPENN-GBM-00553": {
+    "num_patches": 3982,
+    "has_survival": true,
+    "survival_time": 1454.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": true
+    },
+    "time_seconds": 2.23
+  },
+  "UPENN-GBM-00554": {
+    "num_patches": 5203,
+    "has_survival": true,
+    "survival_time": 376.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.65
+  },
+  "UPENN-GBM-00555": {
+    "num_patches": 1212,
+    "has_survival": true,
+    "survival_time": 302.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.06
+  },
+  "UPENN-GBM-00557": {
+    "num_patches": 1062,
+    "has_survival": true,
+    "survival_time": 350.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.59
+  },
+  "UPENN-GBM-00558": {
+    "num_patches": 1109,
+    "has_survival": true,
+    "survival_time": 430.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.67
+  },
+  "UPENN-GBM-00559": {
+    "num_patches": 4048,
+    "has_survival": true,
+    "survival_time": 449.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.31
+  },
+  "UPENN-GBM-00560": {
+    "num_patches": 4201,
+    "has_survival": true,
+    "survival_time": 273.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.7
+  },
+  "UPENN-GBM-00561": {
+    "num_patches": 3854,
+    "has_survival": true,
+    "survival_time": 80.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.79
+  },
+  "UPENN-GBM-00562": {
+    "num_patches": 1185,
+    "has_survival": true,
+    "survival_time": 33.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": false,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.54
+  },
+  "UPENN-GBM-00563": {
+    "num_patches": 988,
+    "has_survival": true,
+    "survival_time": 36.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.46
+  },
+  "UPENN-GBM-00564": {
+    "num_patches": 4052,
+    "has_survival": true,
+    "survival_time": 1029.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": false,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.84
+  },
+  "UPENN-GBM-00568": {
+    "num_patches": 4561,
+    "has_survival": true,
+    "survival_time": 1128.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.36
+  },
+  "UPENN-GBM-00569": {
+    "num_patches": 5463,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.09
+  },
+  "UPENN-GBM-00570": {
+    "num_patches": 1071,
+    "has_survival": true,
+    "survival_time": 259.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.78
+  },
+  "UPENN-GBM-00571": {
+    "num_patches": 649,
+    "has_survival": true,
+    "survival_time": 81.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.47
+  },
+  "UPENN-GBM-00572": {
+    "num_patches": 4059,
+    "has_survival": true,
+    "survival_time": 104.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.71
+  },
+  "UPENN-GBM-00573": {
+    "num_patches": 1365,
+    "has_survival": true,
+    "survival_time": 203.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.69
+  },
+  "UPENN-GBM-00574": {
+    "num_patches": 4080,
+    "has_survival": true,
+    "survival_time": 234.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.05
+  },
+  "UPENN-GBM-00575": {
+    "num_patches": 3392,
+    "has_survival": true,
+    "survival_time": 153.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.97
+  },
+  "UPENN-GBM-00576": {
+    "num_patches": 4135,
+    "has_survival": true,
+    "survival_time": 440.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 6.8
+  },
+  "UPENN-GBM-00577": {
+    "num_patches": 4062,
+    "has_survival": true,
+    "survival_time": 685.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.84
+  },
+  "UPENN-GBM-00578": {
+    "num_patches": 5496,
+    "has_survival": true,
+    "survival_time": 497.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.57
+  },
+  "UPENN-GBM-00579": {
+    "num_patches": 3247,
+    "has_survival": true,
+    "survival_time": 577.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 2.41
+  },
+  "UPENN-GBM-00580": {
+    "num_patches": 769,
+    "has_survival": true,
+    "survival_time": 1431.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.47
+  },
+  "UPENN-GBM-00581": {
+    "num_patches": 4228,
+    "has_survival": true,
+    "survival_time": 324.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 3.59
+  },
+  "UPENN-GBM-00582": {
+    "num_patches": 3798,
+    "has_survival": true,
+    "survival_time": 430.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.02
+  },
+  "UPENN-GBM-00583": {
+    "num_patches": 4555,
+    "has_survival": true,
+    "survival_time": 123.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.88
+  },
+  "UPENN-GBM-00584": {
+    "num_patches": 3938,
+    "has_survival": true,
+    "survival_time": 944.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 4.81
+  },
+  "UPENN-GBM-00585": {
+    "num_patches": 4821,
+    "has_survival": true,
+    "survival_time": 147.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 8.88
+  },
+  "UPENN-GBM-00586": {
+    "num_patches": 1154,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.72
+  },
+  "UPENN-GBM-00587": {
+    "num_patches": 4536,
+    "has_survival": true,
+    "survival_time": 154.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.14
+  },
+  "UPENN-GBM-00588": {
+    "num_patches": 4495,
+    "has_survival": true,
+    "survival_time": 61.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.36
+  },
+  "UPENN-GBM-00589": {
+    "num_patches": 4773,
+    "has_survival": true,
+    "survival_time": 26.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 8.78
+  },
+  "UPENN-GBM-00590": {
+    "num_patches": 3119,
+    "has_survival": true,
+    "survival_time": 297.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 7.29
+  },
+  "UPENN-GBM-00591": {
+    "num_patches": 4019,
+    "has_survival": true,
+    "survival_time": 59.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 9.09
+  },
+  "UPENN-GBM-00592": {
+    "num_patches": 3617,
+    "has_survival": true,
+    "survival_time": 1579.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.06
+  },
+  "UPENN-GBM-00593": {
+    "num_patches": 4787,
+    "has_survival": true,
+    "survival_time": 223.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.13
+  },
+  "UPENN-GBM-00594": {
+    "num_patches": 4520,
+    "has_survival": true,
+    "survival_time": 899.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.96
+  },
+  "UPENN-GBM-00595": {
+    "num_patches": 4826,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 13.44
+  },
+  "UPENN-GBM-00596": {
+    "num_patches": 4533,
+    "has_survival": true,
+    "survival_time": 46.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00597": {
+    "num_patches": 3555,
+    "has_survival": true,
+    "survival_time": 381.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.46
+  },
+  "UPENN-GBM-00598": {
+    "num_patches": 3806,
+    "has_survival": true,
+    "survival_time": 771.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 1.21
+  },
+  "UPENN-GBM-00599": {
+    "num_patches": 6206,
+    "has_survival": true,
+    "survival_time": 466.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 12.07
+  },
+  "UPENN-GBM-00600": {
+    "num_patches": 4416,
+    "has_survival": true,
+    "survival_time": 594.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.32
+  },
+  "UPENN-GBM-00601": {
+    "num_patches": 4008,
+    "has_survival": true,
+    "survival_time": 435.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.26
+  },
+  "UPENN-GBM-00602": {
+    "num_patches": 4006,
+    "has_survival": true,
+    "survival_time": 252.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.68
+  },
+  "UPENN-GBM-00603": {
+    "num_patches": 4541,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 2.0
+  },
+  "UPENN-GBM-00604": {
+    "num_patches": 4448,
+    "has_survival": true,
+    "survival_time": 234.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 7.59
+  },
+  "UPENN-GBM-00605": {
+    "num_patches": 3937,
+    "has_survival": true,
+    "survival_time": 1565.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": false,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 10.5
+  },
+  "UPENN-GBM-00606": {
+    "num_patches": 4870,
+    "has_survival": true,
+    "survival_time": 1055.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 12.18
+  },
+  "UPENN-GBM-00607": {
+    "num_patches": 3842,
+    "has_survival": true,
+    "survival_time": 1025.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.71
+  },
+  "UPENN-GBM-00608": {
+    "num_patches": 3519,
+    "has_survival": true,
+    "survival_time": 666.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 11.04
+  },
+  "UPENN-GBM-00609": {
+    "num_patches": 776,
+    "has_survival": true,
+    "survival_time": 138.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": false,
+      "Perfusion": false
+    },
+    "time_seconds": 0.42
+  },
+  "UPENN-GBM-00610": {
+    "num_patches": 4773,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": false
+    },
+    "time_seconds": 6.09
+  },
+  "UPENN-GBM-00611": {
+    "num_patches": 4918,
+    "has_survival": true,
+    "survival_time": 551.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.04
+  },
+  "UPENN-GBM-00612": {
+    "num_patches": 3958,
+    "has_survival": true,
+    "survival_time": 80.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.99
+  },
+  "UPENN-GBM-00613": {
+    "num_patches": 4319,
+    "has_survival": true,
+    "survival_time": 76.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.08
+  },
+  "UPENN-GBM-00614": {
+    "num_patches": 3861,
+    "has_survival": true,
+    "survival_time": 372.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.93
+  },
+  "UPENN-GBM-00615": {
+    "num_patches": 4126,
+    "has_survival": true,
+    "survival_time": 636.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.41
+  },
+  "UPENN-GBM-00616": {
+    "num_patches": 3685,
+    "has_survival": true,
+    "survival_time": 159.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.07
+  },
+  "UPENN-GBM-00617": {
+    "num_patches": 3836,
+    "has_survival": true,
+    "survival_time": 240.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
+  },
+  "UPENN-GBM-00618": {
+    "num_patches": 3954,
+    "has_survival": true,
+    "survival_time": 124.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00619": {
+    "num_patches": 4723,
+    "has_survival": true,
+    "survival_time": 483.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.11
+  },
+  "UPENN-GBM-00620": {
+    "num_patches": 4065,
+    "has_survival": false,
+    "survival_time": null,
+    "event": 0,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.02
+  },
+  "UPENN-GBM-00621": {
+    "num_patches": 3776,
+    "has_survival": true,
+    "survival_time": 84.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.87
+  },
+  "UPENN-GBM-00622": {
+    "num_patches": 5066,
+    "has_survival": true,
+    "survival_time": 24.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
+  },
+  "UPENN-GBM-00623": {
+    "num_patches": 4401,
+    "has_survival": true,
+    "survival_time": 2021.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00624": {
+    "num_patches": 3956,
+    "has_survival": true,
+    "survival_time": 493.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.94
+  },
+  "UPENN-GBM-00625": {
+    "num_patches": 4250,
+    "has_survival": true,
+    "survival_time": 376.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 4.56
+  },
+  "UPENN-GBM-00626": {
+    "num_patches": 4045,
+    "has_survival": true,
+    "survival_time": 288.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.86
+  },
+  "UPENN-GBM-00627": {
+    "num_patches": 4127,
+    "has_survival": true,
+    "survival_time": 365.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.78
+  },
+  "UPENN-GBM-00628": {
+    "num_patches": 4276,
+    "has_survival": true,
+    "survival_time": 79.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.82
+  },
+  "UPENN-GBM-00629": {
+    "num_patches": 5013,
+    "has_survival": true,
+    "survival_time": 66.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 2.85
+  },
+  "UPENN-GBM-00630": {
+    "num_patches": 4769,
+    "has_survival": true,
+    "survival_time": 35.0,
+    "event": 1,
+    "modality_mask": {
+      "T1-pre": true,
+      "T1-post": true,
+      "T2": true,
+      "FLAIR": true,
+      "DTI": true,
+      "Perfusion": true
+    },
+    "time_seconds": 3.0
   }
 }
