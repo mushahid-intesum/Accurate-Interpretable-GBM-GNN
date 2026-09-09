@@ -12,11 +12,19 @@
 # ## 1. Environment Setup
 
 # %%
-import subprocess, sys
+import subprocess, sys, os
 
-# Install missing dependencies
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-q",
-                       "pydicom", "scipy"])
+# Install all project dependencies from requirements.txt
+REPO_DIR = "/workspace/arche"
+if not os.path.exists(os.path.join(REPO_DIR, "plan3a")):
+    os.system(f"git clone https://github.com/mushahid-intesum/arche-brain-tumor-gnn.git {REPO_DIR}")
+else:
+    print(f"Repo already at {REPO_DIR}")
+
+subprocess.check_call([
+    sys.executable, "-m", "pip", "install", "-q",
+    "-r", os.path.join(REPO_DIR, "requirements.txt")
+])
 
 import torch
 print(f"PyTorch: {torch.__version__}")
@@ -34,13 +42,6 @@ import os, sys
 from pathlib import Path
 
 REPO_DIR = "/workspace/arche"
-
-# Clone if not already present
-if not os.path.exists(os.path.join(REPO_DIR, "plan3a")):
-    os.system(f"git clone https://github.com/mushahid-intesum/arche-brain-tumor-gnn.git {REPO_DIR}")
-else:
-    print(f"Repo already at {REPO_DIR}")
-
 sys.path.insert(0, REPO_DIR)
 
 # Override config paths for RunPod
