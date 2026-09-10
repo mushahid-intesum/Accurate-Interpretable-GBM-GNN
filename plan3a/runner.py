@@ -40,6 +40,8 @@ from plan3a.config import (
     SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS, GRAD_ACCUM_STEPS,
     RUN_EXPERIMENT, RUN_LIMIT, RUN_AUDIT, CHECKPOINTS_DIR,
     EST_LAMBDA, EST_WARMUP_EPOCHS, EST_EVERY_N, EST_TOP_K,
+    CHECKPOINT_EVERY, RESUME_TRAINING,
+    LOG_BACKEND, WANDB_PROJECT, WANDB_ENTITY, TENSORBOARD_DIR,
 )
 from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
 from plan3a.data.hypergraph import build_patient_hypergraph
@@ -50,6 +52,118 @@ from plan3a.eval.task_metrics import (
 from plan3a.eval.faithfulness import (
     FaithfulnessAuditor, compute_rejection_ratios, _filter_hyperedges,
 )
+
+
+# ── Logging Helpers ──────────────────────────────────────────────────────
+
+def init_logger(exp_id, fold_idx, log_dir=None):
+    """Initialize TensorBoard or WandB logger. Returns a logger dict or None."""
+    backend = LOG_BACKEND
+    if backend is None:
+        return None
+
+    run_name = f"{exp_id}_fold{fold_idx}"
+
+    if backend == "tensorboard":
+        try:
+            from torch.utils.tensorboard import SummaryWriter
+        except ImportError:
+            print("    [warn] tensorboard not installed, skipping logging")
+            return None
+        tb_dir = log_dir or os.path.join(str(CHECKPOINTS_DIR), "tb_logs")
+        writer = SummaryWriter(log_dir=os.path.join(tb_dir, run_name))
+        return {"backend": "tensorboard", "writer": writer, "run_name": run_name}
+
+    elif backend == "wandb":
+        try:
+            import wandb
+        except ImportError:
+            print("    [warn] wandb not installed, skipping logging")
+            return None
+        wandb.init(
+            project=WANDB_PROJECT,
+            entity=WANDB_ENTITY,
+            name=run_name,
+            config={"exp_id": exp_id, "fold": fold_idx,
+                    "lr": LR, "epochs": EPOCHS, "weight_decay": WEIGHT_DECAY},
+            reinit=True,
+        )
+        return {"backend": "wandb", "run_name": run_name}
+
+    return None
+
+
+def log_metrics(logger, metrics, step, prefix=""):
+    """Log a dict of scalar metrics to the active backend."""
+    if logger is None:
+        return
+    tag = f"{prefix}/" if prefix else ""
+
+    if logger["backend"] == "tensorboard":
+        writer = logger["writer"]
+        for k, v in metrics.items():
+            if isinstance(v, (int, float)):
+                writer.add_scalar(f"{tag}{k}", v, step)
+        writer.flush()
+
+    elif logger["backend"] == "wandb":
+        import wandb
+        log_dict = {f"{tag}{k}": v for k, v in metrics.items()
+                    if isinstance(v, (int, float))}
+        log_dict["epoch"] = step
+        wandb.log(log_dict, step=step)
+
+
+def close_logger(logger):
+    """Flush and close the logger."""
+    if logger is None:
+        return
+    if logger["backend"] == "tensorboard":
+        logger["writer"].close()
+    elif logger["backend"] == "wandb":
+        import wandb
+        wandb.finish()
+
+
+# ── Checkpoint Helpers ───────────────────────────────────────────────────
+
+def save_checkpoint(save_dir, exp_id, fold_idx, epoch, model, optimizer,
+                    scheduler, best_ci, best_ep, history):
+    """Save a full training checkpoint for resume."""
+    os.makedirs(save_dir, exist_ok=True)
+    path = os.path.join(save_dir, f"{exp_id}_fold{fold_idx}_ckpt.pt")
+    torch.save({
+        "epoch": epoch,
+        "model_state_dict": model.state_dict(),
+        "optimizer_state_dict": optimizer.state_dict(),
+        "scheduler_state_dict": scheduler.state_dict(),
+        "best_ci": best_ci,
+        "best_ep": best_ep,
+        "history": history,
+    }, path)
+    return path
+
+
+def load_checkpoint(save_dir, exp_id, fold_idx, model, optimizer, scheduler, device):
+    """
+    Load a checkpoint if it exists. Returns (start_epoch, best_ci, best_ep, history)
+    or (0, 0.0, 0, []) if no checkpoint found.
+    """
+    path = os.path.join(save_dir, f"{exp_id}_fold{fold_idx}_ckpt.pt")
+    if not os.path.exists(path):
+        return 0, 0.0, 0, []
+
+    ckpt = torch.load(path, map_location=device, weights_only=False)
+    model.load_state_dict(ckpt["model_state_dict"])
+    optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+    scheduler.load_state_dict(ckpt["scheduler_state_dict"])
+    start_epoch = ckpt["epoch"]
+    best_ci = ckpt["best_ci"]
+    best_ep = ckpt["best_ep"]
+    history = ckpt["history"]
+    print(f"    ↻ Resumed from checkpoint: epoch {start_epoch}, "
+          f"best C-Index={best_ci:.4f} @ ep {best_ep}")
+    return start_epoch, best_ci, best_ep, history
 
 
 # ── Experiment Configurations ────────────────────────────────────────────
@@ -475,8 +589,41 @@ def run_experiment(
         best_ci = 0.0
         best_ep = 0
         history = []
+        start_epoch = 0
 
-        for ep in range(epochs):
+        # ── Resume from checkpoint ───────────────────────────────────
+        if RESUME_TRAINING and save_dir:
+            start_epoch, best_ci, best_ep, history = load_checkpoint(
+                save_dir, exp_id, fold_idx, model, optimizer, scheduler, device
+            )
+
+        if start_epoch >= epochs:
+            print(f"    ✓ Fold already complete ({start_epoch}/{epochs} epochs)")
+            fold_results.append({
+                "fold": fold_idx,
+                "best_c_index": best_ci,
+                "best_epoch": best_ep,
+                "n_params": n_params,
+                "history": history,
+                "n_audit": 0,
+            })
+            continue
+
+        # ── Init logger ──────────────────────────────────────────────
+        tb_dir = TENSORBOARD_DIR or (os.path.join(save_dir, "tb_logs") if save_dir else None)
+        logger = init_logger(exp_id, fold_idx, log_dir=tb_dir)
+
+        # ── Replay logged history for resumed loggers ────────────────
+        if start_epoch > 0 and logger is not None:
+            for h in history:
+                log_metrics(logger, {
+                    "train_loss": h["train_loss"],
+                    "val_c_index": h["val_c_index"],
+                    "concept_corr": h["concept_corr"],
+                    "est_loss": h.get("est_loss", 0),
+                }, step=h["epoch"])
+
+        for ep in range(start_epoch, epochs):
             t0 = time.time()
             tm = train_epoch(
                 model, train_ds, optimizer, time_bins, device,
@@ -486,12 +633,27 @@ def run_experiment(
             vm = evaluate_epoch(model, val_ds, time_bins, device)
             elapsed = time.time() - t0
 
+            current_lr = optimizer.param_groups[0]["lr"]
+
             est_str = f" est={tm['est_loss']:.4f}" if tm["est_loss"] > 0 else ""
             print(f"    Ep {ep+1:3d} | loss={tm['loss']:.4f} "
                   f"surv={tm['survival_loss']:.4f} conc={tm['concept_loss']:.4f}"
                   f"{est_str} "
                   f"| val C-Idx={vm['c_index']:.4f} r={vm['mean_concept_corr']:.3f} "
-                  f"| {elapsed:.1f}s")
+                  f"| lr={current_lr:.2e} | {elapsed:.1f}s")
+
+            # ── Log metrics ───────────────────────────────────────────
+            log_metrics(logger, {
+                "train/loss": tm["loss"],
+                "train/survival_loss": tm["survival_loss"],
+                "train/concept_loss": tm["concept_loss"],
+                "train/est_loss": tm["est_loss"],
+                "val/c_index": vm["c_index"],
+                "val/loss": vm["loss"],
+                "val/concept_corr": vm["mean_concept_corr"],
+                "lr": current_lr,
+                "epoch_time_s": elapsed,
+            }, step=ep + 1)
 
             if vm["c_index"] > best_ci:
                 best_ci = vm["c_index"]
@@ -499,7 +661,7 @@ def run_experiment(
                 if save_dir:
                     os.makedirs(save_dir, exist_ok=True)
                     torch.save(model.state_dict(),
-                               os.path.join(save_dir, f"{exp_id}_fold{fold_idx}.pt"))
+                               os.path.join(save_dir, f"{exp_id}_fold{fold_idx}_best.pt"))
 
             history.append({
                 "epoch": ep + 1,
@@ -508,6 +670,16 @@ def run_experiment(
                 "concept_corr": vm["mean_concept_corr"],
                 "est_loss": tm["est_loss"],
             })
+
+            # ── Save checkpoint ───────────────────────────────────────
+            if save_dir and (ep + 1) % CHECKPOINT_EVERY == 0:
+                save_checkpoint(
+                    save_dir, exp_id, fold_idx, ep + 1,
+                    model, optimizer, scheduler, best_ci, best_ep, history
+                )
+
+        # ── Close logger ─────────────────────────────────────────────
+        close_logger(logger)
 
         # Post-training faithfulness audit
         fold_audits = []
@@ -520,6 +692,12 @@ def run_experiment(
                     report = auditor.audit_patient(data, top_k_ratio=0.2)
                     fold_audits.append(report)
                     all_audit_reports.append(report)
+
+        # ── Clean up checkpoint after fold completes ─────────────────
+        if save_dir:
+            ckpt_path = os.path.join(save_dir, f"{exp_id}_fold{fold_idx}_ckpt.pt")
+            if os.path.exists(ckpt_path):
+                os.remove(ckpt_path)
 
         print(f"    Best: C-Index={best_ci:.4f} @ epoch {best_ep}")
 

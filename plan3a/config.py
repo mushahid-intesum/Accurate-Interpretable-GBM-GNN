@@ -102,13 +102,23 @@ TRAIN_LIMIT = None                 # int or None — limit patients for testing
 TRAIN_FOLD = None                  # int or None — run only this fold (0-indexed), None = all
 
 # Runner (runner.py)
-RUN_EXPERIMENT = "E7"              # str — "E1"–"E6" or "all"
+RUN_EXPERIMENT = "E7"              # str — "E1"–"E7" or "all"
 RUN_LIMIT = None                   # int or None — limit patients
 RUN_AUDIT = True                   # bool — run faithfulness audit post-training
+
+# Checkpointing
+CHECKPOINT_EVERY = 1               # save checkpoint every N epochs
+RESUME_TRAINING = True             # if True, auto-resume from latest checkpoint
+
+# Logging — set LOG_BACKEND to "tensorboard", "wandb", or None to disable
+LOG_BACKEND = "tensorboard"        # "tensorboard" | "wandb" | None
+WANDB_PROJECT = "plan3a-ablation"  # wandb project name (only if LOG_BACKEND="wandb")
+WANDB_ENTITY = None                # wandb entity/team (None = personal)
+TENSORBOARD_DIR = None             # path for TB logs (None = CHECKPOINTS_DIR/tb_logs)
 
 # Report (report.py)
 RESULTS_JSON = None                # str or None — path to ablation_results.json (None = auto)
 REPORT_OUTPUT = None               # str or None — path for RESULTS.md (None = auto)
 
 # Derived paths
-CHECKPOINTS_DIR = PROJECT_ROOT + "/plan3a" + "/checkpoints"
+CHECKPOINTS_DIR = PROJECT_ROOT + "/plan3a/checkpoints"
