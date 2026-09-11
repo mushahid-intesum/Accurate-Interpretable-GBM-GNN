@@ -72,7 +72,7 @@ PATCH_ENCODER_CHANNELS = [32, 64]  # small CNN for patch encoding
 NUM_CLINICAL_GROUPS = 5
 
 # ── Training ───────────────────────────────────────────────────────────────
-BATCH_SIZE = 16
+BATCH_SIZE = 64
 GRAD_ACCUM_STEPS = 4
 LR = 1e-4
 WEIGHT_DECAY = 1e-5
@@ -110,7 +110,7 @@ TRAIN_LIMIT = None                 # int or None — limit patients for testing
 TRAIN_FOLD = None                  # int or None — run only this fold (0-indexed), None = all
 
 # Runner (runner.py)
-RUN_EXPERIMENT = "E7"              # str — "E1"–"E7" or "all"
+RUN_EXPERIMENT = "E5"              # str — "E1"–"E7" or "all"
 RUN_LIMIT = None                   # int or None — limit patients
 RUN_AUDIT = True                   # bool — run faithfulness audit post-training
 
