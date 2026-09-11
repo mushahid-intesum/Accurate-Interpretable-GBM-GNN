@@ -30,6 +30,7 @@ from datetime import datetime
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
@@ -42,10 +43,12 @@ from plan3a.config import (
     EST_LAMBDA, EST_WARMUP_EPOCHS, EST_EVERY_N, EST_TOP_K,
     CHECKPOINT_EVERY, RESUME_TRAINING,
     LOG_BACKEND, WANDB_PROJECT, WANDB_ENTITY, TENSORBOARD_DIR,
+    EARLY_STOPPING_PATIENCE, LR_WARMUP_EPOCHS,
+    USE_RANKING_LOSS, RANKING_LOSS_WEIGHT,
 )
 from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
 from plan3a.data.hypergraph import build_patient_hypergraph
-from plan3a.model.full_model import Plan3aModel, NLLSurvivalLoss
+from plan3a.model.full_model import Plan3aModel, NLLSurvivalLoss, CoxRankingLoss
 from plan3a.eval.task_metrics import (
     concordance_index, concept_metrics, hazard_to_risk, compute_time_bins,
 )
@@ -380,7 +383,7 @@ def compute_est_loss(model, node_features, hyperedge_index,
 
 def train_epoch(model, dataset, optimizer, time_bins, device,
                 exp_config, current_epoch=0, grad_accum=GRAD_ACCUM_STEPS):
-    """Train one epoch with optional EST regularization."""
+    """Train one epoch with optional EST regularization and ranking loss."""
     model.train()
     optimizer.zero_grad()
 
@@ -388,6 +391,7 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
     total_surv = 0.0
     total_conc = 0.0
     total_est = 0.0
+    total_rank = 0.0
     n = 0
     n_est = 0
 
@@ -395,6 +399,12 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
         exp_config.get("est_regularize", False)
         and current_epoch >= EST_WARMUP_EPOCHS
     )
+
+    # Ranking loss: accumulate predictions within grad_accum steps
+    ranking_loss_fn = CoxRankingLoss() if USE_RANKING_LOSS else None
+    accum_risks = []
+    accum_times = []
+    accum_events = []
 
     for i in range(len(dataset)):
         data = dataset[i]
@@ -429,10 +439,62 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
             total_est += est_loss.item()
             n_est += 1
 
+        # ── Accumulate detached info for ranking loss ──────────────────
+        if ranking_loss_fn is not None:
+            # Detached — we'll use these for comparison, not for gradients
+            accum_risks.append(torch.sigmoid(outputs["hazard_logits"]).sum(dim=-1).squeeze().detach())
+            accum_times.append(data["survival_time"].to(device).detach())
+            accum_events.append(data["event"].to(device).detach())
+
         loss = loss / grad_accum
         loss.backward()
 
         if (i + 1) % grad_accum == 0 or (i + 1) == len(dataset):
+            # ── Ranking loss: re-forward last sample for fresh gradients ──
+            if ranking_loss_fn is not None and len(accum_risks) >= 2:
+                # Quick re-forward on current sample for fresh computation graph
+                re_out = model(
+                    node_features=nf, hyperedge_index=he,
+                    num_nodes=data["num_nodes"], num_edges=data["num_hyperedges"],
+                    concept_targets=ct, clinical_features=cl,
+                )
+                current_risk = torch.sigmoid(re_out["hazard_logits"]).sum(dim=-1).squeeze()
+
+                # Build comparison targets from accumulated buffer
+                buf_risks = torch.stack(accum_risks[:-1])  # all except current
+                buf_times = torch.stack(accum_times[:-1]).float()
+                buf_events = torch.stack(accum_events[:-1]).float()
+
+                # Pairwise ranking: compare current patient against buffer
+                current_time = accum_times[-1].float()
+                current_event = accum_events[-1].float()
+                rank_loss = torch.tensor(0.0, device=device)
+                n_pairs = 0
+
+                if current_event.item() == 1:
+                    # Current died: should have higher risk than those who survived longer
+                    later = buf_times > current_time
+                    if later.any():
+                        diff = current_risk - buf_risks[later]
+                        rank_loss = rank_loss + (-F.logsigmoid(diff)).sum()
+                        n_pairs += later.sum().item()
+
+                # Others who died before current: they should have higher risk
+                died_before = (buf_events == 1) & (buf_times < current_time)
+                if died_before.any():
+                    diff = buf_risks[died_before] - current_risk
+                    rank_loss = rank_loss + (-F.logsigmoid(diff)).sum()
+                    n_pairs += died_before.sum().item()
+
+                if n_pairs > 0:
+                    rank_loss = RANKING_LOSS_WEIGHT * rank_loss / n_pairs
+                    rank_loss.backward()
+                    total_rank += (rank_loss.item() / RANKING_LOSS_WEIGHT)
+
+                accum_risks.clear()
+                accum_times.clear()
+                accum_events.clear()
+
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
             optimizer.zero_grad()
@@ -442,11 +504,13 @@ def train_epoch(model, dataset, optimizer, time_bins, device,
         total_conc += losses["concept_loss"].item()
         n += 1
 
+    n_accum_steps = max(n // grad_accum, 1)
     return {
         "loss": total_loss / max(n, 1),
         "survival_loss": total_surv / max(n, 1),
         "concept_loss": total_conc / max(n, 1),
         "est_loss": total_est / max(n_est, 1),
+        "ranking_loss": total_rank / n_accum_steps,
         "n_samples": n,
         "n_est_samples": n_est,
     }
@@ -584,10 +648,29 @@ def run_experiment(
 
         n_params = sum(p.numel() for p in model.parameters())
         optimizer = AdamW(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
-        scheduler = CosineAnnealingLR(optimizer, T_max=epochs, eta_min=LR * 0.01)
+
+        # LR schedule: linear warmup → cosine decay
+        if LR_WARMUP_EPOCHS > 0:
+            from torch.optim.lr_scheduler import LinearLR, SequentialLR
+            warmup_scheduler = LinearLR(
+                optimizer, start_factor=0.01, end_factor=1.0,
+                total_iters=LR_WARMUP_EPOCHS,
+            )
+            cosine_scheduler = CosineAnnealingLR(
+                optimizer, T_max=max(epochs - LR_WARMUP_EPOCHS, 1),
+                eta_min=LR * 0.01,
+            )
+            scheduler = SequentialLR(
+                optimizer,
+                schedulers=[warmup_scheduler, cosine_scheduler],
+                milestones=[LR_WARMUP_EPOCHS],
+            )
+        else:
+            scheduler = CosineAnnealingLR(optimizer, T_max=epochs, eta_min=LR * 0.01)
 
         best_ci = 0.0
         best_ep = 0
+        no_improve_count = 0
         history = []
         start_epoch = 0
 
@@ -636,9 +719,10 @@ def run_experiment(
             current_lr = optimizer.param_groups[0]["lr"]
 
             est_str = f" est={tm['est_loss']:.4f}" if tm["est_loss"] > 0 else ""
+            rank_str = f" rank={tm['ranking_loss']:.4f}" if tm.get('ranking_loss', 0) > 0 else ""
             print(f"    Ep {ep+1:3d} | loss={tm['loss']:.4f} "
                   f"surv={tm['survival_loss']:.4f} conc={tm['concept_loss']:.4f}"
-                  f"{est_str} "
+                  f"{est_str}{rank_str} "
                   f"| val C-Idx={vm['c_index']:.4f} r={vm['mean_concept_corr']:.3f} "
                   f"| lr={current_lr:.2e} | {elapsed:.1f}s")
 
@@ -648,6 +732,7 @@ def run_experiment(
                 "train/survival_loss": tm["survival_loss"],
                 "train/concept_loss": tm["concept_loss"],
                 "train/est_loss": tm["est_loss"],
+                "train/ranking_loss": tm.get("ranking_loss", 0),
                 "val/c_index": vm["c_index"],
                 "val/loss": vm["loss"],
                 "val/concept_corr": vm["mean_concept_corr"],
@@ -658,10 +743,13 @@ def run_experiment(
             if vm["c_index"] > best_ci:
                 best_ci = vm["c_index"]
                 best_ep = ep + 1
+                no_improve_count = 0
                 if save_dir:
                     os.makedirs(save_dir, exist_ok=True)
                     torch.save(model.state_dict(),
                                os.path.join(save_dir, f"{exp_id}_fold{fold_idx}_best.pt"))
+            else:
+                no_improve_count += 1
 
             history.append({
                 "epoch": ep + 1,
@@ -669,6 +757,7 @@ def run_experiment(
                 "val_c_index": vm["c_index"],
                 "concept_corr": vm["mean_concept_corr"],
                 "est_loss": tm["est_loss"],
+                "ranking_loss": tm.get("ranking_loss", 0),
             })
 
             # ── Save checkpoint ───────────────────────────────────────
@@ -677,6 +766,12 @@ def run_experiment(
                     save_dir, exp_id, fold_idx, ep + 1,
                     model, optimizer, scheduler, best_ci, best_ep, history
                 )
+
+            # ── Early stopping ────────────────────────────────────────
+            if EARLY_STOPPING_PATIENCE and no_improve_count >= EARLY_STOPPING_PATIENCE:
+                print(f"    ⏹ Early stopping: no improvement for "
+                      f"{EARLY_STOPPING_PATIENCE} epochs (best={best_ci:.4f} @ ep {best_ep})")
+                break
 
         # ── Close logger ─────────────────────────────────────────────
         close_logger(logger)

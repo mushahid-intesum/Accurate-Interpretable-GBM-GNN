@@ -64,11 +64,11 @@ SURVIVAL_STATUS_MAP = {
 TOPO_HYPEREDGE_RADIUS = 2.5       # spatial δ for topological hyperedges (in patch-grid units)
 FEATURE_HYPEREDGE_K = 9           # top-k for feature-based hyperedges (from MRePath ablation)
 SHEAF_HGNN_LAYERS = 3
-SHEAF_HGNN_DIM = 128
+SHEAF_HGNN_DIM = 64
 
 # ── Model ──────────────────────────────────────────────────────────────────
-EMBED_DIM = 128
-PATCH_ENCODER_CHANNELS = [32, 64, 128]  # small CNN for patch encoding
+EMBED_DIM = 64
+PATCH_ENCODER_CHANNELS = [32, 64]  # small CNN for patch encoding
 NUM_CLINICAL_GROUPS = 5
 
 # ── Training ───────────────────────────────────────────────────────────────
@@ -76,8 +76,16 @@ BATCH_SIZE = 16
 GRAD_ACCUM_STEPS = 4
 LR = 1e-4
 WEIGHT_DECAY = 1e-5
-EPOCHS = 10
+EPOCHS = 30
 NUM_FOLDS = 5
+
+# ── Early Stopping & Scheduling ────────────────────────────────────────────
+EARLY_STOPPING_PATIENCE = 7        # stop if val C-Index doesn't improve for N epochs
+LR_WARMUP_EPOCHS = 3               # linear warmup before cosine decay
+
+# ── Ranking Loss ───────────────────────────────────────────────────────────
+USE_RANKING_LOSS = True             # add pairwise concordance ranking loss
+RANKING_LOSS_WEIGHT = 0.5           # weight for ranking loss in total loss
 
 # ── Device ─────────────────────────────────────────────────────────────────
 import torch

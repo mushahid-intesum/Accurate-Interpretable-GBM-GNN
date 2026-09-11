@@ -117,6 +117,65 @@ class NLLSurvivalLoss(nn.Module):
         return loss / max(B, 1)
 
 
+class CoxRankingLoss(nn.Module):
+    """
+    Pairwise concordance ranking loss (differentiable C-Index proxy).
+
+    For each concordant pair (i, j) where t_i < t_j and event_i = 1:
+        loss += -log(σ(risk_i - risk_j))
+
+    This directly optimizes the ranking that C-Index measures.
+    Unlike NLL on discrete bins, this uses the continuous risk ordering.
+
+    Reference: DeepSurv (Katzman et al. 2018), adapted for per-batch use.
+    """
+
+    def __init__(self, margin: float = 0.0):
+        super().__init__()
+        self.margin = margin
+
+    def forward(
+        self,
+        risk_scores: torch.Tensor,
+        survival_times: torch.Tensor,
+        events: torch.Tensor,
+    ) -> torch.Tensor:
+        """
+        Args:
+            risk_scores: (N,) predicted risk scores (higher = worse prognosis)
+            survival_times: (N,) survival times in days
+            events: (N,) 1=deceased, 0=censored
+
+        Returns:
+            loss: scalar ranking loss (0 if no valid pairs)
+        """
+        N = risk_scores.shape[0]
+        if N < 2:
+            return torch.tensor(0.0, device=risk_scores.device, requires_grad=True)
+
+        loss = torch.tensor(0.0, device=risk_scores.device)
+        n_pairs = 0
+
+        for i in range(N):
+            if events[i].item() != 1:
+                continue
+            # Find all j where t_j > t_i (patient i died before j)
+            mask = survival_times > survival_times[i]
+            if not mask.any():
+                continue
+
+            # risk_i should be higher than risk_j (i died first)
+            diff = risk_scores[i] - risk_scores[mask] - self.margin
+            pair_loss = -F.logsigmoid(diff)
+            loss = loss + pair_loss.sum()
+            n_pairs += mask.sum().item()
+
+        if n_pairs == 0:
+            return torch.tensor(0.0, device=risk_scores.device, requires_grad=True)
+
+        return loss / n_pairs
+
+
 class Plan3aModel(nn.Module):
     """
     Full Plan 3a Model: Hypergraph Concept Bottleneck GNN.
