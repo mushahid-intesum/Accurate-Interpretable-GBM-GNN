@@ -301,54 +301,48 @@ def run_analysis(
 
 
 if __name__ == "__main__":
-    import argparse
+    EXPERIMENT_FAITHFULNESS = "faithfulness"
+    EXPERIMENT_INTERVENTION = "intervention"
+    EXPERIMENT_ANALYSIS = "analysis"
+    EXPERIMENT_ALL = "all"
 
-    parser = argparse.ArgumentParser(
-        description="Run explainability experiments"
-    )
-    parser.add_argument(
-        "--experiment", type=str, required=True,
-        choices=["faithfulness", "intervention", "analysis", "all"],
-        help="Which experiment to run",
-    )
-    parser.add_argument("--processed-dir", type=str, default=None)
-    parser.add_argument("--checkpoint-e6", type=str, default=None,
-                        help="Path to E6 (CBM+EST) checkpoint")
-    parser.add_argument("--checkpoint-e3", type=str, default=None,
-                        help="Path to E3 (CBM, no EST) checkpoint")
-    parser.add_argument("--n-patients", type=int, default=25)
-    parser.add_argument("--device", type=str, default="cpu")
-    parser.add_argument("--top-k", type=float, default=0.2)
-    parser.add_argument("--gnn-epochs", type=int, default=200)
-    parser.add_argument("--ig-steps", type=int, default=50)
-    parser.add_argument("--est-samples", type=int, default=50)
-    args = parser.parse_args()
+    EXPERIMENT = EXPERIMENT_ALL
 
-    if args.experiment in ("faithfulness", "all"):
+    PROCESSED_DIR_ = None
+    CHECKPOINT_E6 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E6_fold4_best.pt'  # Path to E6 (CBM+EST) checkpoint
+    CHECKPOINT_E3 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E3_fold4_best.pt'  # Path to E3 (CBM, no EST) checkpoint
+    N_PATIENTS = 50
+    DEVICE = "cuda"
+    TOP_K = 0.2
+    GNN_EPOCHS = 200
+    IG_STEPS = 50
+    EST_SAMPLES = 50
+
+    if EXPERIMENT in (EXPERIMENT_FAITHFULNESS, EXPERIMENT_ALL):
         run_faithfulness_comparison(
-            processed_dir=args.processed_dir,
-            checkpoint_e6=args.checkpoint_e6,
-            checkpoint_e3=args.checkpoint_e3,
-            n_patients=args.n_patients,
-            device=args.device,
-            top_k_ratio=args.top_k,
-            gnn_explainer_epochs=args.gnn_epochs,
-            ig_steps=args.ig_steps,
-            est_samples=args.est_samples,
+            processed_dir=PROCESSED_DIR_,
+            checkpoint_e6=CHECKPOINT_E6,
+            checkpoint_e3=CHECKPOINT_E3,
+            n_patients=N_PATIENTS,
+            device=DEVICE,
+            top_k_ratio=TOP_K,
+            gnn_explainer_epochs=GNN_EPOCHS,
+            ig_steps=IG_STEPS,
+            est_samples=EST_SAMPLES,
         )
 
-    if args.experiment in ("intervention", "all"):
+    if EXPERIMENT in (EXPERIMENT_INTERVENTION, EXPERIMENT_ALL):
         run_intervention(
-            processed_dir=args.processed_dir,
-            checkpoint_e6=args.checkpoint_e6,
-            n_patients=args.n_patients,
-            device=args.device,
+            processed_dir=PROCESSED_DIR_,
+            checkpoint_e6=CHECKPOINT_E6,
+            n_patients=N_PATIENTS,
+            device=DEVICE,
         )
 
-    if args.experiment in ("analysis", "all"):
+    if EXPERIMENT in (EXPERIMENT_ANALYSIS, EXPERIMENT_ALL):
         run_analysis(
-            processed_dir=args.processed_dir,
-            checkpoint_e6=args.checkpoint_e6,
-            n_patients=args.n_patients,
-            device=args.device,
+            processed_dir=PROCESSED_DIR,
+            checkpoint_e6=CHECKPOINT_E6,
+            n_patients=N_PATIENTS,
+            device=DEVICE,
         )
