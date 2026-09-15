@@ -610,7 +610,7 @@ def run_mrepath(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
 
 
 if __name__ == "__main__":
-    model = 'mrepath'
+    model = 'hypercbm'
     epochs = None
     processed_dir = None
 
