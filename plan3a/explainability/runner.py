@@ -40,23 +40,80 @@ def _load_model(checkpoint_path=None, device="cpu"):
     """
     Load a trained Plan3aModel.
 
+    Auto-detects architecture config from the checkpoint's state dict
+    (fusion, HECRL, tree, etc.) so E3 and E6 checkpoints with different
+    configs both load correctly.
+
     If no checkpoint is provided, creates an untrained model
     (for smoke testing the pipeline).
     """
     from plan3a.model.full_model import Plan3aModel
 
-    model = Plan3aModel(
+    # Default config
+    config = dict(
         patch_dim=1536, embed_dim=64, num_layers=3,
         clinical_dim=18, num_survival_bins=4,
         use_hecrl=True, use_fusion=True,
+        residual_bypass=False, use_tree=False,
     )
 
+    state_dict = None
     if checkpoint_path and os.path.exists(checkpoint_path):
-        state = torch.load(checkpoint_path, map_location=device)
+        state = torch.load(checkpoint_path, map_location=device,
+                           weights_only=False)
         if "model_state_dict" in state:
-            model.load_state_dict(state["model_state_dict"])
+            state_dict = state["model_state_dict"]
         else:
-            model.load_state_dict(state)
+            state_dict = state
+
+        # Load saved config if available
+        if "config" in state:
+            saved = state["config"]
+            for k in config:
+                if k in saved:
+                    config[k] = saved[k]
+
+        # Auto-detect from state dict keys
+        has_fusion = any(k.startswith("fusion.") for k in state_dict)
+        has_hecrl = any("hecrl." in k for k in state_dict)
+        has_tree = any(k.startswith("tree.") for k in state_dict)
+        has_bypass = any("residual_bypass" in k or "bypass" in k
+                         for k in state_dict)
+
+        config["use_fusion"] = has_fusion
+        config["use_hecrl"] = has_hecrl
+        config["use_tree"] = has_tree
+
+        # Detect embed_dim from first layer weight shape
+        for k, v in state_dict.items():
+            if "shgnn.layers.0.vertex_to_edge.weight" in k:
+                config["embed_dim"] = v.shape[0]
+                break
+
+        # Detect num_survival_bins from survival head
+        for k, v in state_dict.items():
+            if "survival_head" in k and "weight" in k and v.dim() == 2:
+                config["num_survival_bins"] = v.shape[0]
+                break
+
+        # Detect num_layers from layer keys
+        layer_ids = set()
+        for k in state_dict:
+            if k.startswith("shgnn.layers."):
+                parts = k.split(".")
+                if len(parts) > 2 and parts[2].isdigit():
+                    layer_ids.add(int(parts[2]))
+        if layer_ids:
+            config["num_layers"] = max(layer_ids) + 1
+
+        print(f"  Auto-detected config: fusion={has_fusion}, "
+              f"hecrl={has_hecrl}, tree={has_tree}, "
+              f"embed={config['embed_dim']}, layers={config['num_layers']}")
+
+    model = Plan3aModel(**config)
+
+    if state_dict is not None:
+        model.load_state_dict(state_dict)
         print(f"  Loaded checkpoint: {checkpoint_path}")
     else:
         print(f"  WARNING: No checkpoint loaded, using untrained model")
