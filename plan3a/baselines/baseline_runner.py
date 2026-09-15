@@ -553,6 +553,22 @@ def run_hypercbm(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
     )
 
 
+def run_mrepath(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
+    """Run standalone MRePath baseline with 5-fold CV."""
+    from plan3a.baselines.mrepath import StandaloneMRePath
+
+    return run_graph_baseline(
+        model_name="MRePath",
+        model_factory=lambda: StandaloneMRePath(),
+        use_concepts=False,
+        use_clinical=True,
+        processed_dir=processed_dir,
+        n_folds=n_folds,
+        epochs=epochs,
+        patience=patience,
+    )
+
+
 # ── CLI ──────────────────────────────────────────────────────────────────
 
 
@@ -588,5 +604,13 @@ if __name__ == "__main__":
         )
 
     if args.model in ("mrepath", "all"):
-        # Will be implemented in mrepath.py
-        print("MRePath: not yet implemented")
+        from plan3a.baselines.mrepath import StandaloneMRePath
+
+        run_graph_baseline(
+            model_name="MRePath",
+            model_factory=lambda: StandaloneMRePath(),
+            use_concepts=False,
+            use_clinical=True,
+            processed_dir=args.processed_dir,
+            epochs=args.epochs or 30,
+        )
