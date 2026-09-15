@@ -1,15 +1,19 @@
 """
 Attention Explainer — use the model's own attention weights as explanations.
 
-The Plan3a model already computes attention scores in two places:
-  1. GraphPooling: (N, 1) attention over nodes for graph-level readout
-  2. HECRL: (N, C, C) concept-level self-attention
+Extracts attention scores from two sources already computed during
+the forward pass:
 
-For node-level importance, we use GraphPooling attention since it directly
-determines which nodes the model considers for the final prediction.
-This is what the model literally uses to decide which nodes matter.
+1. GraphPooling.attention: (N, 1) learned attention for graph readout.
+   These weights determine how much each node contributes to the
+   graph-level embedding. This is what the model literally uses
+   to decide which nodes matter for survival prediction.
 
-No additional computation needed, just a forward pass with hooks.
+2. HECRL.attention: concept-level self-attention (optional, for analysis).
+   Shows which concept pairs the model considers correlated.
+
+For node-level importance, source 1 (pooling attention) is used.
+No gradient computation needed. Just a forward pass with hooks.
 """
 import torch
 import torch.nn.functional as F
@@ -22,65 +26,72 @@ class AttentionExplainer(BaseExplainer):
     """
     Explanation via the model's internal attention weights.
 
-    Captures GraphPooling attention scores during a forward pass
-    using a forward hook. These scores are the model's own assessment
-    of per-node importance for the graph-level representation.
+    Uses a forward hook on GraphPooling to capture the attention
+    scores that determine how nodes are weighted during pooling.
     """
 
-    def explain(self, patient_data: Dict) -> Dict:
+    def explain(self, patient_data: Dict) -> Dict[str, torch.Tensor]:
         self.model.eval()
-        node_features, hg, n_nodes, n_edges, clinical, concepts = \
+        node_feats, hg, num_nodes, num_edges, concepts, clinical = (
             self._prepare_inputs(patient_data)
+        )
 
-        # Register hook to capture attention scores
-        captured_attention = {}
+        # Storage for captured attention
+        captured = {}
 
-        def _hook_fn(module, input, output):
-            # GraphPooling.attention is a Sequential that outputs (N, 1)
-            # We want the raw scores before softmax
-            # The hook fires on the attention submodule's forward
-            captured_attention["raw_scores"] = output.detach()
+        def _pooling_hook(module, input, output):
+            """Capture attention scores from GraphPooling."""
+            x = input[0]  # (N, embed_dim)
+            attn_scores = module.attention(x)  # (N, 1)
+            captured["pooling_attn_raw"] = attn_scores.detach()
+            captured["pooling_attn_weights"] = F.softmax(
+                attn_scores, dim=0
+            ).detach()
 
-        # Find the pooler's attention submodule
-        pooler = self.model.pooler
-        hook = pooler.attention.register_forward_hook(_hook_fn)
+        # Register hook on the pooler
+        hook = self.model.pooler.register_forward_hook(_pooling_hook)
+
+        # Capture HECRL attention if available
+        hecrl_hook = None
+        if hasattr(self.model, "concept_bottleneck"):
+            cb = self.model.concept_bottleneck
+            if hasattr(cb, "hecrl") and hasattr(cb.hecrl, "attention"):
+                def _hecrl_hook(module, input, output):
+                    # MultiheadAttention returns (attn_output, attn_weights)
+                    if isinstance(output, tuple) and len(output) >= 2:
+                        captured["hecrl_attn"] = output[1].detach()
+                hecrl_hook = cb.hecrl.attention.register_forward_hook(_hecrl_hook)
 
         try:
             with torch.no_grad():
                 outputs = self.model(
-                    node_features=node_features,
+                    node_features=node_feats,
                     hyperedge_index=hg,
-                    num_nodes=n_nodes,
-                    num_edges=n_edges,
+                    num_nodes=num_nodes,
+                    num_edges=num_edges,
                     concept_targets=concepts,
                     clinical_features=clinical,
                 )
         finally:
             hook.remove()
+            if hecrl_hook is not None:
+                hecrl_hook.remove()
 
-        # Extract attention scores
-        if "raw_scores" in captured_attention:
-            # raw_scores: (N, 1) from GraphPooling.attention
-            attn_scores = captured_attention["raw_scores"].squeeze(-1)  # (N,)
-            # Normalize to [0, 1] for importance
-            attn_weights = F.softmax(attn_scores, dim=0)  # (N,)
-            importance = attn_weights
+        # Node importance from pooling attention
+        if "pooling_attn_weights" in captured:
+            importance = captured["pooling_attn_weights"].squeeze(-1)  # (N,)
         else:
             # Fallback: uniform importance
-            importance = torch.ones(n_nodes, device=self.device) / n_nodes
-
-        mask = self._to_mask(importance, n_nodes)
+            importance = torch.ones(num_nodes, device=self.device) / num_nodes
 
         return {
             "node_importance": importance,
-            "explanation_mask": mask,
+            "explanation_mask": self._to_mask(importance, num_nodes),
             "full_prediction": outputs["hazard_logits"].detach(),
             "metadata": {
                 "method": "attention",
-                "attn_entropy": float(-(importance * torch.log(importance + 1e-10)).sum()),
+                "pooling_attn_raw": captured.get("pooling_attn_raw"),
+                "hecrl_attn": captured.get("hecrl_attn"),
+                "attn_entropy": -(importance * torch.log(importance + 1e-8)).sum().item(),
             },
         }
-
-    @property
-    def name(self):
-        return "Attention"

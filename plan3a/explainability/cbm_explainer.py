@@ -1,17 +1,18 @@
 """
 CBM Explainer — ante-hoc explanation via concept activation magnitude.
 
-Uses the concept bottleneck's own outputs as explanations:
+Uses the concept bottleneck's own activations as the explanation:
     importance(node_i) = ||concepts_i||_2
 
-Nodes with high concept activation magnitude are considered important
-because they contribute the most to the bottleneck's representation.
+Nodes where the model predicts strong concept values (high enhancement,
+high necrosis, etc.) are considered the most important for the prediction.
 
-This is used for both:
-  - CBM (E3, no EST): explanation from model trained without EST
-  - CBM+EST (E6): explanation from model trained with EST regularization
+This is the same logic used in eval/faithfulness.py ExplanationExtractor,
+reimplemented here for the unified explainer interface.
 
-Same extraction code, different model weights.
+For E3 (no EST): loads E3 checkpoint -> concepts without faithfulness training
+For E6 (with EST): loads E6 checkpoint -> EST-regularized concepts
+Same code, different model weights.
 """
 import torch
 from typing import Dict
@@ -23,49 +24,38 @@ class CBMExplainer(BaseExplainer):
     """
     Concept Bottleneck explanation.
 
-    Importance = L2 norm of concept activation vector per node.
-    This measures how strongly each node activates the clinical concepts.
+    Importance = L2 norm of the 8-dimensional concept activation
+    vector at each node. Nodes with high concept magnitude are
+    the ones the model considers most informative.
     """
 
-    def __init__(self, model, top_k_ratio=0.2, device="cpu", label=None):
-        """
-        Args:
-            label: display name override (e.g. "CBM (E3)" or "CBM+EST (E6)")
-        """
-        super().__init__(model, top_k_ratio, device)
-        self._label = label
-
-    def explain(self, patient_data: Dict) -> Dict:
+    def explain(self, patient_data: Dict) -> Dict[str, torch.Tensor]:
         self.model.eval()
-        node_features, hg, n_nodes, n_edges, clinical, concepts = \
+        node_feats, hg, num_nodes, num_edges, concepts, clinical = (
             self._prepare_inputs(patient_data)
+        )
 
         with torch.no_grad():
             outputs = self.model(
-                node_features=node_features,
+                node_features=node_feats,
                 hyperedge_index=hg,
-                num_nodes=n_nodes,
-                num_edges=n_edges,
+                num_nodes=num_nodes,
+                num_edges=num_edges,
                 concept_targets=concepts,
                 clinical_features=clinical,
             )
 
         # Importance = L2 norm of concept activations per node
-        concept_acts = outputs["concepts"]  # (N, 8)
-        importance = torch.norm(concept_acts, dim=-1)  # (N,)
-        mask = self._to_mask(importance, n_nodes)
+        concept_activations = outputs["concepts"]  # (N, 8)
+        importance = torch.norm(concept_activations, dim=-1)  # (N,)
 
         return {
             "node_importance": importance,
-            "explanation_mask": mask,
+            "explanation_mask": self._to_mask(importance, num_nodes),
             "full_prediction": outputs["hazard_logits"].detach(),
             "metadata": {
                 "method": "cbm",
-                "concepts": concept_acts.detach().cpu(),
-                "concept_raw": outputs.get("concept_raw", concept_acts).detach().cpu(),
+                "concepts": concept_activations.detach(),
+                "concept_raw": outputs.get("concept_raw", concept_activations).detach(),
             },
         }
-
-    @property
-    def name(self):
-        return self._label or "CBM"

@@ -262,6 +262,7 @@ class Plan3aModel(nn.Module):
         num_edges: int,
         concept_targets: Optional[torch.Tensor] = None,
         clinical_features: Optional[torch.Tensor] = None,
+        edge_weights: Optional[torch.Tensor] = None,
     ) -> Dict[str, torch.Tensor]:
         """
         Full forward pass.
@@ -273,13 +274,15 @@ class Plan3aModel(nn.Module):
             num_edges: number of hyperedges
             concept_targets: (N, 8) precomputed concept GT
             clinical_features: (1, clinical_dim) clinical feature vector
+            edge_weights: (E,) optional soft mask on hyperedges [0,1].
+                          Used by GNNExplainer. None = no masking.
 
         Returns:
             dict with all intermediate outputs for interpretability
         """
         # ── Stage 1: SheafHGNN ───────────────────────────────────────
         node_embeds = self.shgnn(
-            node_features, hyperedge_index, num_nodes, num_edges
+            node_features, hyperedge_index, num_nodes, num_edges, edge_weights
         )  # (N, embed_dim)
 
         # ── Stage 2: Concept Bottleneck ──────────────────────────────
