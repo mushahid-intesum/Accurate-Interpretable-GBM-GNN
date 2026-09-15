@@ -193,6 +193,7 @@ def train_deepsurv_fold(
         "fold": fold_idx,
         "best_c_index": best_ci,
         "best_epoch": best_epoch,
+        "best_state": best_state,
         "history": history,
         "n_params": n_params,
     }
@@ -236,6 +237,7 @@ def train_graph_model_fold(
     best_ci = 0.0
     best_epoch = 0
     patience_counter = 0
+    best_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
     history = []
 
     n_params = sum(p.numel() for p in model.parameters())
@@ -372,6 +374,7 @@ def train_graph_model_fold(
             best_ci = ci
             best_epoch = epoch
             patience_counter = 0
+            best_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
         else:
             patience_counter += 1
 
@@ -391,6 +394,7 @@ def train_graph_model_fold(
         "fold": fold_idx,
         "best_c_index": best_ci,
         "best_epoch": best_epoch,
+        "best_state": best_state,
         "history": history,
         "n_params": n_params,
     }
@@ -434,6 +438,18 @@ def run_deepsurv(
         )
         fold_results.append(result)
 
+        # Save best checkpoint for this fold
+        os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+        ckpt_path = os.path.join(CHECKPOINTS_DIR, f"deepsurv_fold{fold_idx}_best.pt")
+        torch.save({
+            "model_state_dict": result["best_state"],
+            "fold": fold_idx,
+            "best_c_index": result["best_c_index"],
+            "best_epoch": result["best_epoch"],
+            "model_name": "deepsurv",
+        }, ckpt_path)
+        print(f"    Checkpoint saved: {ckpt_path}")
+
     # Aggregate results
     cis = [r["best_c_index"] for r in fold_results]
     mean_ci = np.mean(cis)
@@ -442,6 +458,10 @@ def run_deepsurv(
     print(f"\n{'=' * 70}")
     print(f"  DeepSurv Result: C-Index = {mean_ci:.4f} ± {std_ci:.4f}")
     print(f"{'=' * 70}")
+
+    # Strip state dicts from JSON (not serializable)
+    fold_results_json = [{k: v for k, v in r.items() if k != "best_state"}
+                         for r in fold_results]
 
     results = {
         "experiment": "DeepSurv",
@@ -454,7 +474,7 @@ def run_deepsurv(
         "n_params": fold_results[0]["n_params"],
         "mean_c_index": mean_ci,
         "std_c_index": std_ci,
-        "fold_results": fold_results,
+        "fold_results": fold_results_json,
     }
 
     # Save results
@@ -505,6 +525,19 @@ def run_graph_baseline(
         )
         fold_results.append(result)
 
+        # Save best checkpoint for this fold
+        safe_name = model_name.lower().replace(" ", "_").replace("(", "").replace(")", "")
+        os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+        ckpt_path = os.path.join(CHECKPOINTS_DIR, f"{safe_name}_fold{fold_idx}_best.pt")
+        torch.save({
+            "model_state_dict": result["best_state"],
+            "fold": fold_idx,
+            "best_c_index": result["best_c_index"],
+            "best_epoch": result["best_epoch"],
+            "model_name": safe_name,
+        }, ckpt_path)
+        print(f"    Checkpoint saved: {ckpt_path}")
+
     cis = [r["best_c_index"] for r in fold_results]
     mean_ci = np.mean(cis)
     std_ci = np.std(cis)
@@ -512,6 +545,10 @@ def run_graph_baseline(
     print(f"\n{'=' * 70}")
     print(f"  {model_name} Result: C-Index = {mean_ci:.4f} ± {std_ci:.4f}")
     print(f"{'=' * 70}")
+
+    # Strip state dicts from JSON (not serializable)
+    fold_results_json = [{k: v for k, v in r.items() if k != "best_state"}
+                         for r in fold_results]
 
     results = {
         "experiment": model_name,
@@ -524,7 +561,7 @@ def run_graph_baseline(
         "n_params": fold_results[0]["n_params"],
         "mean_c_index": mean_ci,
         "std_c_index": std_ci,
-        "fold_results": fold_results,
+        "fold_results": fold_results_json,
     }
 
     safe_name = model_name.lower().replace(" ", "_").replace("(", "").replace(")", "")
