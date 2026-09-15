@@ -610,25 +610,17 @@ def run_mrepath(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
 
 
 if __name__ == "__main__":
-    import argparse
+    model = 'mrepath'
+    epochs = None
+    processed_dir = None
 
-    parser = argparse.ArgumentParser(description="Run baseline models")
-    parser.add_argument(
-        "--model", type=str, required=True,
-        choices=["deepsurv", "hypercbm", "mrepath", "all"],
-        help="Which baseline to run",
-    )
-    parser.add_argument("--processed-dir", type=str, default=None)
-    parser.add_argument("--epochs", type=int, default=None)
-    args = parser.parse_args()
-
-    if args.model in ("deepsurv", "all"):
+    if model in ("deepsurv", "all"):
         run_deepsurv(
-            processed_dir=args.processed_dir,
-            epochs=args.epochs or 200,
+            processed_dir=processed_dir,
+            epochs=epochs or 200,
         )
 
-    if args.model in ("hypercbm", "all"):
+    if model in ("hypercbm", "all"):
         from plan3a.baselines.hypercbm import StandaloneHyperCBM
 
         run_graph_baseline(
@@ -636,11 +628,11 @@ if __name__ == "__main__":
             model_factory=lambda: StandaloneHyperCBM(),
             use_concepts=True,
             use_clinical=False,
-            processed_dir=args.processed_dir,
-            epochs=args.epochs or 30,
+            processed_dir=processed_dir,
+            epochs=epochs or 30,
         )
 
-    if args.model in ("mrepath", "all"):
+    if model in ("mrepath", "all"):
         from plan3a.baselines.mrepath import StandaloneMRePath
 
         run_graph_baseline(
@@ -648,6 +640,6 @@ if __name__ == "__main__":
             model_factory=lambda: StandaloneMRePath(),
             use_concepts=False,
             use_clinical=True,
-            processed_dir=args.processed_dir,
-            epochs=args.epochs or 30,
+            processed_dir=processed_dir,
+            epochs=epochs or 30,
         )
