@@ -67,7 +67,7 @@ SHEAF_HGNN_LAYERS = 3
 SHEAF_HGNN_DIM = 64
 
 # ── Model ──────────────────────────────────────────────────────────────────
-EMBED_DIM = 64
+EMBED_DIM = 256
 PATCH_ENCODER_CHANNELS = [32, 64]  # small CNN for patch encoding
 NUM_CLINICAL_GROUPS = 5
 
@@ -110,7 +110,7 @@ TRAIN_LIMIT = None                 # int or None — limit patients for testing
 TRAIN_FOLD = None                  # int or None — run only this fold (0-indexed), None = all
 
 # Runner (runner.py)
-RUN_EXPERIMENT = "E5"              # str — "E1"–"E7" or "all"
+RUN_EXPERIMENT = "E7"              # str — "E1"–"E7" or "all"
 RUN_LIMIT = None                   # int or None — limit patients
 RUN_AUDIT = True                   # bool — run faithfulness audit post-training
 
