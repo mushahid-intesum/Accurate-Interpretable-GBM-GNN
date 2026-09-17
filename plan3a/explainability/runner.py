@@ -36,87 +36,21 @@ from plan3a.explainability.cbm_explainer import CBMExplainer
 from plan3a.explainability.faithfulness import UnifiedFaithfulnessAudit
 
 
-def _load_model(checkpoint_path=None, device="cpu"):
-    """
-    Load a trained Plan3aModel.
-
-    Auto-detects architecture config from the checkpoint's state dict
-    (fusion, HECRL, tree, etc.) so E3 and E6 checkpoints with different
-    configs both load correctly.
-
-    If no checkpoint is provided, creates an untrained model
-    (for smoke testing the pipeline).
-    """
+def _load_model(checkpoint_path=None, device="cpu", config=None):
     from plan3a.model.full_model import Plan3aModel
 
-    # Default config
-    config = dict(
-        patch_dim=1536, embed_dim=64, num_layers=3,
-        clinical_dim=18, num_survival_bins=4,
-        use_hecrl=True, use_fusion=True,
-        residual_bypass=False, use_tree=False,
-    )
-
-    state_dict = None
-    if checkpoint_path and os.path.exists(checkpoint_path):
-        state = torch.load(checkpoint_path, map_location=device,
-                           weights_only=False)
-        if "model_state_dict" in state:
-            state_dict = state["model_state_dict"]
-        else:
-            state_dict = state
-
-        # Load saved config if available
-        if "config" in state:
-            saved = state["config"]
-            for k in config:
-                if k in saved:
-                    config[k] = saved[k]
-
-        # Auto-detect from state dict keys
-        has_fusion = any(k.startswith("fusion.") for k in state_dict)
-        has_hecrl = any("hecrl." in k for k in state_dict)
-        has_tree = any(k.startswith("tree.") for k in state_dict)
-        has_bypass = any("residual_bypass" in k or "bypass" in k
-                         for k in state_dict)
-
-        config["use_fusion"] = has_fusion
-        config["use_hecrl"] = has_hecrl
-        config["use_tree"] = has_tree
-
-        # Detect embed_dim from first layer weight shape
-        for k, v in state_dict.items():
-            if "shgnn.layers.0.vertex_to_edge.weight" in k:
-                config["embed_dim"] = v.shape[0]
-                break
-
-        # Detect num_survival_bins from survival head
-        for k, v in state_dict.items():
-            if "survival_head" in k and "weight" in k and v.dim() == 2:
-                config["num_survival_bins"] = v.shape[0]
-                break
-
-        # Detect num_layers from layer keys
-        layer_ids = set()
-        for k in state_dict:
-            if k.startswith("shgnn.layers."):
-                parts = k.split(".")
-                if len(parts) > 2 and parts[2].isdigit():
-                    layer_ids.add(int(parts[2]))
-        if layer_ids:
-            config["num_layers"] = max(layer_ids) + 1
-
-        print(f"  Auto-detected config: fusion={has_fusion}, "
-              f"hecrl={has_hecrl}, tree={has_tree}, "
-              f"embed={config['embed_dim']}, layers={config['num_layers']}")
+    if config is None:
+        config = dict(
+            patch_dim=1536, embed_dim=64, num_layers=3,
+            clinical_dim=18, num_survival_bins=4,
+            use_hecrl=True, use_fusion=True,
+            residual_bypass=False, use_tree=False,
+        )
 
     model = Plan3aModel(**config)
 
-    if state_dict is not None:
-        model.load_state_dict(state_dict)
-        print(f"  Loaded checkpoint: {checkpoint_path}")
-    else:
-        print(f"  WARNING: No checkpoint loaded, using untrained model")
+    ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    model.load_state_dict(ckpt)
 
     model = model.to(device)
     model.eval()
@@ -180,8 +114,15 @@ def run_faithfulness_comparison(
     ds = Plan3aDataset(processed_dir, build_hypergraph=True)
     print(f"  Dataset: {len(ds.patient_ids)} patients")
 
+    config = dict(
+        patch_dim=1536, embed_dim=64, num_layers=3,
+        clinical_dim=18, num_survival_bins=4,
+        use_hecrl=True, use_fusion=True,
+        residual_bypass=False, use_tree=False,
+    )
+
     # Load model(s)
-    model_e6 = _load_model(checkpoint_e6, device)
+    model_e6 = _load_model(checkpoint_e6, device, config)
     explainers = build_explainers(
         model_e6, device, top_k_ratio,
         gnn_explainer_epochs, ig_steps,
@@ -189,7 +130,14 @@ def run_faithfulness_comparison(
 
     # If E3 checkpoint available, add CBM(E3) as separate entry
     if checkpoint_e3 and os.path.exists(checkpoint_e3):
-        model_e3 = _load_model(checkpoint_e3, device)
+        config = dict(
+            patch_dim=1536, embed_dim=64, num_layers=3,
+            clinical_dim=18, num_survival_bins=4,
+            use_hecrl=True, use_fusion=False,
+            residual_bypass=False, use_tree=False,
+        )
+
+        model_e3 = _load_model(checkpoint_e3, device, config)
         explainers["CBM (E3)"] = CBMExplainer(model_e3, top_k_ratio, device)
         # Rename existing CBM to CBM+EST
         if "CBM" in explainers:
@@ -311,7 +259,7 @@ if __name__ == "__main__":
     PROCESSED_DIR_ = None
     CHECKPOINT_E6 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E6_fold4_best.pt'  # Path to E6 (CBM+EST) checkpoint
     CHECKPOINT_E3 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E3_fold4_best.pt'  # Path to E3 (CBM, no EST) checkpoint
-    N_PATIENTS = 50
+    N_PATIENTS = 200
     DEVICE = "cuda"
     TOP_K = 0.2
     GNN_EPOCHS = 200
