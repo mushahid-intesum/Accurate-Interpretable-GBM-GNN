@@ -248,6 +248,10 @@ class FaithfulnessAuditor:
             supergraph_mask = explanation_mask.clone()
             supergraph_mask[sampled_complement] = True
 
+            # Zero out features of nodes NOT in supergraph
+            masked_features = node_features.clone()
+            masked_features[~supergraph_mask] = 0.0
+
             # Filter hyperedges for supergraph
             filtered_he, n_he = _filter_hyperedges(
                 hyperedge_index, supergraph_mask, num_edges
@@ -255,7 +259,7 @@ class FaithfulnessAuditor:
 
             # Get prediction on supergraph
             supergraph_pred = self._get_prediction(
-                node_features,  # all node features (masking is via hyperedges)
+                masked_features,
                 filtered_he,
                 num_nodes,
                 n_he,
@@ -292,6 +296,10 @@ class FaithfulnessAuditor:
         Returns:
             dict with "fid_minus_score" and "fid_minus_pass"
         """
+        # Zero out features of non-explanation nodes
+        masked_features = node_features.clone()
+        masked_features[~explanation_mask] = 0.0
+
         # Filter to explanation-only subgraph
         filtered_he, n_he = _filter_hyperedges(
             hyperedge_index, explanation_mask, num_edges
@@ -299,7 +307,7 @@ class FaithfulnessAuditor:
 
         # Predict on explanation subgraph
         expl_pred = self._get_prediction(
-            node_features, filtered_he, num_nodes, n_he, clinical_features,
+            masked_features, filtered_he, num_nodes, n_he, clinical_features,
         )
 
         shift = self._prediction_shift(full_prediction, expl_pred)
@@ -361,8 +369,21 @@ class FaithfulnessAuditor:
             else:
                 n_he = 0
 
+            # Zero out features of dropped complement nodes
+            active_mask = explanation_mask.clone()
+            # Nodes that survived the random drop are still active
+            surviving_complement = torch.zeros_like(complement_mask)
+            surviving_node_idx = node_idx[keep]
+            surviving_complement_nodes = surviving_node_idx[complement_mask[surviving_node_idx]]
+            if surviving_complement_nodes.numel() > 0:
+                surviving_complement[surviving_complement_nodes] = True
+            active_mask = active_mask | surviving_complement
+
+            masked_features = node_features.clone()
+            masked_features[~active_mask] = 0.0
+
             pred = self._get_prediction(
-                node_features, perturbed_he, num_nodes, n_he, clinical_features,
+                masked_features, perturbed_he, num_nodes, n_he, clinical_features,
             )
             shifts.append(self._prediction_shift(full_prediction, pred))
 
