@@ -174,9 +174,16 @@ def compute_td_auc(risks, times, events, train_times, train_events, time_points=
         # 6, 12, 18 months in days
         time_points = [182, 365, 548]
 
-    # Filter to times within data range
-    tmin = max(y_train["time"].min(), y_test["time"].min()) + 1
-    tmax = min(y_train["time"].max(), y_test["time"].max()) - 1
+    # sksurv requires times within the range of UNCENSORED event times
+    train_event_times = train_times[train_events.astype(bool)]
+    test_event_times = times[events.astype(bool)]
+
+    if len(train_event_times) == 0 or len(test_event_times) == 0:
+        return {}
+
+    # Valid range: must be within event times of BOTH train and test
+    tmin = max(train_event_times.min(), test_event_times.min()) + 1
+    tmax = min(train_event_times.max(), test_event_times.max()) - 1
     valid_tp = [t for t in time_points if tmin < t < tmax]
 
     if not valid_tp:
@@ -200,8 +207,19 @@ def compute_ibs(risks, times, events, train_times, train_events):
     y_train = _to_structured(train_times, train_events)
     y_test = _to_structured(times, events)
 
-    tmin = max(y_train["time"].min(), y_test["time"].min()) + 1
-    tmax = min(y_train["time"].max(), y_test["time"].max()) - 1
+    # Use uncensored event times for valid range
+    train_event_times = train_times[train_events.astype(bool)]
+    test_event_times = times[events.astype(bool)]
+
+    if len(train_event_times) == 0 or len(test_event_times) == 0:
+        return {}
+
+    tmin = max(train_event_times.min(), test_event_times.min()) + 1
+    tmax = min(train_event_times.max(), test_event_times.max()) - 1
+
+    if tmin >= tmax:
+        return {}
+
     eval_times = np.linspace(tmin, tmax, 50)
 
     # Convert risk scores to survival probabilities at each time point
