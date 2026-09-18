@@ -266,18 +266,18 @@ if __name__ == "__main__":
     IG_STEPS = 50
     EST_SAMPLES = 50
 
-    if EXPERIMENT in (EXPERIMENT_FAITHFULNESS, EXPERIMENT_ALL):
-        run_faithfulness_comparison(
-            processed_dir=PROCESSED_DIR_,
-            checkpoint_e6=CHECKPOINT_E6,
-            checkpoint_e3=CHECKPOINT_E3,
-            n_patients=N_PATIENTS,
-            device=DEVICE,
-            top_k_ratio=TOP_K,
-            gnn_explainer_epochs=GNN_EPOCHS,
-            ig_steps=IG_STEPS,
-            est_samples=EST_SAMPLES,
-        )
+    # if EXPERIMENT in (EXPERIMENT_FAITHFULNESS, EXPERIMENT_ALL):
+    #     run_faithfulness_comparison(
+    #         processed_dir=PROCESSED_DIR_,
+    #         checkpoint_e6=CHECKPOINT_E6,
+    #         checkpoint_e3=CHECKPOINT_E3,
+    #         n_patients=N_PATIENTS,
+    #         device=DEVICE,
+    #         top_k_ratio=TOP_K,
+    #         gnn_explainer_epochs=GNN_EPOCHS,
+    #         ig_steps=IG_STEPS,
+    #         est_samples=EST_SAMPLES,
+        # )
 
     if EXPERIMENT in (EXPERIMENT_INTERVENTION, EXPERIMENT_ALL):
         run_intervention(
