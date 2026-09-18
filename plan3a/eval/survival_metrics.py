@@ -395,17 +395,11 @@ def run_statistical_tests(results_dir):
 # ── CLI ──────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extended survival metrics")
-    parser.add_argument("--checkpoints-dir", type=str,
-                        default=str(Path(__file__).resolve().parent.parent / "checkpoints"))
-    parser.add_argument("--processed-dir", type=str, default=str(PROCESSED_DIR))
-    parser.add_argument("--device", type=str, default=DEVICE)
-    parser.add_argument("--models", type=str, nargs="+",
-                        default=["E6", "E7", "deepsurv", "mrepath", "hypercbm"],
-                        help="Models to evaluate")
-    parser.add_argument("--stat-only", action="store_true",
-                        help="Only run statistical significance tests (no model loading)")
-    args = parser.parse_args()
+    checkpoints_dir = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints'
+    processed_dir = None
+    device = 'cuda'
+    models = ["E6", "E7", "deepsurv", "mrepath", "hypercbm"]
+    stat_only = None
 
     print("=" * 70)
     print("  EXTENDED SURVIVAL METRICS")
@@ -413,10 +407,10 @@ if __name__ == "__main__":
 
     # Statistical significance (always runs, no model loading needed)
     print("\n--- Statistical Significance (E6 vs baselines) ---")
-    sig_results = run_statistical_tests(args.checkpoints_dir)
+    sig_results = run_statistical_tests(checkpoints_dir)
 
-    if args.stat_only:
-        out_path = os.path.join(args.checkpoints_dir, "statistical_tests.json")
+    if stat_only:
+        out_path = os.path.join(checkpoints_dir, "statistical_tests.json")
         with open(out_path, "w") as f:
             json.dump(sig_results, f, indent=2)
         print(f"\nSaved to {out_path}")
@@ -426,14 +420,14 @@ if __name__ == "__main__":
     all_results = {"statistical_tests": sig_results}
     baselines = {"deepsurv": "deepsurv", "hypercbm": "hypercbm", "mrepath": "mrepath"}
 
-    for model_name in args.models:
+    for model_name in models:
         print(f"\n--- {model_name} ---")
         is_baseline = model_name.lower() in baselines
         baseline_type = baselines.get(model_name.lower())
 
         fold_metrics = evaluate_model_all_folds(
-            model_name, args.checkpoints_dir, args.processed_dir,
-            args.device, is_baseline=is_baseline, baseline_type=baseline_type,
+            model_name, checkpoints_dir, processed_dir,
+            device, is_baseline=is_baseline, baseline_type=baseline_type,
         )
 
         if fold_metrics:
@@ -455,7 +449,7 @@ if __name__ == "__main__":
                   f"IBS={agg.get('ibs', 'N/A')}")
 
     # Save
-    out_path = os.path.join(args.checkpoints_dir, "extended_metrics.json")
+    out_path = os.path.join(checkpoints_dir, "extended_metrics.json")
     with open(out_path, "w") as f:
         json.dump(all_results, f, indent=2, default=str)
     print(f"\n{'='*70}")
