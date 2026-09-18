@@ -200,6 +200,85 @@ class FaithfulnessAuditor:
         p_b = torch.sigmoid(pred_b)
         return float((p_a - p_b).abs().mean())
 
+    @staticmethod
+    def _extract_subgraph(
+        node_features: torch.Tensor,
+        hyperedge_index: torch.Tensor,
+        node_mask: torch.Tensor,
+        num_edges: int,
+    ):
+        """
+        Extract a true subgraph: only keep nodes in node_mask.
+
+        Re-indexes both node features and hyperedge incidence so the
+        model only sees K selected nodes (not N nodes with zeros).
+        This prevents the model from reading bias activations from
+        "masked" nodes through patch_encoder and pooling.
+
+        Returns:
+            sub_features: (K, D) features for selected nodes only
+            sub_hyperedge_index: (2, E') re-indexed incidence
+            sub_num_nodes: K
+            sub_num_edges: number of surviving hyperedges
+        """
+        # Selected node indices and features
+        selected_indices = torch.where(node_mask)[0]
+        sub_features = node_features[selected_indices]  # (K, D)
+        K = len(selected_indices)
+
+        if hyperedge_index.shape[1] == 0 or K == 0:
+            empty_he = torch.zeros(2, 0, dtype=torch.long,
+                                   device=node_features.device)
+            return sub_features, empty_he, K, 0
+
+        # Build old_node_idx -> new_node_idx mapping
+        node_remap = torch.full((node_features.shape[0],), -1,
+                                dtype=torch.long, device=node_features.device)
+        node_remap[selected_indices] = torch.arange(K, device=node_features.device)
+
+        # Filter connections: keep only where BOTH endpoints are selected
+        old_node_idx = hyperedge_index[0]
+        old_edge_idx = hyperedge_index[1]
+        keep = node_mask[old_node_idx]
+
+        new_node_idx = node_remap[old_node_idx[keep]]
+        new_edge_idx = old_edge_idx[keep]
+
+        if new_node_idx.shape[0] == 0:
+            empty_he = torch.zeros(2, 0, dtype=torch.long,
+                                   device=node_features.device)
+            return sub_features, empty_he, K, 0
+
+        # Re-index hyperedges to be contiguous
+        unique_edges = torch.unique(new_edge_idx)
+        edge_remap = torch.zeros(num_edges, dtype=torch.long,
+                                 device=node_features.device)
+        edge_remap[unique_edges] = torch.arange(len(unique_edges),
+                                                device=node_features.device)
+        new_edge_idx = edge_remap[new_edge_idx]
+
+        sub_he = torch.stack([new_node_idx, new_edge_idx])
+        return sub_features, sub_he, K, len(unique_edges)
+
+    def _get_subgraph_prediction(
+        self,
+        node_features: torch.Tensor,
+        hyperedge_index: torch.Tensor,
+        node_mask: torch.Tensor,
+        num_edges: int,
+        clinical_features: torch.Tensor = None,
+    ) -> torch.Tensor:
+        """
+        Extract subgraph defined by node_mask, then run prediction.
+        Only the selected nodes are passed to the model.
+        """
+        sub_feats, sub_he, sub_N, sub_E = self._extract_subgraph(
+            node_features, hyperedge_index, node_mask, num_edges,
+        )
+        return self._get_prediction(
+            sub_feats, sub_he, sub_N, sub_E, clinical_features,
+        )
+
     def compute_est(
         self,
         node_features: torch.Tensor,
@@ -220,9 +299,9 @@ class FaithfulnessAuditor:
         G\\R should NOT change the prediction. EST finds the worst case.
 
         Procedure:
-          1. Start with explanation subgraph R
+          1. Get prediction on explanation-only subgraph R
           2. Sample random subsets S of complement nodes
-          3. Build supergraph R' = R ∪ S
+          3. Build supergraph R' = R | S (true subgraph extraction)
           4. Get prediction on R'
           5. EST = max shift across all samples
 
@@ -236,6 +315,12 @@ class FaithfulnessAuditor:
         if n_complement == 0:
             return {"est_score": 0.0, "est_pass": True}
 
+        # Baseline: prediction on explanation-only subgraph
+        expl_pred = self._get_subgraph_prediction(
+            node_features, hyperedge_index, explanation_mask,
+            num_edges, clinical_features,
+        )
+
         max_shift = 0.0
 
         for _ in range(self.est_samples):
@@ -248,21 +333,13 @@ class FaithfulnessAuditor:
             supergraph_mask = explanation_mask.clone()
             supergraph_mask[sampled_complement] = True
 
-            # Filter hyperedges for supergraph
-            filtered_he, n_he = _filter_hyperedges(
-                hyperedge_index, supergraph_mask, num_edges
+            # Get prediction on true subgraph (only these nodes exist)
+            supergraph_pred = self._get_subgraph_prediction(
+                node_features, hyperedge_index, supergraph_mask,
+                num_edges, clinical_features,
             )
 
-            # Get prediction on supergraph
-            supergraph_pred = self._get_prediction(
-                node_features,  # all node features (masking is via hyperedges)
-                filtered_he,
-                num_nodes,
-                n_he,
-                clinical_features,
-            )
-
-            shift = self._prediction_shift(full_prediction, supergraph_pred)
+            shift = self._prediction_shift(expl_pred, supergraph_pred)
             max_shift = max(max_shift, shift)
 
         return {
@@ -281,7 +358,7 @@ class FaithfulnessAuditor:
         clinical_features: torch.Tensor = None,
     ) -> Dict[str, float]:
         """
-        Fidelity-minus (Fid⁻).
+        Fidelity-minus (Fid-).
 
         Tests: does the prediction change when we feed ONLY the explanation
         subgraph (removing the complement entirely)?
@@ -292,14 +369,10 @@ class FaithfulnessAuditor:
         Returns:
             dict with "fid_minus_score" and "fid_minus_pass"
         """
-        # Filter to explanation-only subgraph
-        filtered_he, n_he = _filter_hyperedges(
-            hyperedge_index, explanation_mask, num_edges
-        )
-
-        # Predict on explanation subgraph
-        expl_pred = self._get_prediction(
-            node_features, filtered_he, num_nodes, n_he, clinical_features,
+        # True subgraph: only explanation nodes exist
+        expl_pred = self._get_subgraph_prediction(
+            node_features, hyperedge_index, explanation_mask,
+            num_edges, clinical_features,
         )
 
         shift = self._prediction_shift(full_prediction, expl_pred)
@@ -320,14 +393,16 @@ class FaithfulnessAuditor:
         clinical_features: torch.Tensor = None,
     ) -> Dict[str, float]:
         """
-        Randomized Fidelity-minus (RFid⁻).
+        Randomized Fidelity-minus (RFid-).
 
-        Tests: does randomly perturbing the complement change the prediction?
+        Tests: does randomly perturbing which complement nodes are
+        included change the prediction?
 
         Procedure:
-          1. Randomly drop complement connections with probability p
-          2. Keep all explanation connections
-          3. Measure prediction shift
+          1. Start with explanation nodes (always kept)
+          2. Randomly include each complement node with probability (1-p)
+          3. Extract true subgraph of surviving nodes
+          4. Measure prediction shift vs full graph
 
         Multiple runs are averaged.
 
@@ -338,31 +413,19 @@ class FaithfulnessAuditor:
 
         shifts = []
         for _ in range(min(self.est_samples, 20)):
-            # Randomly drop complement connections
-            node_idx = hyperedge_index[0]
-            edge_idx = hyperedge_index[1]
+            # Each complement node survives with probability (1-p)
+            complement_indices = torch.where(complement_mask)[0]
+            survive = torch.rand(len(complement_indices),
+                                 device=node_features.device) >= self.rfid_p
 
-            # For each connection, drop if node is in complement AND random < p
-            is_complement = complement_mask[node_idx]
-            drop = torch.rand(is_complement.shape, device=node_idx.device) < self.rfid_p
-            keep = ~(is_complement & drop)
+            # Build mask: all explanation nodes + surviving complement
+            perturbed_mask = explanation_mask.clone()
+            perturbed_mask[complement_indices[survive]] = True
 
-            perturbed_he = torch.stack([node_idx[keep], edge_idx[keep]])
-
-            # Reindex edges
-            if perturbed_he.shape[1] > 0:
-                unique_edges = torch.unique(perturbed_he[1])
-                edge_map = torch.zeros(num_edges, dtype=torch.long,
-                                       device=perturbed_he.device)
-                edge_map[unique_edges] = torch.arange(len(unique_edges),
-                                                       device=perturbed_he.device)
-                perturbed_he[1] = edge_map[perturbed_he[1]]
-                n_he = len(unique_edges)
-            else:
-                n_he = 0
-
-            pred = self._get_prediction(
-                node_features, perturbed_he, num_nodes, n_he, clinical_features,
+            # True subgraph prediction
+            pred = self._get_subgraph_prediction(
+                node_features, hyperedge_index, perturbed_mask,
+                num_edges, clinical_features,
             )
             shifts.append(self._prediction_shift(full_prediction, pred))
 
@@ -372,6 +435,8 @@ class FaithfulnessAuditor:
             "rfid_minus_score": mean_shift,
             "rfid_minus_pass": mean_shift < self.threshold,
         }
+
+
 
     def compute_sufficiency(
         self,

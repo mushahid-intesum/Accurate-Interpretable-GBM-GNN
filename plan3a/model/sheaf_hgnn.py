@@ -101,6 +101,7 @@ class SheafHGNNLayer(nn.Module):
         hyperedge_index: torch.Tensor,
         num_nodes: int,
         num_edges: int,
+        edge_weights: torch.Tensor = None,
     ) -> torch.Tensor:
         """
         Args:
@@ -108,6 +109,8 @@ class SheafHGNNLayer(nn.Module):
             hyperedge_index: (2, E_connections) — [node_idx; hyperedge_idx]
             num_nodes: N
             num_edges: total number of hyperedges
+            edge_weights: (E,) optional soft mask on hyperedges [0,1].
+                          Used by GNNExplainer. None = no masking.
 
         Returns:
             x_out: (N, out_dim) updated node features
@@ -132,6 +135,10 @@ class SheafHGNNLayer(nn.Module):
         edge_counts.index_add_(0, edge_idx, torch.ones(node_idx.shape[0], 1, device=x.device))
         edge_counts = edge_counts.clamp(min=1)
         edge_features = edge_features / edge_counts  # (E, out_dim)
+
+        # ── Step 1.5: Apply soft hyperedge mask (GNNExplainer) ───────
+        if edge_weights is not None:
+            edge_features = edge_features * edge_weights.unsqueeze(-1)  # (E, D) * (E, 1)
 
         # ── Step 2: Hyperedge → Vertex (with sheaf map) ──────────────
         # Apply sheaf map F_{e⊥v} to transform hyperedge features
@@ -206,6 +213,7 @@ class SheafHGNN(nn.Module):
         hyperedge_index: torch.Tensor,
         num_nodes: int,
         num_edges: int,
+        edge_weights: torch.Tensor = None,
     ) -> torch.Tensor:
         """
         Args:
@@ -213,6 +221,8 @@ class SheafHGNN(nn.Module):
             hyperedge_index: (2, E_conn) combined incidence matrix
             num_nodes: N
             num_edges: total hyperedges
+            edge_weights: (E,) optional soft mask on hyperedges [0,1].
+                          Used by GNNExplainer. None = no masking.
 
         Returns:
             x: (N, embed_dim) refined node embeddings
@@ -224,7 +234,7 @@ class SheafHGNN(nn.Module):
         layer_outputs = [x]
 
         for layer in self.layers:
-            x_new = layer(x, hyperedge_index, num_nodes, num_edges)
+            x_new = layer(x, hyperedge_index, num_nodes, num_edges, edge_weights)
             # Residual connection
             x = x + x_new
             layer_outputs.append(x)
