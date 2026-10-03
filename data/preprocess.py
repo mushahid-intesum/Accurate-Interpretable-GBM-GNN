@@ -7,15 +7,15 @@ from pathlib import Path
 import numpy as np
 import torch
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import (
+from config import (
     DATA_ROOT, PROCESSED_DIR,
     PREPROCESS_LIMIT, PREPROCESS_PATIENT_FILTER,
 )
-from plan3a.data.dicom_loader import load_all_modalities
-from plan3a.data.patch_extraction import extract_patient_patches
-from plan3a.data.clinical import parse_clinical_csv, get_feature_dim
+from data.dicom_loader import load_all_modalities
+from data.patch_extraction import extract_patient_patches
+from data.clinical import parse_clinical_csv, get_feature_dim
 
 def preprocess_patient(patient_id: str, patient_dir: str) -> dict:
 
@@ -51,7 +51,7 @@ def run_preprocessing(
         patient_dirs = patient_dirs[:limit]
 
     if verbose:
-        print(f"Plan 3a Preprocessing")
+        print(f"GBM-GNN Preprocessing")
         print(f"  Data root: {data_root}")
         print(f"  Output dir: {output_dir}")
         print(f"  Patients to process: {len(patient_dirs)}")

@@ -11,9 +11,9 @@ import torch.nn as nn
 from torch.optim import AdamW, Adam
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import (
+from config import (
     PROCESSED_DIR, EPOCHS, NUM_FOLDS, DEVICE,
     GRAD_ACCUM_STEPS, CHECKPOINTS_DIR as _CHECKPOINTS_DIR,
     EARLY_STOPPING_PATIENCE,
@@ -24,11 +24,11 @@ if os.path.isdir(os.path.dirname(_CHECKPOINTS_DIR)):
     CHECKPOINTS_DIR = _CHECKPOINTS_DIR
 else:
     CHECKPOINTS_DIR = str(_baselines_dir)
-from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
-from plan3a.eval.task_metrics import concordance_index, compute_time_bins, hazard_to_risk
-from plan3a.model.full_model import NLLSurvivalLoss
+from data.dataset import GBMDataset, get_kfold_splits
+from eval.task_metrics import concordance_index, compute_time_bins, hazard_to_risk
+from model.full_model import NLLSurvivalLoss
 
-from plan3a.baselines.deepsurv import DeepSurvModel, CoxPHLoss, DeepSurvWithNLL
+from baselines.deepsurv import DeepSurvModel, CoxPHLoss, DeepSurvWithNLL
 
 def _collect_tabular_data(dataset):
 
@@ -170,7 +170,7 @@ def train_graph_model_fold(
     num_bins=4,
 ):
 
-    from plan3a.data.hypergraph import build_patient_hypergraph
+    from data.hypergraph import build_patient_hypergraph
 
     model = model.to(device)
     optimizer = AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
@@ -361,7 +361,7 @@ def run_deepsurv(
     print(f"  Input: clinical features only (18-dim)")
     print("=" * 70)
 
-    full_ds = Plan3aDataset(processed_dir, build_hypergraph=False)
+    full_ds = GBMDataset(processed_dir, build_hypergraph=False)
     patient_ids = full_ds.patient_ids
     print(f"  Patients: {len(patient_ids)}")
 
@@ -372,8 +372,8 @@ def run_deepsurv(
         print(f"\n  Fold {fold_idx + 1}/{n_folds} "
               f"(train={len(split['train'])}, val={len(split['val'])})")
 
-        train_ds = Plan3aDataset(processed_dir, split["train"], build_hypergraph=False)
-        val_ds = Plan3aDataset(processed_dir, split["val"], build_hypergraph=False)
+        train_ds = GBMDataset(processed_dir, split["train"], build_hypergraph=False)
+        val_ds = GBMDataset(processed_dir, split["val"], build_hypergraph=False)
 
         result = train_deepsurv_fold(
             train_ds, val_ds, fold_idx,
@@ -440,7 +440,7 @@ def run_graph_baseline(
     print(f"  Concepts: {use_concepts}, Clinical fusion: {use_clinical}")
     print("=" * 70)
 
-    full_ds = Plan3aDataset(processed_dir, build_hypergraph=True)
+    full_ds = GBMDataset(processed_dir, build_hypergraph=True)
     patient_ids = full_ds.patient_ids
     print(f"  Patients: {len(patient_ids)}")
 
@@ -451,8 +451,8 @@ def run_graph_baseline(
         print(f"\n  Fold {fold_idx + 1}/{n_folds} "
               f"(train={len(split['train'])}, val={len(split['val'])})")
 
-        train_ds = Plan3aDataset(processed_dir, split["train"], build_hypergraph=True)
-        val_ds = Plan3aDataset(processed_dir, split["val"], build_hypergraph=True)
+        train_ds = GBMDataset(processed_dir, split["train"], build_hypergraph=True)
+        val_ds = GBMDataset(processed_dir, split["val"], build_hypergraph=True)
 
         model = model_factory()
 
@@ -511,7 +511,7 @@ def run_graph_baseline(
 
 def run_hypercbm(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
 
-    from plan3a.baselines.hypercbm import StandaloneHyperCBM
+    from baselines.hypercbm import StandaloneHyperCBM
 
     return run_graph_baseline(
         model_name="HyperCBM",
@@ -526,7 +526,7 @@ def run_hypercbm(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
 
 def run_mrepath(processed_dir=None, n_folds=NUM_FOLDS, epochs=30, patience=7):
 
-    from plan3a.baselines.mrepath import StandaloneMRePath
+    from baselines.mrepath import StandaloneMRePath
 
     return run_graph_baseline(
         model_name="MRePath",
@@ -551,7 +551,7 @@ if __name__ == "__main__":
         )
 
     if model in ("hypercbm", "all"):
-        from plan3a.baselines.hypercbm import StandaloneHyperCBM
+        from baselines.hypercbm import StandaloneHyperCBM
 
         run_graph_baseline(
             model_name="HyperCBM",
@@ -563,7 +563,7 @@ if __name__ == "__main__":
         )
 
     if model in ("mrepath", "all"):
-        from plan3a.baselines.mrepath import StandaloneMRePath
+        from baselines.mrepath import StandaloneMRePath
 
         run_graph_baseline(
             model_name="MRePath",

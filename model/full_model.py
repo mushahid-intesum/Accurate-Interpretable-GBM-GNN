@@ -5,13 +5,13 @@ from typing import Dict, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS
-from plan3a.model.sheaf_hgnn import SheafHGNN, GraphPooling
-from plan3a.model.concept_bottleneck import ConceptBottleneck
-from plan3a.model.fusion import MultiModalFusion
-from plan3a.model.tree import MultiGranularTree
+from config import SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS
+from model.sheaf_hgnn import SheafHGNN, GraphPooling
+from model.concept_bottleneck import ConceptBottleneck
+from model.fusion import MultiModalFusion
+from model.tree import MultiGranularTree
 
 class SurvivalHead(nn.Module):
 
@@ -111,7 +111,7 @@ class CoxRankingLoss(nn.Module):
 
         return loss / n_pairs
 
-class Plan3aModel(nn.Module):
+class GBMModel(nn.Module):
 
     def __init__(
         self,

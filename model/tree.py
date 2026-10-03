@@ -6,9 +6,9 @@ from typing import Dict, List, Tuple, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import SHEAF_HGNN_DIM, NUM_CONCEPTS
+from config import SHEAF_HGNN_DIM, NUM_CONCEPTS
 
 class SoftAssignmentPool(nn.Module):
 

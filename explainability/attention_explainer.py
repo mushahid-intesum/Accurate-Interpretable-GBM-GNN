@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 from typing import Dict
 
-from plan3a.explainability.base import BaseExplainer
+from explainability.base import BaseExplainer
 
 class AttentionExplainer(BaseExplainer):
 

@@ -5,22 +5,22 @@ import torch
 from pathlib import Path
 from datetime import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import PROCESSED_DIR, DEVICE
-from plan3a.data.dataset import Plan3aDataset
+from config import PROCESSED_DIR, DEVICE
+from data.dataset import GBMDataset
 
-from plan3a.explainability.random_explainer import RandomExplainer
-from plan3a.explainability.gradient_explainer import GradientExplainer
-from plan3a.explainability.ig_explainer import IntegratedGradientsExplainer
-from plan3a.explainability.attention_explainer import AttentionExplainer
-from plan3a.explainability.gnn_explainer import HypergraphGNNExplainer
-from plan3a.explainability.cbm_explainer import CBMExplainer
+from explainability.random_explainer import RandomExplainer
+from explainability.gradient_explainer import GradientExplainer
+from explainability.ig_explainer import IntegratedGradientsExplainer
+from explainability.attention_explainer import AttentionExplainer
+from explainability.gnn_explainer import HypergraphGNNExplainer
+from explainability.cbm_explainer import CBMExplainer
 
-from plan3a.explainability.faithfulness import UnifiedFaithfulnessAudit
+from explainability.faithfulness import UnifiedFaithfulnessAudit
 
 def _load_model(checkpoint_path=None, device="cpu", config=None):
-    from plan3a.model.full_model import Plan3aModel
+    from model.full_model import GBMModel
 
     if config is None:
         config = dict(
@@ -30,7 +30,7 @@ def _load_model(checkpoint_path=None, device="cpu", config=None):
             residual_bypass=False, use_tree=False,
         )
 
-    model = Plan3aModel(**config)
+    model = GBMModel(**config)
 
     ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
     model.load_state_dict(ckpt)
@@ -78,7 +78,7 @@ def run_faithfulness_comparison(
     print("  EXPLAINABILITY: Faithfulness Comparison")
     print("=" * 75)
 
-    ds = Plan3aDataset(processed_dir, build_hypergraph=True)
+    ds = GBMDataset(processed_dir, build_hypergraph=True)
     print(f"  Dataset: {len(ds.patient_ids)} patients")
 
     config = dict(
@@ -144,7 +144,7 @@ def run_intervention(
     output_dir=None,
 ):
 
-    from plan3a.explainability.intervention import ConceptIntervenor
+    from explainability.intervention import ConceptIntervenor
 
     if processed_dir is None:
         processed_dir = str(PROCESSED_DIR)
@@ -155,7 +155,7 @@ def run_intervention(
     print("  EXPLAINABILITY: Concept Intervention")
     print("=" * 75)
 
-    ds = Plan3aDataset(processed_dir, build_hypergraph=True)
+    ds = GBMDataset(processed_dir, build_hypergraph=True)
     model = _load_model(checkpoint_e6, device)
     intervenor = ConceptIntervenor(model, device)
     results = intervenor.cohort_analysis(ds, n_patients=n_patients)
@@ -181,7 +181,7 @@ def run_analysis(
     output_dir=None,
 ):
 
-    from plan3a.explainability.analysis import ConceptClinicalAnalyzer
+    from explainability.analysis import ConceptClinicalAnalyzer
 
     if processed_dir is None:
         processed_dir = str(PROCESSED_DIR)
@@ -192,7 +192,7 @@ def run_analysis(
     print("  EXPLAINABILITY: Clinical Concept Analysis")
     print("=" * 75)
 
-    ds = Plan3aDataset(processed_dir, build_hypergraph=True)
+    ds = GBMDataset(processed_dir, build_hypergraph=True)
     model = _load_model(checkpoint_e6, device)
     analyzer = ConceptClinicalAnalyzer(model, device)
     results = analyzer.analyze_cohort(ds, n_patients=n_patients)
@@ -213,8 +213,8 @@ if __name__ == "__main__":
     EXPERIMENT = EXPERIMENT_ALL
 
     PROCESSED_DIR_ = None
-    CHECKPOINT_E6 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E6_fold4_best.pt'
-    CHECKPOINT_E3 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints/E3_fold4_best.pt'
+    CHECKPOINT_E6 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/checkpoints/E6_fold4_best.pt'
+    CHECKPOINT_E3 = '/mnt/Stuff/arche/arche-brain-tumor-gnn/checkpoints/E3_fold4_best.pt'
     N_PATIENTS = 200
     DEVICE = "cuda"
     TOP_K = 0.2

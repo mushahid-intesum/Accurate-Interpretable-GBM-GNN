@@ -1,7 +1,7 @@
 import torch
 from typing import Dict
 
-from plan3a.explainability.base import BaseExplainer
+from explainability.base import BaseExplainer
 
 class RandomExplainer(BaseExplainer):
 

@@ -4,7 +4,7 @@ import torch
 from pathlib import Path
 from scipy.stats import wilcoxon, ttest_rel
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from sksurv.metrics import (
     cumulative_dynamic_auc,
@@ -13,16 +13,16 @@ from sksurv.metrics import (
 from lifelines import KaplanMeierFitter
 from lifelines.statistics import logrank_test
 
-from plan3a.config import PROCESSED_DIR, DEVICE, NUM_FOLDS, SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS
-from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
-from plan3a.model.full_model import Plan3aModel
-from plan3a.eval.task_metrics import concordance_index, compute_time_bins, hazard_to_risk
-from plan3a.runner import EXPERIMENTS, HypergraphDatasetWrapper, build_knn_graph
+from config import PROCESSED_DIR, DEVICE, NUM_FOLDS, SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS
+from data.dataset import GBMDataset, get_kfold_splits
+from model.full_model import GBMModel
+from eval.task_metrics import concordance_index, compute_time_bins, hazard_to_risk
+from runner import EXPERIMENTS, HypergraphDatasetWrapper, build_knn_graph
 
 def _load_model(exp_id, fold_idx, checkpoints_dir, device):
 
     exp_config = EXPERIMENTS[exp_id]
-    model = Plan3aModel(
+    model = GBMModel(
         patch_dim=1536,
         embed_dim=SHEAF_HGNN_DIM,
         num_layers=SHEAF_HGNN_LAYERS,
@@ -54,13 +54,13 @@ def _load_baseline_model(model_name, fold_idx, checkpoints_dir, device):
     sd = state.get("model_state_dict", state)
 
     if model_name == "deepsurv":
-        from plan3a.baselines.deepsurv import DeepSurvWithNLL
+        from baselines.deepsurv import DeepSurvWithNLL
         model = DeepSurvWithNLL(in_dim=18, num_bins=4).to(device)
     elif model_name == "hypercbm":
-        from plan3a.baselines.hypercbm import StandaloneHyperCBM
+        from baselines.hypercbm import StandaloneHyperCBM
         model = StandaloneHyperCBM().to(device)
     elif model_name == "mrepath":
-        from plan3a.baselines.mrepath import StandaloneMRePath
+        from baselines.mrepath import StandaloneMRePath
         model = StandaloneMRePath().to(device)
     else:
         raise ValueError(f"Unknown baseline: {model_name}")
@@ -115,7 +115,7 @@ def _get_patient_risks_deepsurv(model, dataset, device):
 @torch.no_grad()
 def _get_patient_risks_graph_baseline(model, dataset, device, use_concepts, use_clinical):
 
-    from plan3a.data.hypergraph import build_patient_hypergraph
+    from data.hypergraph import build_patient_hypergraph
     risks, times, events = [], [], []
     for i in range(len(dataset)):
         data = dataset[i]
@@ -249,7 +249,7 @@ def evaluate_model_all_folds(
     is_baseline=False, baseline_type=None,
 ):
 
-    full_ds = Plan3aDataset(processed_dir, build_hypergraph=True)
+    full_ds = GBMDataset(processed_dir, build_hypergraph=True)
     patient_ids = full_ds.patient_ids
     splits = get_kfold_splits(patient_ids, NUM_FOLDS)
 
@@ -359,7 +359,7 @@ def run_statistical_tests(results_dir):
     return results
 
 if __name__ == "__main__":
-    checkpoints_dir = '/mnt/Stuff/arche/arche-brain-tumor-gnn/plan3a/checkpoints'
+    checkpoints_dir = '/mnt/Stuff/arche/arche-brain-tumor-gnn/checkpoints'
     processed_dir = None
     device = 'cuda'
     models = ["E6", "E7", "deepsurv", "mrepath", "hypercbm"]

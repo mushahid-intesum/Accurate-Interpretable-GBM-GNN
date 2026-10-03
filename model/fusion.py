@@ -5,10 +5,10 @@ from typing import Dict, Tuple, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import EMBED_DIM, SHEAF_HGNN_DIM
-from plan3a.data.clinical import get_feature_dim
+from config import EMBED_DIM, SHEAF_HGNN_DIM
+from data.clinical import get_feature_dim
 
 class ClinicalEncoder(nn.Module):
 

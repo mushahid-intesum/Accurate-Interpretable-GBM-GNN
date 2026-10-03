@@ -5,9 +5,9 @@ from scipy.spatial.distance import cdist
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import (
+from config import (
     TOPO_HYPEREDGE_RADIUS, FEATURE_HYPEREDGE_K,
     EMBED_DIM, PATCH_SIZE,
 )

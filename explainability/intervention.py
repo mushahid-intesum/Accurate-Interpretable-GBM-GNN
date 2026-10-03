@@ -5,9 +5,9 @@ from collections import defaultdict
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import NUM_CONCEPTS
+from config import NUM_CONCEPTS
 
 CONCEPT_NAMES = [
     "c1: Enhancement",

@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Dict
 
-from plan3a.explainability.base import BaseExplainer
+from explainability.base import BaseExplainer
 
 class HypergraphGNNExplainer(BaseExplainer):
 

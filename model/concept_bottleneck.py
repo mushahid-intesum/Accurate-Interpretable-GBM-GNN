@@ -5,9 +5,9 @@ from typing import Dict, Tuple, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import NUM_CONCEPTS, EMBED_DIM, SHEAF_HGNN_DIM
+from config import NUM_CONCEPTS, EMBED_DIM, SHEAF_HGNN_DIM
 
 class ConceptPredictor(nn.Module):
 

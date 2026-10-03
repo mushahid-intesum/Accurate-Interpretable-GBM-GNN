@@ -5,12 +5,12 @@ from typing import Dict, List, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import PROCESSED_DIR
-from plan3a.data.hypergraph import build_patient_hypergraph
+from config import PROCESSED_DIR
+from data.hypergraph import build_patient_hypergraph
 
-class Plan3aDataset(Dataset):
+class GBMDataset(Dataset):
 
     def __init__(
         self,

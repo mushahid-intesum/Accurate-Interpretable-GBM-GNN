@@ -4,9 +4,9 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import (
+from config import (
     CLINICAL_CSV, CLINICAL_CATEGORICAL, CLINICAL_CONTINUOUS,
     CLINICAL_SPARSE, SURVIVAL_TIME_COL, SURVIVAL_STATUS_COL,
     SURVIVAL_STATUS_MAP,

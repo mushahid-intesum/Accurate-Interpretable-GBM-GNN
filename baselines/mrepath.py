@@ -5,12 +5,12 @@ from typing import Dict, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS
-from plan3a.model.sheaf_hgnn import SheafHGNN, GraphPooling
-from plan3a.model.fusion import MultiModalFusion
-from plan3a.model.full_model import SurvivalHead, NLLSurvivalLoss
+from config import SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS
+from model.sheaf_hgnn import SheafHGNN, GraphPooling
+from model.fusion import MultiModalFusion
+from model.full_model import SurvivalHead, NLLSurvivalLoss
 
 class StandaloneMRePath(nn.Module):
 

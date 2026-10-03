@@ -6,10 +6,10 @@ from scipy import stats
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import NUM_CONCEPTS
-from plan3a.explainability.intervention import CONCEPT_NAMES
+from config import NUM_CONCEPTS
+from explainability.intervention import CONCEPT_NAMES
 
 class ExplanationAligner:
 

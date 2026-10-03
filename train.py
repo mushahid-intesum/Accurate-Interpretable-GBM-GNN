@@ -10,24 +10,24 @@ import torch.nn as nn
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from plan3a.config import (
+from config import (
     PROCESSED_DIR, BATCH_SIZE, GRAD_ACCUM_STEPS,
     LR, WEIGHT_DECAY, EPOCHS, NUM_FOLDS, DEVICE,
     SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS,
     TRAIN_LIMIT, TRAIN_FOLD, CHECKPOINTS_DIR,
 )
-from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
-from plan3a.model.full_model import Plan3aModel
-from plan3a.eval.task_metrics import (
+from data.dataset import GBMDataset, get_kfold_splits
+from model.full_model import GBMModel
+from eval.task_metrics import (
     concordance_index, concept_metrics,
     hazard_to_risk, compute_time_bins,
 )
 
 def train_one_epoch(
     model: nn.Module,
-    dataset: Plan3aDataset,
+    dataset: GBMDataset,
     optimizer: torch.optim.Optimizer,
     time_bins: torch.Tensor,
     device: str,
@@ -94,7 +94,7 @@ def train_one_epoch(
 @torch.no_grad()
 def evaluate(
     model: nn.Module,
-    dataset: Plan3aDataset,
+    dataset: GBMDataset,
     time_bins: torch.Tensor,
     device: str,
 ) -> dict:
@@ -194,8 +194,8 @@ def train_fold(
     print(f"  Val:   {len(val_ids)} patients")
     print(f"{'='*60}")
 
-    train_ds = Plan3aDataset(processed_dir, train_ids, build_hypergraph=True)
-    val_ds = Plan3aDataset(processed_dir, val_ids, build_hypergraph=True)
+    train_ds = GBMDataset(processed_dir, train_ids, build_hypergraph=True)
+    val_ds = GBMDataset(processed_dir, val_ids, build_hypergraph=True)
 
     train_times = []
     train_events = []
@@ -209,7 +209,7 @@ def train_fold(
     )
     print(f"  Time bins: {time_bins.numpy()}")
 
-    model = Plan3aModel(
+    model = GBMModel(
         patch_dim=1536,
         embed_dim=SHEAF_HGNN_DIM,
         num_layers=SHEAF_HGNN_LAYERS,
@@ -286,7 +286,7 @@ def main():
     processed_dir = str(PROCESSED_DIR)
     save_dir = str(CHECKPOINTS_DIR)
 
-    print("Plan 3a: Hypergraph Concept Bottleneck GNN Training")
+    print("GBM-GNN: Hypergraph Concept Bottleneck GNN Training")
     print(f"  Device: {DEVICE}")
     print(f"  Epochs: {EPOCHS}")
     print(f"  Data: {processed_dir}")

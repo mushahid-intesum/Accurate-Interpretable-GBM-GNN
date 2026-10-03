@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 def generate_report(
     results_path: str = None,
@@ -25,7 +25,7 @@ def generate_report(
         results = json.load(f)
 
     report = []
-    report.append("# Plan 3a: Hypergraph Concept Bottleneck GNN — Results Report")
+    report.append("# GBM-GNN: Hypergraph Concept Bottleneck GNN — Results Report")
     report.append(f"\n*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}*\n")
 
     report.append("## 1. Architecture Overview\n")
@@ -209,5 +209,5 @@ def generate_report(
     return report_text
 
 if __name__ == "__main__":
-    from plan3a.config import RESULTS_JSON, REPORT_OUTPUT
+    from config import RESULTS_JSON, REPORT_OUTPUT
     generate_report(RESULTS_JSON, REPORT_OUTPUT)

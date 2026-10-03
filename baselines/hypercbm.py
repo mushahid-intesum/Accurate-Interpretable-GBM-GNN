@@ -5,12 +5,12 @@ from typing import Dict, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import SHEAF_HGNN_DIM, NUM_CONCEPTS
-from plan3a.model.sheaf_hgnn import PatchEncoder, GraphPooling
-from plan3a.model.concept_bottleneck import ConceptBottleneck
-from plan3a.model.full_model import SurvivalHead, NLLSurvivalLoss
+from config import SHEAF_HGNN_DIM, NUM_CONCEPTS
+from model.sheaf_hgnn import PatchEncoder, GraphPooling
+from model.concept_bottleneck import ConceptBottleneck
+from model.full_model import SurvivalHead, NLLSurvivalLoss
 
 class HGNNPlusLayer(nn.Module):
 

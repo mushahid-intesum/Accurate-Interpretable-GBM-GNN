@@ -1,14 +1,14 @@
-# Plan 3a — Explainable Survival GNN for Brain Tumor Analysis
+# GBM-GNN — Explainable Survival GNN for Brain Tumor Analysis
 
 **Hypergraph Concept Bottleneck Network with Multimodal Fusion and Faithfulness Auditing**
 
-Plan 3a is a research pipeline that predicts survival outcomes for Glioblastoma (GBM) patients from multi-modal MRI scans using a Graph Neural Network. Unlike black-box deep learning models, every prediction is traceable through a set of interpretable imaging concepts — the model *must* explain itself to make a prediction.
+GBM-GNN is a research pipeline that predicts survival outcomes for Glioblastoma (GBM) patients from multi-modal MRI scans using a Graph Neural Network. Unlike black-box deep learning models, every prediction is traceable through a set of interpretable imaging concepts — the model *must* explain itself to make a prediction.
 
 ---
 
 ## Motivation
 
-Standard GNN explainability methods (GNNExplainer, PGExplainer, etc.) suffer from a fundamental flaw identified in recent work: they can produce **degenerate explanations** — subgraphs that appear faithful but actually exploit structural shortcuts (anchor sets) rather than capturing the model's true reasoning. Plan 3a addresses this by:
+Standard GNN explainability methods (GNNExplainer, PGExplainer, etc.) suffer from a fundamental flaw identified in recent work: they can produce **degenerate explanations** — subgraphs that appear faithful but actually exploit structural shortcuts (anchor sets) rather than capturing the model's true reasoning. GBM-GNN addresses this by:
 
 1. **Forcing interpretability by construction** — a concept bottleneck ensures the classifier only sees human-readable concepts, never raw embeddings
 2. **Auditing faithfulness post-hoc** — the EST (Extension Sufficiency Test) verifies that explanations are genuinely faithful, not degenerate
@@ -18,9 +18,9 @@ Standard GNN explainability methods (GNNExplainer, PGExplainer, etc.) suffer fro
 
 ## Research Foundations
 
-Plan 3a synthesizes ideas from four papers:
+GBM-GNN synthesizes ideas from four papers:
 
-| Paper | Venue | Contribution to Plan 3a |
+| Paper | Venue | Contribution to GBM-GNN |
 |-------|-------|------------------------|
 | **HyperCBM** | NeurIPS 2026 | Concept bottleneck architecture with HECRL inter-concept attention |
 | **MRePath** | IJCAI 2025 | Sheaf hypergraph neural network + dynamic modality rebalancing for multimodal fusion |
@@ -170,7 +170,7 @@ PREPROCESS_LIMIT = 10  # or None for all 420 patients
 ```
 
 ```bash
-python -m plan3a.data.preprocess
+python -m data.preprocess
 ```
 
 ### 3. Training
@@ -183,7 +183,7 @@ EPOCHS = 30
 ```
 
 ```bash
-python -m plan3a.train
+python -m train
 ```
 
 ### 4. Ablation Experiments
@@ -196,14 +196,14 @@ RUN_AUDIT = True       # run faithfulness audit after training
 ```
 
 ```bash
-python -m plan3a.runner
+python -m runner
 ```
 
 ### 5. Generate Report
 
 ```bash
-python -m plan3a.explain.report
-# → writes plan3a/RESULTS.md
+python -m explain.report
+# → writes RESULTS.md
 ```
 
 ---
@@ -222,7 +222,6 @@ python -m plan3a.explain.report
 ## Directory Structure
 
 ```
-plan3a/
 ├── config.py                   Central configuration (all constants)
 ├── train.py                    K-fold training loop
 ├── runner.py                   Ablation experiment runner (E1–E6)
@@ -271,4 +270,4 @@ plan3a/
 
 This pipeline is a research testbed, not a clinical tool. It is designed to answer the question: *Can we build survival models for brain tumors that are both accurate AND faithfully interpretable — with formal guarantees that the explanations are not degenerate?*
 
-The answer Plan 3a proposes is: **yes, via concept bottlenecks (ante-hoc) + EST auditing (post-hoc)**, combining structural guarantees with empirical verification.
+The answer GBM-GNN proposes is: **yes, via concept bottlenecks (ante-hoc) + EST auditing (post-hoc)**, combining structural guarantees with empirical verification.

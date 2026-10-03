@@ -5,10 +5,10 @@ from collections import defaultdict
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.eval.faithfulness import FaithfulnessAuditor
-from plan3a.explainability.base import BaseExplainer
+from eval.faithfulness import FaithfulnessAuditor
+from explainability.base import BaseExplainer
 
 class UnifiedFaithfulnessAudit:
 

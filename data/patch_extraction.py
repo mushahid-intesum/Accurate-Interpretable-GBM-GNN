@@ -4,12 +4,12 @@ from scipy.ndimage import zoom
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from plan3a.config import (
+from config import (
     PATCH_SIZE, SLICE_STRIDE, TARGET_SLICE_SIZE, MIN_PATCH_INTENSITY
 )
-from plan3a.data.dicom_loader import normalize_volume
+from data.dicom_loader import normalize_volume
 
 def resize_slice(slice_2d: np.ndarray, target_size: Tuple[int, int]) -> np.ndarray:
 

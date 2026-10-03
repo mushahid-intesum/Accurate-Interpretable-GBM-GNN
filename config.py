@@ -4,7 +4,7 @@ from pathlib import Path
 PROJECT_ROOT = '/mnt/Stuff/arche/arche-brain-tumor-gnn'
 DATA_ROOT = PROJECT_ROOT + "/upenn-filtered"
 CLINICAL_CSV = DATA_ROOT + "/clinical_info.csv"
-PROCESSED_DIR = PROJECT_ROOT + "/plan3a" + "/processed"
+PROCESSED_DIR = PROJECT_ROOT + "/processed"
 
 CORE_MODALITIES = ["T1-pre", "T1-post", "T2", "FLAIR"]
 
@@ -85,11 +85,11 @@ CHECKPOINT_EVERY = 1
 RESUME_TRAINING = True
 
 LOG_BACKEND = "tensorboard"
-WANDB_PROJECT = "plan3a-ablation"
+WANDB_PROJECT = "gbm-gnn-ablation"
 WANDB_ENTITY = None
 TENSORBOARD_DIR = None
 
 RESULTS_JSON = None
 REPORT_OUTPUT = None
 
-CHECKPOINTS_DIR = PROJECT_ROOT + "/plan3a/checkpoints"
+CHECKPOINTS_DIR = PROJECT_ROOT + "/checkpoints"

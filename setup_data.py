@@ -408,8 +408,8 @@ Notes:
         print(f"  Manifest:         {os.path.join(target, 'manifest.json')}")
         print(f"  Target directory: {target}")
         print()
-        print("To use with Plan 3a:")
-        print(f"  python -m plan3a.data.preprocess --data-root {target}")
+        print("To use with GBM-GNN:")
+        print(f"  python -m data.preprocess --data-root {target}")
 
 
 if __name__ == "__main__":

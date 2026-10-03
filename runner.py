@@ -13,9 +13,9 @@ import torch.nn.functional as F
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from plan3a.config import (
+from config import (
     PROCESSED_DIR, LR, WEIGHT_DECAY, EPOCHS, NUM_FOLDS, DEVICE,
     SHEAF_HGNN_DIM, SHEAF_HGNN_LAYERS, NUM_CONCEPTS, GRAD_ACCUM_STEPS,
     RUN_EXPERIMENT, RUN_LIMIT, RUN_AUDIT, CHECKPOINTS_DIR,
@@ -25,13 +25,13 @@ from plan3a.config import (
     EARLY_STOPPING_PATIENCE, LR_WARMUP_EPOCHS,
     USE_RANKING_LOSS, RANKING_LOSS_WEIGHT,
 )
-from plan3a.data.dataset import Plan3aDataset, get_kfold_splits
-from plan3a.data.hypergraph import build_patient_hypergraph
-from plan3a.model.full_model import Plan3aModel, NLLSurvivalLoss, CoxRankingLoss
-from plan3a.eval.task_metrics import (
+from data.dataset import GBMDataset, get_kfold_splits
+from data.hypergraph import build_patient_hypergraph
+from model.full_model import GBMModel, NLLSurvivalLoss, CoxRankingLoss
+from eval.task_metrics import (
     concordance_index, concept_metrics, hazard_to_risk, compute_time_bins,
 )
-from plan3a.eval.faithfulness import (
+from eval.faithfulness import (
     FaithfulnessAuditor, compute_rejection_ratios, _filter_hyperedges,
 )
 
@@ -494,7 +494,7 @@ def evaluate_epoch(model, dataset, time_bins, device):
         "concept_metrics": cm,
     }
 
-class HypergraphDatasetWrapper(Plan3aDataset):
+class HypergraphDatasetWrapper(GBMDataset):
 
     def __init__(self, processed_dir, patient_ids, use_hypergraph=True):
         super().__init__(processed_dir, patient_ids, build_hypergraph=False)
@@ -552,7 +552,7 @@ def run_experiment(
             compute_time_bins(np.array(t_times), np.array(t_events), 4)
         )
 
-        model = Plan3aModel(
+        model = GBMModel(
             patch_dim=1536,
             embed_dim=SHEAF_HGNN_DIM,
             num_layers=SHEAF_HGNN_LAYERS,
