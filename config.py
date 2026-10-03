@@ -1,165 +1,95 @@
-import torch
-import numpy as np
-import random
 import os
 from pathlib import Path
 
+PROJECT_ROOT = '/mnt/Stuff/arche/arche-brain-tumor-gnn'
+DATA_ROOT = PROJECT_ROOT + "/upenn-filtered"
+CLINICAL_CSV = DATA_ROOT + "/clinical_info.csv"
+PROCESSED_DIR = PROJECT_ROOT + "/plan3a" + "/processed"
 
-SEED = 42
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-IMG_SIZE = 224
+CORE_MODALITIES = ["T1-pre", "T1-post", "T2", "FLAIR"]
 
-torch.manual_seed(SEED)
-np.random.seed(SEED)
-random.seed(SEED)
-if torch.cuda.is_available():
-    torch.cuda.manual_seed_all(SEED)
+ADVANCED_MODALITIES = ["DTI", "Perfusion"]
+ALL_MODALITIES = CORE_MODALITIES + ADVANCED_MODALITIES
 
+PATCH_SIZE = 16
+SLICE_STRIDE = 2
+TARGET_SLICE_SIZE = (192, 192)
+MIN_PATCH_INTENSITY = 0.02
 
-# === Shared ===
+NUM_CONCEPTS = 8
 
-SHARED = {
-    "seed": SEED,
-    "device": DEVICE,
-    "img_size": IMG_SIZE,
-    "checkpoint_dir": Path("checkpoints"),
-    "imagenet_mean": [0.485, 0.456, 0.406],
-    "imagenet_std": [0.229, 0.224, 0.225],
+CLINICAL_CATEGORICAL = {
+    "Gender": ["M", "F"],
+    "IDH1": ["Wildtype", "Mutated"],
+    "MGMT": ["Methylated", "Unmethylated"],
+    "GTR_over90percent": ["Y", "N"],
+}
+CLINICAL_CONTINUOUS = ["Age_at_scan_years"]
+
+CLINICAL_SPARSE = {
+    "KPS": "continuous",
+    "PsP_TP_score": "ordinal",
 }
 
+SURVIVAL_TIME_COL = "Survival_from_surgery_days_UPDATED"
+SURVIVAL_STATUS_COL = "Survival_Status"
 
-# === Phase 1: Binary Prediction (Brain MRI ND-5) ===
-
-PREDICTION = {
-    "data_root": Path("Brain MRI ND-5 Dataset/tumordata"),
-    "batch_size": 16,
-    "num_workers": 4,
-    "val_split": 0.15,
-    "lr": 5e-5,
-    "weight_decay": 1e-4,
-    "epochs": 20,
-    "freeze_epochs": 4,
-    "accum_steps": 2,
-    "checkpoint": Path("checkpoints/prediction_binary.pth"),
+SURVIVAL_STATUS_MAP = {
+    "Deceased": 1,
+    "Deceased - uncertain date of death": 1,
+    "Alive": 0,
+    "Lost to Follow-up": 0,
 }
 
+TOPO_HYPEREDGE_RADIUS = 2.5
+FEATURE_HYPEREDGE_K = 9
+SHEAF_HGNN_LAYERS = 3
+SHEAF_HGNN_DIM = 64
 
-# === Phase 2: Multi-class Classification (Brain MRI ND-5) ===
+EMBED_DIM = 256
+PATCH_ENCODER_CHANNELS = [32, 64]
+NUM_CLINICAL_GROUPS = 5
 
-CLASSIFICATION = {
-    "data_root": Path("Brain MRI ND-5 Dataset/tumordata"),
-    "batch_size": 16,
-    "num_workers": 4,
-    "val_split": 0.15,
-    "lr": 5e-5,
-    "weight_decay": 1e-4,
-    "epochs": 20,
-    "freeze_epochs": 4,
-    "accum_steps": 2,
-    "focal_gamma": 2.0,
-    "checkpoint": Path("checkpoints/classification_multiclass.pth"),
-    "pseudo_mask_dir": Path("pseudo_masks"),
-    "class_to_idx": {
-        "glioma_tumor": 0,
-        "meningioma_tumor": 1,
-        "pituitary_tumor": 2,
-        "no_tumor": 3,
-    },
-    "idx_to_class": {
-        0: "glioma_tumor",
-        1: "meningioma_tumor",
-        2: "pituitary_tumor",
-        3: "no_tumor",
-    },
-    "tumor_classes": ["glioma_tumor", "meningioma_tumor", "pituitary_tumor"],
-}
+BATCH_SIZE = 64
+GRAD_ACCUM_STEPS = 4
+LR = 1e-4
+WEIGHT_DECAY = 1e-5
+EPOCHS = 30
+NUM_FOLDS = 5
 
+EARLY_STOPPING_PATIENCE = 7
+LR_WARMUP_EPOCHS = 3
 
-# === Phase 3: Multi-class Segmentation (BraTS 2023) ===
+USE_RANKING_LOSS = True
+RANKING_LOSS_WEIGHT = 0.5
 
-SEGMENTATION = {
-    "data_root": Path("BraTS"),
-    "output_dir": Path("brats_outputs"),
-    "modalities": ["t1n", "t1c", "t2w", "t2f"],
-    "num_classes": 4,
-    "class_names": {0: "BG", 1: "NCR", 2: "ED", 3: "ET"},
-    "batch_size": 8,
-    "num_workers": 2,
-    "lr": 1e-4,
-    "weight_decay": 1e-4,
-    "epochs": 60,
-    "accum_steps": 4,
-    "eval_every": 5,
-    "min_tumor_pixels": 50,
-    "train_ratio": 0.70,
-    "val_ratio": 0.15,
-    "test_ratio": 0.15,
-    "checkpoint": Path("checkpoints/segmentation_brats.pth"),
-}
+import torch
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+EST_LAMBDA = 0.1
+EST_WARMUP_EPOCHS = 3
+EST_EVERY_N = 4
+EST_TOP_K = 0.2
 
-# === Phase 3.5: Supervoxel Generation ===
+PREPROCESS_LIMIT = None
+PREPROCESS_PATIENT_FILTER = None
 
-SUPERVOXEL = {
-    "n_segments": 500,          # initial SV count before pruning
-    "compactness": 0.1,         # SLIC compactness (low = more intensity-driven)
-    "sv_feat_dim": 25,          # 22 base + 3 relative PE
-    "intra_k": 5,               # KNN within each seg component
-    "min_sv_volume": 20,        # minimum voxels per SV
-    "cache_dir": Path("brats_outputs/supervoxels"),
-}
+TRAIN_LIMIT = None
+TRAIN_FOLD = None
 
+RUN_EXPERIMENT = "E7"
+RUN_LIMIT = None
+RUN_AUDIT = True
 
-# === Phase 4: 3D GNN Edge Prediction (BraTS outputs) ===
+CHECKPOINT_EVERY = 1
+RESUME_TRAINING = True
 
-GNN = {
-    "brats_output_dir": Path("brats_outputs"),
-    "node_feat_dim": 68,        # 64 (aggregator embed) + 4 (intra-node topology)
-    "hidden_dim": 128,
-    "embed_dim": 64,
-    "num_heads": 4,
-    "num_layers": 3,
-    "edge_attr_dim": 4,
-    "structural_feat_dim": 5,   # 3 base + 2 OCN (residual + path-norm)
-    "min_region_area": 10,
-    "k_neighbors": 5,
-    "inter_slice_dist_thresh": 50.0,
-    "epochs": 80,
-    "lr": 5e-4,
-    "weight_decay": 1e-4,
-    "modalities": ["t1n", "t1c", "t2w", "t2f"],
-    "tissue_labels": {1: "NCR", 2: "ED", 3: "ET"},
-    "checkpoint": Path("checkpoints/gnn_3d.pth"),
-}
+LOG_BACKEND = "tensorboard"
+WANDB_PROJECT = "plan3a-ablation"
+WANDB_ENTITY = None
+TENSORBOARD_DIR = None
 
+RESULTS_JSON = None
+REPORT_OUTPUT = None
 
-# === Pipeline (orchestrator) ===
-
-PIPELINE = {
-    "output_dir": Path("pipeline_outputs"),
-    "short_circuit": True,  # skip downstream if prediction says no tumor
-}
-
-
-def ensure_dirs():
-    """Create all necessary output directories."""
-    dirs = [
-        SHARED["checkpoint_dir"],
-        SEGMENTATION["output_dir"],
-        CLASSIFICATION["pseudo_mask_dir"],
-        PIPELINE["output_dir"],
-    ]
-    for d in dirs:
-        d.mkdir(parents=True, exist_ok=True)
-
-
-if __name__ == "__main__":
-    ensure_dirs()
-    print(f"Device: {DEVICE}")
-    print(f"Seed: {SEED}")
-    print(f"Image size: {IMG_SIZE}")
-    print(f"\nPrediction config:    {PREDICTION['data_root']} | {PREDICTION['epochs']} epochs")
-    print(f"Classification config: {CLASSIFICATION['data_root']} | {CLASSIFICATION['epochs']} epochs")
-    print(f"Segmentation config:  {SEGMENTATION['data_root']} | {SEGMENTATION['epochs']} epochs")
-    print(f"GNN config:           {GNN['brats_output_dir']} | {GNN['epochs']} epochs")
-    print(f"\nAll directories created.")
+CHECKPOINTS_DIR = PROJECT_ROOT + "/plan3a/checkpoints"
